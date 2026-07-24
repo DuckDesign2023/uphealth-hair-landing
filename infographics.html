@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infographic options — uphealth</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* preview chrome */
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem;
+      font-size: 0.92rem;
+    }
+    .picker strong { font-weight: 600; }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.6rem; }
+
+    /* ---------- Option A: follicle diagram ---------- */
+    .info-a {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .info-a-art img { width: 100%; max-width: 460px; margin-inline: auto; }
+    .info-a-list { display: grid; }
+    .info-a-item {
+      position: relative;
+      padding: 1.5rem 0 1.5rem 2.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .info-a-item:first-child { border-top: 1px solid var(--line); }
+    .info-a-item::before {
+      content: "";
+      position: absolute; left: 0; top: 2rem;
+      width: 9px; height: 9px; border-radius: 50%;
+      border: 1.5px solid var(--btn);
+      background: var(--paper);
+    }
+    .info-a-item h3 { font-size: 1.2rem; }
+    .info-a-item h3 em {
+      font-family: var(--font-accent); font-style: italic; font-weight: 400;
+      color: var(--accent-deep);
+    }
+    .info-a-item p { font-size: 0.95rem; color: var(--muted); margin-top: 0.35rem; max-width: 46ch; }
+
+    /* ---------- Option B: day timeline ---------- */
+    .info-b { position: relative; }
+    .info-b-line {
+      position: absolute; left: 8%; right: 8%; top: 26px;
+      border-top: 1.5px dashed rgba(78, 101, 87, 0.4);
+    }
+    .info-b-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 6rem);
+    }
+    .info-b-col { text-align: center; }
+    .time-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-weight: 600; font-size: 0.95rem;
+      position: relative; z-index: 1;
+    }
+    .time-chip svg { width: 17px; height: 17px; color: var(--accent-deep); }
+    .info-b-col img { width: min(300px, 70%); margin: 1.6rem auto 0.4rem; }
+    .info-b-col h3 { font-size: 1.2rem; }
+    .info-b-col p { font-size: 0.95rem; color: var(--muted); margin-top: 0.4rem; max-width: 36ch; margin-inline: auto; }
+
+    /* ---------- Option C: three scenes ---------- */
+    .info-c { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .info-c .tile { min-height: 0; gap: 0.5rem; }
+    .info-c img { width: min(230px, 80%); margin: 0 auto 1rem; }
+    .info-c h3, .info-c p { text-align: center; }
+    .info-c p { margin-top: 0; padding-top: 0.3rem; }
+
+    @media (max-width: 900px) {
+      .info-a { grid-template-columns: 1fr; }
+      .info-b-grid { grid-template-columns: 1fr; }
+      .info-b-line { display: none; }
+      .info-c { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · infographic options
+    <a href="#option-a">A — Follicle</a>
+    <a href="#option-b">B — Timeline</a>
+    <a href="#option-c">C — Scenes</a>
+  </nav>
+
+  <main>
+    <!-- ============ OPTION A ============ -->
+    <section class="section" id="option-a" aria-labelledby="a-title">
+      <div class="container">
+        <p class="tag option-tag">Option A</p>
+        <div class="row-head">
+          <h2 class="h2" id="a-title">How the ritual works</h2>
+          <a class="btn btn-ghost" href="#">Shop the ritual</a>
+        </div>
+        <div class="info-a">
+          <figure class="info-a-art">
+            <img src="assets/info-follicle-t.png" alt="Line illustration: cross-section of the scalp with a hair follicle">
+          </figure>
+          <div class="info-a-list">
+            <article class="info-a-item">
+              <h3>Peptides feed the roots <em>— to the bulb</em></h3>
+              <p>Five peptides support the appearance of thicker, more voluminous hair,
+                working where it begins.</p>
+            </article>
+            <article class="info-a-item">
+              <h3>Botanicals wake the scalp <em>— at the surface</em></h3>
+              <p>Rosemary, ginger and Densidyl — chlorella and spirulina algae — deeply
+                hydrate the skin your hair grows from.</p>
+            </article>
+            <article class="info-a-item">
+              <h3>Together, day and night <em>— the ritual</em></h3>
+              <p>Botanical serum in the morning, peptide serum in the evening. Two light
+                textures, one goal.</p>
+            </article>
+          </div>
+        </div>
+        <p class="footnote" style="margin-top: 1.4rem;">Cosmetic products. Statements describe the look and feel of hair and scalp.</p>
+      </div>
+    </section>
+
+    <!-- ============ OPTION B ============ -->
+    <section class="section section-band" id="option-b" aria-labelledby="b-title">
+      <div class="container">
+        <p class="tag option-tag">Option B</p>
+        <div class="row-head">
+          <h2 class="h2" id="b-title">uphealth makes it <em>simple</em></h2>
+          <a class="btn btn-dark" href="#">Get started today</a>
+        </div>
+        <div class="info-b">
+          <div class="info-b-line" aria-hidden="true"></div>
+          <div class="info-b-grid">
+            <div class="info-b-col">
+              <span class="time-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>
+                Morning · Botanical serum
+              </span>
+              <img src="assets/info-drop-t.png" alt="Line illustration: a dropper applying a drop along the parting">
+              <h3>A drop along the parting</h3>
+              <p>Part your hair, apply a few drops, comb through with your fingers.
+                Don&rsquo;t wash for at least an hour.</p>
+            </div>
+            <div class="info-b-col">
+              <span class="time-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>
+                Evening · Peptide serum
+              </span>
+              <img src="assets/info-massage-t.png" alt="Line illustration: fingertips massaging the scalp">
+              <h3>Two minutes of massage</h3>
+              <p>Work the serum in with your fingertips for 1–2 minutes before bed.
+                No rinsing, no grease.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPTION C ============ -->
+    <section class="section" id="option-c" aria-labelledby="c-title">
+      <div class="container">
+        <p class="tag option-tag">Option C</p>
+        <div class="row-head">
+          <h2 class="h2" id="c-title">Why women choose uphealth</h2>
+          <a class="btn btn-ghost" href="#">Shop the ritual</a>
+        </div>
+        <div class="tiles-3 info-c">
+          <article class="tile">
+            <img src="assets/info-bottle-t.png" alt="Line illustration: dropper bottle with rosemary and eucalyptus">
+            <h3>A clean formula</h3>
+            <p>Vegan and cruelty-free, with no fragrance, parabens, silicones, sulfates
+              or mineral oil. Safe for colored hair.</p>
+          </article>
+          <article class="tile">
+            <img src="assets/info-ritual-t.png" alt="Line illustration: evening ritual at the mirror">
+            <h3>A ritual, not a chore</h3>
+            <p>A few drops and a short massage. No rinsing, no grease, nothing to
+              schedule your life around.</p>
+          </article>
+          <article class="tile">
+            <img src="assets/info-parcel-t.png" alt="Line illustration: a parcel at the door">
+            <h3>Care that comes to you</h3>
+            <p>Made in the USA, shipped to your door with free delivery over $80 —
+              and real people in support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

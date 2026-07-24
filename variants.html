@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero — варианты картинки</title>
+  <style>
+    body { margin: 0; padding: 2rem; background: #FAF8F3; color: #3C463E;
+           font-family: system-ui, sans-serif; }
+    h1 { font-size: 1.4rem; }
+    p.note { color: #636B62; max-width: 70ch; }
+    .grid { display: grid; gap: 2rem; margin-top: 2rem; }
+    figure { margin: 0; }
+    img { width: 100%; border-radius: 14px; display: block; }
+    figcaption { padding: 0.7rem 0.2rem; font-size: 0.95rem; color: #636B62; }
+    figcaption strong { color: #3C463E; }
+    .flaw { color: #99536E; }
+  </style>
+</head>
+<body>
+  <h1>Hero-картинка: «летящая охапка» (стиль главной hims)</h1>
+  <p class="note">Два продукта клиента — Peptide Serum (янтарный флакон, 30 мл) и Botanical Serum
+    (прозрачный флакон с зелёной сывороткой, 59 мл) — парят в воздухе плотной группой, под наклоном,
+    рядом растения из состава (розмарин, имбирь, эвкалипт) и капли. Минимальный фон. Дальше эти
+    картинки можно оживить в зацикленное видео.</p>
+  <div class="grid">
+    <figure>
+      <img src="_variants/float-1-pair.png" alt="Летящий вариант 1">
+      <figcaption><strong>F1 — «Пара».</strong> Флаконы разведены в лёгкое «V», между ними розмарин и капля.
+        Самый чистый и спокойный, фон слоновая кость → шалфей.</figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/float-2-lowangle.png" alt="Летящий вариант 2">
+      <figcaption><strong>F2 — «Охапка, нижний ракурс».</strong> Плотный пучок: флаконы прижаты друг к другу,
+        розмарин + срез имбиря + капли. Тёплый песочный фон, ближе всего к референсу hims.</figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/float-3-cross.png" alt="Летящий вариант 3">
+      <figcaption><strong>F3 — «Крест с ореолом».</strong> Флаконы крест-накрест, вокруг мягкое световое пятно,
+        много зелени, имбирь, падающая капля. Самый «природный».</figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/float-4-diagonal.png" alt="Летящий вариант 4">
+      <figcaption><strong>F4 — «Диагональ».</strong> Пучок летит по диагонали, ветки веером за флаконами,
+        капли вдоль движения. Самый динамичный, хорошо ляжет на анимацию.</figcaption>
+    </figure>
+  </div>
+
+  <h1 style="margin-top:3rem">Предыдущие статичные варианты (композиция на поверхности)</h1>
+  <div class="grid">
+    <figure>
+      <img src="_variants/hero-variant-1-stone.png" alt="Вариант 1">
+      <figcaption><strong>Вариант 1 — «Травертин».</strong> Флаконы на фактурном камне, слева пептидная формула,
+        справа тонкий рисунок волосяного фолликула (в тему продукта). Ветки лежат у основания.</figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/hero-variant-2-niche.png" alt="Вариант 2">
+      <figcaption><strong>Вариант 2 — «Ниша».</strong> Компактный круг — ниша из фактурной шалфейной штукатурки,
+        один флакон в ней, второй ближе к камере. Спираль ДНК и молекула по краям круга.</figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/hero-variant-3-gold.png" alt="Вариант 3">
+      <figcaption><strong>Вариант 3 — «Рифлёный камень».</strong> Обильная зелень, подвешенный круг из бумаги
+        ручного литья, крупные молекулярные сетки. <span class="flaw">Минус: на этикетках опечатка
+        «aphealth» — если выберете этот, перегенерирую.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="_variants/hero-variant-4-glass.png" alt="Вариант 4">
+      <figcaption><strong>Вариант 4 — «Акварельный круг».</strong> Круг — мягкая акварельная заливка с текстурой
+        бумаги, передний флакон на стеклянном диске, формулы слева и справа.</figcaption>
+    </figure>
+  </div>
+</body>
+</html>
