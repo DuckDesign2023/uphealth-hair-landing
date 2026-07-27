@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serums section — options</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker strong { font-weight: 600; }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.6rem; }
+
+    /* shared icon list */
+    .ilist { display: grid; gap: 0.65rem; }
+    .ilist li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.93rem; font-weight: 500; }
+    .ilist svg { flex: none; width: 19px; height: 19px; margin-top: 0.05em; color: var(--btn); }
+
+    /* ---------- Option A: poster halves ---------- */
+    .vA { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .vA-half {
+      border-radius: var(--radius);
+      padding: clamp(1.8rem, 3vw, 2.8rem);
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 0.8rem;
+    }
+    .vA-peptide { background: var(--mist); }
+    .vA-botanical { background: var(--band); }
+    .vA-half .time-chip { margin-bottom: 0.4rem; }
+    .vA-half img {
+      width: min(240px, 60%); aspect-ratio: 3 / 4; object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .vA-half h3 { font-size: 1.45rem; }
+    .vA-word {
+      font-family: var(--font-accent); font-style: italic; font-weight: 400;
+      color: var(--accent-deep); font-size: 1.02rem;
+    }
+    .vA-half .ilist { text-align: left; margin-block: 0.6rem 0.4rem; }
+    .vA-buy { display: flex; align-items: center; gap: 1.1rem; margin-top: auto; padding-top: 0.6rem; }
+    .vA-buy .serum-price { font-size: 1.35rem; }
+
+    /* ---------- Option B: comparison table ---------- */
+    .vB { max-width: 880px; margin-inline: auto; }
+    .vB-row {
+      display: grid; grid-template-columns: minmax(0, 1.2fr) 1fr 1fr;
+      gap: 1rem; align-items: center;
+      padding-block: 0.95rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .vB-row:first-child { border-top: none; border-bottom: 1.5px solid var(--ink); padding-bottom: 1.2rem; }
+    .vB-crit { display: flex; gap: 0.6rem; align-items: center; font-weight: 600; font-size: 0.92rem; }
+    .vB-crit svg { flex: none; width: 19px; height: 19px; color: var(--btn); }
+    .vB-cell { font-size: 0.93rem; color: var(--muted); text-align: center; }
+    .vB-head { text-align: center; display: grid; justify-items: center; gap: 0.7rem; }
+    .vB-head img { width: 120px; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+    .vB-head h3 { font-size: 1.1rem; }
+    .vB-cta { border-bottom: none; padding-top: 1.3rem; }
+    .vB-price { font-weight: 600; font-size: 1.25rem; color: var(--ink); display: block; margin-bottom: 0.7rem; font-variant-numeric: tabular-nums; }
+
+    /* ---------- Option C: zigzag rows ---------- */
+    .vC { display: grid; gap: 1.1rem; }
+    .vC-row {
+      display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      background: var(--tile); border-radius: var(--radius); overflow: hidden;
+    }
+    .vC-row-flip { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+    .vC-media { min-height: 340px; }
+    .vC-media img { width: 100%; height: 100%; object-fit: cover; }
+    .vC-body {
+      padding: clamp(1.6rem, 3vw, 2.6rem);
+      display: flex; flex-direction: column; gap: 0.75rem; justify-content: center;
+      align-items: flex-start;
+    }
+    .vC-buy { width: 100%; }
+    .vC-body h3 { font-size: 1.45rem; }
+    .vC-desc { font-size: 0.97rem; color: var(--muted); }
+    .vC-buy { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.8rem; }
+
+    @media (max-width: 900px) {
+      .vA { grid-template-columns: 1fr; }
+      .vB-row { grid-template-columns: 1fr 1fr; }
+      .vB-crit { grid-column: 1 / -1; }
+      .vC-row, .vC-row-flip { grid-template-columns: 1fr; }
+      .vC-media { min-height: 240px; }
+      .vC-row-flip .vC-media { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · serums section options
+    <a href="#option-a">A — Day &amp; Night</a>
+    <a href="#option-b">B — Comparison</a>
+    <a href="#option-c">C — Zigzag</a>
+  </nav>
+
+  <main>
+    <!-- ============ OPTION A: poster halves ============ -->
+    <section class="section" id="option-a" aria-labelledby="a-title">
+      <div class="container">
+        <p class="tag option-tag">Option A · Day &amp; Night halves</p>
+        <div class="row-head">
+          <h2 class="h2" id="a-title">Two serums, one ritual</h2>
+          <p class="row-side">Different jobs · better together</p>
+        </div>
+        <div class="vA">
+          <article class="vA-half vA-botanical">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>
+              Morning
+            </span>
+            <img src="assets/pack-botanical.png" alt="Botanical Hair Growth Serum bottle">
+            <h3>Botanical Growth Serum</h3>
+            <p class="vA-word">wakes up the scalp</p>
+            <ul class="ilist">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4m1 12h14"/></svg>Densidyl — chlorella + spirulina algae</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Rosemary, ginger root, licorice, vitamins C&nbsp;+&nbsp;E</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Vegan · fragrance-free · 59 ml</li>
+            </ul>
+            <div class="vA-buy">
+              <span class="serum-price">$34.90</span>
+              <button class="btn btn-dark add-to-cart" type="button" data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">Add to cart</button>
+            </div>
+          </article>
+          <article class="vA-half vA-peptide">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>
+              Evening
+            </span>
+            <img src="assets/pack-peptide.png" alt="Peptide Hair Growth Serum bottle">
+            <h3>Peptide Growth Serum</h3>
+            <p class="vA-word">feeds the roots</p>
+            <ul class="ilist">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 16 1.5 1.5M14 8l-1.5-1.5M15 2c-1.798 1.998-2.518 3.995-2.807 5.993M16.5 10.5l1 1M17 6l-2.891-2.891M2 15c6.667-6 13.333 0 20-6m-2 0 .891.891M3.109 14.109 4 15m2.5-2.5 1 1M7 18l2.891 2.891M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/></svg>Five peptides — sh-Polypeptide-1, -9, -11, sh-Oligopeptide-2, -10</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>Saw palmetto + arginine for the look of density</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Vegan · fragrance-free · 30 ml</li>
+            </ul>
+            <div class="vA-buy">
+              <span class="serum-price">$39.90</span>
+              <button class="btn btn-dark add-to-cart" type="button" data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">Add to cart</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPTION B: comparison table ============ -->
+    <section class="section section-band" id="option-b" aria-labelledby="b-title">
+      <div class="container">
+        <p class="tag option-tag">Option B · Side-by-side comparison</p>
+        <div class="row-head">
+          <h2 class="h2" id="b-title">Which serum does what</h2>
+          <p class="row-side">Most customers use both</p>
+        </div>
+        <div class="vB">
+          <div class="vB-row">
+            <div></div>
+            <div class="vB-head">
+              <img src="assets/pack-peptide.png" alt="Peptide Hair Growth Serum bottle">
+              <h3>Peptide Serum</h3>
+            </div>
+            <div class="vB-head">
+              <img src="assets/pack-botanical.png" alt="Botanical Hair Growth Serum bottle">
+              <h3>Botanical Serum</h3>
+            </div>
+          </div>
+          <div class="vB-row">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>When</div>
+            <div class="vB-cell">Every evening</div>
+            <div class="vB-cell">Every morning</div>
+          </div>
+          <div class="vB-row">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2M6.453 15h11.094M8.5 2h7"/></svg>Key actives</div>
+            <div class="vB-cell">Five peptides, saw palmetto, arginine</div>
+            <div class="vB-cell">Densidyl (chlorella + spirulina), rosemary, ginger</div>
+          </div>
+          <div class="vB-row">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>Focus</div>
+            <div class="vB-cell">The look of density and volume</div>
+            <div class="vB-cell">Scalp hydration and comfort</div>
+          </div>
+          <div class="vB-row">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05"/><path d="M12.56 6.6A11 11 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>Texture</div>
+            <div class="vB-cell">Lightweight, non-greasy</div>
+            <div class="vB-cell">Water-based, absorbs fast</div>
+          </div>
+          <div class="vB-row">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Free from</div>
+            <div class="vB-cell">Fragrance, parabens, sulfates</div>
+            <div class="vB-cell">Fragrance, parabens, sulfates</div>
+          </div>
+          <div class="vB-row vB-cta">
+            <div class="vB-crit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Get it</div>
+            <div class="vB-cell">
+              <span class="vB-price">$39.90</span>
+              <button class="btn btn-dark add-to-cart" type="button" data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">Add to cart</button>
+            </div>
+            <div class="vB-cell">
+              <span class="vB-price">$34.90</span>
+              <button class="btn btn-dark add-to-cart" type="button" data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPTION C: zigzag ============ -->
+    <section class="section" id="option-c" aria-labelledby="c-title">
+      <div class="container">
+        <p class="tag option-tag">Option C · Zigzag rows</p>
+        <div class="row-head">
+          <h2 class="h2" id="c-title">Two serums, one ritual</h2>
+          <p class="row-side">Different jobs · better together</p>
+        </div>
+        <div class="vC">
+          <article class="vC-row">
+            <figure class="vC-media"><img src="assets/pack-peptide.png" alt="Peptide Hair Growth Serum bottle"></figure>
+            <div class="vC-body">
+              <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>Evening step</span>
+              <h3>Peptide Growth Serum</h3>
+              <p class="vC-desc">A lightweight, non-greasy formula that absorbs fast. Five advanced
+                peptides nourish the scalp and revitalize hair from root to tip.</p>
+              <ul class="ilist">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 16 1.5 1.5M14 8l-1.5-1.5M15 2c-1.798 1.998-2.518 3.995-2.807 5.993M16.5 10.5l1 1M17 6l-2.891-2.891M2 15c6.667-6 13.333 0 20-6m-2 0 .891.891M3.109 14.109 4 15m2.5-2.5 1 1M7 18l2.891 2.891M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/></svg>Five peptides for the look of density</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>Saw palmetto, arginine, rosemary, eucalyptus</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Vegan · fragrance-free · 30 ml</li>
+              </ul>
+              <div class="vC-buy">
+                <span class="serum-price">$39.90</span>
+                <button class="btn btn-dark add-to-cart" type="button" data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="vC-row vC-row-flip">
+            <div class="vC-body">
+              <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>Morning step</span>
+              <h3>Botanical Growth Serum</h3>
+              <p class="vC-desc">A water-based botanical blend that wakes up the scalp and supports
+                a healthy environment for growing hair.</p>
+              <ul class="ilist">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4m1 12h14"/></svg>Densidyl — chlorella + spirulina algae</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Rosemary, ginger root, licorice, vitamins C + E</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Vegan · fragrance-free · 59 ml</li>
+              </ul>
+              <div class="vC-buy">
+                <span class="serum-price">$34.90</span>
+                <button class="btn btn-dark add-to-cart" type="button" data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">Add to cart</button>
+              </div>
+            </div>
+            <figure class="vC-media"><img src="assets/pack-botanical.png" alt="Botanical Hair Growth Serum bottle"></figure>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-overlay" hidden></div>
+  <aside class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your cart</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul class="cart-items"></ul>
+    <p class="cart-empty">Your cart is empty.</p>
+    <div class="cart-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div>
+      <p class="cart-note">Shipping calculated at checkout. Free over $80.</p>
+      <a class="btn btn-dark btn-block cart-checkout" href="https://uphealth.life/" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </aside>
+
+  <script src="script.js?v=9"></script>
+</body>
+</html>
