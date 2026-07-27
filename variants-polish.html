@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust marks &amp; months — options</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=14">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      background: var(--paper); border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.4rem; }
+    .demo { padding-block: clamp(2.2rem, 4vw, 3.2rem); border-bottom: 1px solid var(--line); }
+
+    /* S1: text strip between hairlines */
+    .t1 {
+      display: flex; gap: clamp(1rem, 4vw, 3rem); justify-content: center; align-items: center;
+      flex-wrap: wrap;
+      border-block: 1px solid var(--line);
+      padding-block: 1.1rem;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .t1 i { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    /* S2: columns with vertical rules */
+    .t2 { display: flex; justify-content: center; }
+    .t2-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+      padding-inline: clamp(1.4rem, 4vw, 3rem);
+      text-align: center;
+    }
+    .t2-item + .t2-item { border-left: 1px solid var(--line); }
+    .t2-item svg { width: 24px; height: 24px; color: var(--gold); }
+    .t2-item b { font-size: 0.93rem; color: var(--ink); }
+
+    /* S3: certificate plaque */
+    .t3 {
+      position: relative;
+      max-width: 720px; margin-inline: auto;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem;
+    }
+    .t3::before {
+      content: "";
+      position: absolute; inset: 5px;
+      border: 1px solid rgba(176, 141, 87, 0.45);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+    .t3-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .t3-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; font-weight: 700; color: var(--ink); }
+    .t3-item svg { width: 20px; height: 20px; color: var(--gold); }
+
+    /* S4: round stamps with circular text */
+    .t4 { display: flex; gap: clamp(1.5rem, 5vw, 3.5rem); justify-content: center; flex-wrap: wrap; }
+    .t4 svg { width: 110px; height: 110px; }
+    .t4 .ring-text { font-family: "Hanken Grotesk", sans-serif; font-size: 8.6px; font-weight: 700; letter-spacing: 0.18em; fill: var(--ink); }
+    .t4 .stamp-ico { color: var(--gold); }
+
+    /* M1: chips on dashed line (same language as journey) */
+    .m1 { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 760px; margin-inline: auto; }
+    .m1::before { content: ""; position: absolute; left: 8%; right: 8%; top: 23px; border-top: 1.5px dashed rgba(78, 101, 87, 0.35); }
+    .m1-col { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+    .m1-col .time-chip { height: 46px; }
+    .m1-col b { font-size: 0.98rem; margin-top: 0.55rem; }
+    .m1-col i { font-style: normal; font-size: 0.82rem; color: var(--muted); }
+
+    /* M2: line-art strands growing */
+    .m2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 760px; margin-inline: auto; }
+    .m2-col { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+    .m2-col svg { width: 84px; height: 74px; color: var(--btn); margin-bottom: 0.4rem; }
+    .m2-col em { font-family: var(--font-accent); font-style: italic; color: var(--accent-deep); font-size: 0.9rem; }
+    .m2-col b { font-size: 0.98rem; }
+    .m2-col i { font-style: normal; font-size: 0.82rem; color: var(--muted); }
+
+    /* M3: ruler scale */
+    .m3 { max-width: 700px; margin-inline: auto; }
+    .m3-track {
+      position: relative; height: 6px; border-radius: 6px;
+      background: linear-gradient(90deg, rgba(160, 90, 56, 0.18), var(--accent-deep));
+    }
+    .m3-track i {
+      position: absolute; top: 50%; transform: translate(-50%, -50%);
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--paper); border: 2px solid var(--accent-deep);
+    }
+    .m3-track i:nth-child(3) { background: var(--accent-deep); }
+    .m3-labels { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 0.9rem; }
+    .m3-cell { text-align: center; }
+    .m3-cell em { font-family: var(--font-accent); font-style: italic; color: var(--accent-deep); font-size: 0.9rem; display: block; }
+    .m3-cell b { font-size: 0.95rem; }
+    .m3-cell i { display: block; font-style: normal; font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 720px) {
+      .t2 { flex-direction: column; align-items: center; gap: 1rem; }
+      .t2-item + .t2-item { border-left: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+      .m1, .m2 { grid-template-columns: 1fr; }
+      .m1::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · trust marks (S1–S4) &amp; months block (M1–M3)
+    <a href="#s1">S1</a><a href="#s2">S2</a><a href="#s3">S3</a><a href="#s4">S4</a>
+    <a href="#m1">M1</a><a href="#m2">M2</a><a href="#m3">M3</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="demo" id="s1">
+      <p class="tag option-tag">S1 · Text strip between hairlines</p>
+      <div class="t1">
+        <span>Made in the USA</span><i></i>
+        <span>FDA-Registered Facility</span><i></i>
+        <span>cGMP Certified</span>
+      </div>
+    </section>
+
+    <section class="demo" id="s2">
+      <p class="tag option-tag">S2 · Columns with vertical rules</p>
+      <div class="t2">
+        <div class="t2-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+          <b>Made in the USA</b>
+        </div>
+        <div class="t2-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <b>FDA-Registered Facility</b>
+        </div>
+        <div class="t2-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <b>cGMP Certified</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="s3">
+      <p class="tag option-tag">S3 · Certificate plaque (double frame)</p>
+      <div class="t3">
+        <div class="t3-row">
+          <span class="t3-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+            Made in the USA
+          </span>
+          <span class="t3-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            FDA-Registered Facility
+          </span>
+          <span class="t3-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            cGMP Certified
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="s4">
+      <p class="tag option-tag">S4 · Round stamps with circular text</p>
+      <div class="t4">
+        <svg viewBox="0 0 110 110" role="img" aria-label="Made in the USA">
+          <defs><path id="c1" d="M55,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <circle cx="55" cy="55" r="52" fill="none" stroke="#B08D57" stroke-width="1.5"/>
+          <circle cx="55" cy="55" r="30" fill="none" stroke="#B08D57" stroke-width="1" stroke-dasharray="3 3"/>
+          <text class="ring-text"><textPath href="#c1" startOffset="6%">MADE IN THE USA · FORMULATED &amp; BOTTLED ·</textPath></text>
+          <g class="stamp-ico" transform="translate(43,43)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+          </g>
+        </svg>
+        <svg viewBox="0 0 110 110" role="img" aria-label="FDA-registered facility">
+          <defs><path id="c2" d="M55,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <circle cx="55" cy="55" r="52" fill="none" stroke="#B08D57" stroke-width="1.5"/>
+          <circle cx="55" cy="55" r="30" fill="none" stroke="#B08D57" stroke-width="1" stroke-dasharray="3 3"/>
+          <text class="ring-text"><textPath href="#c2" startOffset="2%">FDA-REGISTERED FACILITY · US PRODUCTION ·</textPath></text>
+          <g class="stamp-ico" transform="translate(43,43)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </g>
+        </svg>
+        <svg viewBox="0 0 110 110" role="img" aria-label="cGMP certified">
+          <defs><path id="c3" d="M55,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <circle cx="55" cy="55" r="52" fill="none" stroke="#B08D57" stroke-width="1.5"/>
+          <circle cx="55" cy="55" r="30" fill="none" stroke="#B08D57" stroke-width="1" stroke-dasharray="3 3"/>
+          <text class="ring-text"><textPath href="#c3" startOffset="4%">cGMP CERTIFIED · QUALITY ASSURED ·</textPath></text>
+          <g class="stamp-ico" transform="translate(43,43)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="demo" id="m1">
+      <p class="tag option-tag">M1 · Month chips on the same dashed line as above</p>
+      <div class="m1">
+        <div class="m1-col">
+          <span class="time-chip">Month 1</span>
+          <b>Comfortable scalp</b><i>hydrated &amp; calm</i>
+        </div>
+        <div class="m1-col">
+          <span class="time-chip">Month 2</span>
+          <b>Easier styling</b><i>softer, smoother hair</i>
+        </div>
+        <div class="m1-col">
+          <span class="time-chip" style="background: var(--btn); color: var(--paper); border-color: var(--btn);">Month 3</span>
+          <b>Visible fullness</b><i>denser-looking hair*</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="m2">
+      <p class="tag option-tag">M2 · Line-art strands, growing density (matches the illustrations)</p>
+      <div class="m2">
+        <div class="m2-col">
+          <svg viewBox="0 0 84 74" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <path d="M32 66 C30 46 34 26 38 8"/><path d="M42 66 C42 44 42 26 42 8"/><path d="M52 66 C54 46 50 26 46 8"/>
+          </svg>
+          <em>Month 1</em><b>Comfortable scalp</b><i>hydrated &amp; calm</i>
+        </div>
+        <div class="m2-col">
+          <svg viewBox="0 0 84 74" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <path d="M24 66 C22 46 26 26 30 8"/><path d="M33 66 C32 44 34 24 36 8"/><path d="M42 66 C42 44 42 26 42 8"/><path d="M51 66 C52 44 50 24 48 8"/><path d="M60 66 C62 46 58 26 54 8"/>
+          </svg>
+          <em>Month 2</em><b>Easier styling</b><i>softer, smoother hair</i>
+        </div>
+        <div class="m2-col">
+          <svg viewBox="0 0 84 74" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <path d="M16 66 C14 46 18 26 24 8"/><path d="M24 66 C22 44 26 24 30 8"/><path d="M33 66 C32 44 34 24 36 8"/><path d="M42 66 C42 44 42 26 42 8"/><path d="M51 66 C52 44 50 24 48 8"/><path d="M60 66 C62 44 58 24 54 8"/><path d="M68 66 C70 46 66 26 60 8"/>
+          </svg>
+          <em>Month 3</em><b>Visible fullness</b><i>denser-looking hair*</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="m3">
+      <p class="tag option-tag">M3 · Minimal gradient scale with markers</p>
+      <div class="m3">
+        <div class="m3-track"><i style="left:8%"></i><i style="left:50%"></i><i style="left:92%"></i></div>
+        <div class="m3-labels">
+          <div class="m3-cell"><em>Month 1</em><b>Comfortable scalp</b><i>hydrated &amp; calm</i></div>
+          <div class="m3-cell"><em>Month 2</em><b>Easier styling</b><i>softer, smoother</i></div>
+          <div class="m3-cell"><em>Month 3</em><b>Visible fullness</b><i>denser-looking hair*</i></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

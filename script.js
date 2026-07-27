@@ -1,66 +1,51 @@
-// Before/after slider — native scroll with snap; thumb scrollbar reflects and drives position.
+// Before/after: dot navigation between slides; each slide has a draggable compare handle.
 (function () {
   var root = document.querySelector('.ba');
   if (!root) return;
 
-  var viewport = root.querySelector('.ba-viewport');
+  var track = root.querySelector('.ba-track');
   var slides = root.querySelectorAll('.ba-slide');
-  var bar = root.querySelector('.ba-scrollbar');
-  var thumb = root.querySelector('.ba-thumb');
-  var n = slides.length;
+  var dotsWrap = root.querySelector('.ba-dots');
+  var index = 0;
+  var dots = [];
 
-  thumb.style.width = (100 / n) + '%';
-
-  function maxScroll() { return Math.max(1, viewport.scrollWidth - viewport.clientWidth); }
-
-  function sync() {
-    var progress = viewport.scrollLeft / maxScroll();
-    thumb.style.left = (progress * (100 - 100 / n)) + '%';
+  function go(i) {
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    dots.forEach(function (d, k) {
+      if (k === index) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
+    });
   }
-  viewport.addEventListener('scroll', sync, { passive: true });
-  window.addEventListener('resize', sync);
-  sync();
 
-  // Click on the track jumps to that position; dragging the thumb scrubs.
-  function barScrub(clientX) {
-    var r = bar.getBoundingClientRect();
-    var tw = r.width / n;
-    var progress = (clientX - r.left - tw / 2) / Math.max(1, r.width - tw);
-    progress = Math.max(0, Math.min(1, progress));
-    viewport.scrollLeft = progress * maxScroll();
-  }
-  var scrubbing = false;
-  bar.addEventListener('pointerdown', function (e) {
-    scrubbing = true;
-    viewport.classList.add('dragging');
-    bar.setPointerCapture(e.pointerId);
-    barScrub(e.clientX);
+  slides.forEach(function (_, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'ba-dot';
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function () { go(i); });
+    dotsWrap.appendChild(d);
+    dots.push(d);
   });
-  bar.addEventListener('pointermove', function (e) { if (scrubbing) barScrub(e.clientX); });
-  bar.addEventListener('pointerup', function () {
-    scrubbing = false;
-    viewport.classList.remove('dragging');
-    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
-    viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
-  });
+  go(0);
 
-  // Drag-to-scroll with the mouse on the photos too (touch scrolls natively).
-  var down = null;
-  viewport.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse') return;
-    down = { x: e.clientX, left: viewport.scrollLeft };
-    viewport.classList.add('dragging');
-  });
-  window.addEventListener('pointermove', function (e) {
-    if (!down) return;
-    viewport.scrollLeft = down.left - (e.clientX - down.x);
-  });
-  window.addEventListener('pointerup', function () {
-    if (!down) return;
-    down = null;
-    viewport.classList.remove('dragging');
-    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
-    viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
+  // Compare handle: drag anywhere on the image to move the curtain.
+  root.querySelectorAll('.cmp').forEach(function (cmp) {
+    var active = false;
+    function setPos(clientX) {
+      var r = cmp.getBoundingClientRect();
+      var p = ((clientX - r.left) / r.width) * 100;
+      p = Math.max(4, Math.min(96, p));
+      cmp.style.setProperty('--pos', p + '%');
+    }
+    cmp.addEventListener('pointerdown', function (e) {
+      active = true;
+      cmp.setPointerCapture(e.pointerId);
+      setPos(e.clientX);
+    });
+    cmp.addEventListener('pointermove', function (e) { if (active) setPos(e.clientX); });
+    cmp.addEventListener('pointerup', function () { active = false; });
+    cmp.addEventListener('pointercancel', function () { active = false; });
   });
 })();
 
