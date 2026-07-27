@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botanical Hair Growth Serum — uphealth</title>
+  <meta name="description" content="Water-based botanical blend with Densidyl (chlorella + spirulina), rosemary, ginger and vitamins C and E. 59 ml, vegan, made in the USA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
+  <style>
+    .crumbs { font-size: 0.85rem; color: var(--muted); padding-block: 1.2rem 0; }
+    .crumbs a { text-decoration: none; }
+    .crumbs a:hover { color: var(--accent-deep); }
+    .pdp {
+      display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      padding-block: 1.5rem 4rem;
+      align-items: start;
+    }
+    .pdp-gallery { position: sticky; top: 90px; }
+    .pdp-main {
+      aspect-ratio: 1 / 1; overflow: hidden;
+      border-radius: var(--radius); background: var(--tile);
+    }
+    .pdp-main img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.7rem; }
+    .pdp-thumb {
+      aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px;
+      border: 1.5px solid transparent; padding: 0; cursor: pointer; background: var(--tile);
+    }
+    .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pdp-thumb[aria-current="true"] { border-color: var(--accent-deep); }
+    .pdp-info h1 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.1; letter-spacing: -0.015em; margin-top: 0.6rem; }
+    .pdp-stars { display: flex; gap: 0.5rem; align-items: center; font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; }
+    .pdp-stars b { color: var(--gold); letter-spacing: 0.1em; font-weight: 600; }
+    .pdp-lead { margin-top: 1rem; color: var(--muted); }
+    .pdp .ilist { margin-top: 1.1rem; }
+    .opts { display: grid; gap: 0.7rem; margin-top: 1.5rem; }
+    .opt {
+      display: flex; align-items: center; gap: 0.85rem;
+      border: 1px solid var(--line); border-radius: 14px;
+      padding: 0.9rem 1.1rem; cursor: pointer;
+      background: var(--paper);
+    }
+    .opt:has(input:checked) { border-color: var(--accent-deep); }
+    .opt input { accent-color: var(--accent-deep); width: 17px; height: 17px; }
+    .opt-name { font-weight: 600; font-size: 0.97rem; }
+    .opt-sub { font-size: 0.82rem; color: var(--muted); }
+    .opt-price { margin-left: auto; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .opt-price s { color: var(--muted); font-weight: 400; font-size: 0.85rem; margin-left: 0.3rem; }
+    .pdp-buy { margin-top: 1.1rem; }
+    .pdp-safety { display: block; text-align: center; margin-top: 0.7rem; }
+    .pdp-seals { display: flex; gap: 1.3rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+    .pdp-seals .seal { flex-direction: row; gap: 0.4rem; padding: 0; }
+    .pdp-seals .seal + .seal { border-left: 0; }
+    .pdp-seals .seal svg { width: 15px; height: 15px; color: var(--gold); }
+    .pdp-seals .seal b { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+    .pdp-acc { margin-top: 1.6rem; }
+    .pairs { padding-block: 0 4.5rem; }
+    .pairs-card {
+      display: flex; gap: 1.4rem; align-items: center;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 1.2rem 1.4rem; max-width: 640px;
+    }
+    .pairs-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; background: var(--tile); }
+    .pairs-card h3 { font-size: 1.1rem; }
+    .pairs-card p { font-size: 0.88rem; color: var(--muted); margin-top: 0.15rem; }
+    .pairs-card .btn { margin-left: auto; flex: none; }
+    @media (max-width: 900px) {
+      .pdp { grid-template-columns: 1fr; }
+      .pdp-gallery { position: static; }
+      .pairs-card { flex-wrap: wrap; }
+      .pairs-card .btn { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="uphealth home">uphealth</a>
+      <nav class="main-nav" aria-label="Site">
+        <a href="index.html#results">Results</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-dark btn-sm" href="index.html#products">Order now</a>
+        <button class="cart-btn" type="button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> / <a href="index.html#products">Products</a> / Botanical Hair Growth Serum
+    </nav>
+
+    <div class="pdp">
+      <div class="pdp-gallery">
+        <figure class="pdp-main"><img id="pdp-main-img" src="assets/pack-botanical.png" alt="Botanical Hair Growth Serum"></figure>
+        <div class="pdp-thumbs" role="group" aria-label="Product photos">
+          <button class="pdp-thumb" type="button" data-src="assets/pack-botanical.png" aria-current="true"><img src="assets/pack-botanical.png" alt=""></button>
+          <button class="pdp-thumb" type="button" data-src="assets/life-model-botanical.png"><img src="assets/life-model-botanical.png" alt=""></button>
+          <button class="pdp-thumb" type="button" data-src="assets/life-mirror2.png"><img src="assets/life-mirror2.png" alt=""></button>
+          <button class="pdp-thumb" type="button" data-src="assets/life-pouch2.png"><img src="assets/life-pouch2.png" alt=""></button>
+        </div>
+      </div>
+
+      <div class="pdp-info">
+        <p class="tag">Morning step · Hair &amp; scalp</p>
+        <h1>Botanical Hair Growth Serum</h1>
+        <p class="pdp-stars"><b aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b> 4.8 &middot; loved by our customers</p>
+        <p class="pdp-lead">A water-based botanical blend that wakes up the scalp. It hydrates the skin your hair grows from and supports a healthy scalp environment — the foundation of healthy-looking hair.</p>
+        <ul class="ilist">
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;color:var(--accent)"><path d="M20 6L9 17l-5-5"/></svg>Densidyl — a botanical complex of chlorella and spirulina algae</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;color:var(--accent)"><path d="M20 6L9 17l-5-5"/></svg>Rosemary and ginger root refresh and energize the scalp</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;color:var(--accent)"><path d="M20 6L9 17l-5-5"/></svg>Licorice extract with vitamins C and E</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;color:var(--accent)"><path d="M20 6L9 17l-5-5"/></svg>Vegan · fragrance-free · 59 ml</li>
+        </ul>
+
+        <div class="opts" role="radiogroup" aria-label="Choose your option">
+          <label class="opt">
+            <input type="radio" name="opt" checked
+                   data-id="botanical" data-name="Botanical Hair Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">
+            <span><span class="opt-name">One bottle</span><br><span class="opt-sub">59 ml / 2 fl oz &middot; about a month</span></span>
+            <span class="opt-price">$34.90</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="opt"
+                   data-id="duo" data-name="The Ritual Duo" data-price="64.90" data-img="assets/pack-duo.png">
+            <span><span class="opt-name">The Ritual Duo</span><br><span class="opt-sub">both serums &middot; save 13%</span></span>
+            <span class="opt-price">$64.90 <s>$74.80</s></span>
+          </label>
+        </div>
+
+        <button class="btn btn-dark btn-block add-to-cart pdp-buy" type="button"
+                data-id="botanical" data-name="Botanical Hair Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">
+          Add to cart &mdash; $<span id="buy-price">34.90</span>
+        </button>
+        <a class="safety pdp-safety" href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Important safety information</a>
+
+        <ul class="pdp-seals">
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><b>Made in the USA</b></li>
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><b>FDA-Registered Facility</b></li>
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><b>cGMP Certified</b></li>
+        </ul>
+
+        <div class="faq-list pdp-acc">
+          <details open>
+            <summary>Full description</summary>
+            <p>Our Botanical Hair Growth Serum combines carefully selected plant extracts to support a healthy scalp environment. Densidyl — a blend of chlorella and spirulina algae — together with rosemary and ginger root deeply hydrates the scalp, while licorice extract and vitamins C and E help maintain comfort and balance. The lightweight, water-based formula absorbs fast and leaves no residue.</p>
+          </details>
+          <details>
+            <summary>Key ingredients</summary>
+            <p>Densidyl (Chlorella vulgaris / Spirulina platensis extract), Rosmarinus officinalis (rosemary) leaf extract, Zingiber officinale (ginger) root extract, Glycyrrhiza glabra (licorice) root extract, ascorbic acid (vitamin C), tocopherol (vitamin E), glycerin, propanediol.</p>
+          </details>
+          <details>
+            <summary>Suggested use</summary>
+            <p>Part your hair and apply a few drops to a clean, dry or towel-dried scalp every morning. Comb through with your fingers — no rinsing needed.</p>
+          </details>
+          <details>
+            <summary>Free from</summary>
+            <p>Fragrance, parabens, silicones, sulfates, phthalates, mineral oil and hormones.
+              Vegan and cruelty-free. For external use only &mdash; keep out of reach of children,
+              store in a cool, dry place.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <section class="pairs" aria-label="Pairs well with">
+      <p class="tag">Pairs well with</p>
+      <div class="pairs-card">
+        <img src="assets/pack-peptide.png" alt="Peptide Growth Serum">
+        <div>
+          <h3>Peptide Growth Serum</h3>
+          <p>The evening step: five peptides and saw palmetto for the look of density.</p>
+        </div>
+        <a class="btn btn-ghost" href="product-peptide.html">View</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="logo logo-light">uphealth</p>
+        <p>Functional wellness with formulas you can trust.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">Landing</a>
+        <a href="https://uphealth.life/" target="_blank" rel="noopener">Store</a>
+        <a href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Support</a>
+      </nav>
+    </div>
+    <div class="container footer-legal">
+      <p>For external use only. Avoid contact with eyes. Keep out of reach of children.
+        These are cosmetic products and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p>&copy; 2026 UpHealth. All rights reserved. &middot; DCK D. GLOBAL LTD</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" hidden></div>
+  <aside class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your cart</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul class="cart-items"></ul>
+    <p class="cart-empty">Your cart is empty.</p>
+    <div class="cart-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div>
+      <p class="cart-note">Shipping calculated at checkout. Free over $80.</p>
+      <a class="btn btn-dark btn-block cart-checkout" href="https://uphealth.life/" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </aside>
+
+  <script src="script.js?v=12"></script>
+  <script>
+    document.querySelectorAll('.pdp-thumb').forEach(function (t) {
+      t.addEventListener('click', function () {
+        document.getElementById('pdp-main-img').src = t.dataset.src;
+        document.querySelectorAll('.pdp-thumb').forEach(function (o) { o.removeAttribute('aria-current'); });
+        t.setAttribute('aria-current', 'true');
+      });
+    });
+    var buyBtn = document.querySelector('.pdp-buy');
+    document.querySelectorAll('.opts input[type="radio"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (!r.checked) return;
+        buyBtn.dataset.id = r.dataset.id;
+        buyBtn.dataset.name = r.dataset.name;
+        buyBtn.dataset.price = r.dataset.price;
+        buyBtn.dataset.img = r.dataset.img;
+        document.getElementById('buy-price').textContent = r.dataset.price;
+      });
+    });
+  </script>
+</body>
+</html>
