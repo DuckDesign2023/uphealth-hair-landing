@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palette options — uphealth</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: "Hanken Grotesk", system-ui, sans-serif; background: #FBFAF7; color: #333; line-height: 1.55; }
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      background: #FBFAF7; border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker strong { font-weight: 600; }
+    .wrap { width: min(1240px, 100% - 3rem); margin-inline: auto; padding-block: 2.5rem; display: grid; gap: 2.2rem; }
+    .pal {
+      border: 1px solid rgba(0,0,0,0.1); border-radius: 20px; overflow: hidden;
+      background: #fff;
+    }
+    .pal-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1.2rem 1.5rem 0.4rem; }
+    .pal-head h2 { font-size: 1.15rem; }
+    .pal-head p { font-size: 0.88rem; color: #777; max-width: 52ch; }
+    .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 0.8rem 1.5rem 1.1rem; }
+    .chip { display: grid; gap: 0.25rem; justify-items: center; font-size: 0.72rem; color: #666; font-family: ui-monospace, monospace; }
+    .chip i { display: block; width: 74px; height: 40px; border-radius: 9px; border: 1px solid rgba(0,0,0,0.08); }
+    /* mock uses palette vars */
+    .mock {
+      background: var(--paper);
+      padding: 2rem clamp(1.2rem, 3vw, 2.5rem) 2.4rem;
+    }
+    .mock-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 860px; margin-inline: auto; }
+    .mock-panel {
+      background: var(--band); border-radius: 18px; padding: 1.5rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.55rem;
+    }
+    .mock-panel.alt { background: var(--mist); }
+    .mock-chip {
+      display: inline-flex; gap: 0.4rem; align-items: center;
+      border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+      background: var(--paper); color: var(--ink);
+      border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600;
+    }
+    .mock-panel h3 { color: var(--ink); font-size: 1.25rem; }
+    .mock-role { font-family: "Fraunces", serif; font-style: italic; color: var(--accent-deep); font-size: 0.98rem; }
+    .mock-li { display: flex; gap: 0.5rem; align-items: center; color: var(--ink); font-size: 0.88rem; font-weight: 500; }
+    .mock-li svg { width: 16px; height: 16px; color: var(--btn); }
+    .mock-buy { display: flex; align-items: center; gap: 0.9rem; margin-top: 0.5rem; }
+    .mock-price { font-weight: 600; font-size: 1.2rem; color: var(--ink); }
+    .mock-btn {
+      background: var(--btn); color: var(--paper);
+      border: 0; border-radius: 999px; padding: 0.75rem 1.5rem;
+      font-family: inherit; font-weight: 600; font-size: 0.92rem; cursor: pointer;
+    }
+    .mock-btn:hover { background: var(--btn-hover); }
+    .mock-note { text-align: center; margin-top: 1.1rem; font-size: 0.85rem; color: var(--ink); }
+    .mock-note em { font-family: "Fraunces", serif; font-style: italic; color: var(--accent-deep); }
+
+    /* ---------- palettes ---------- */
+    .p0 { --paper:#FAF8F3; --band:#F0EDE4; --mist:#E9EEE4; --ink:#3C463E; --btn:#4E6557; --btn-hover:#42574A; --accent-deep:#99536E; }
+    .p1 { --paper:#FBF7EF; --band:#F2E9DA; --mist:#F5EFE2; --ink:#443A2E; --btn:#6F5638; --btn-hover:#5D482E; --accent-deep:#A9612C; }
+    .p2 { --paper:#FBF6F3; --band:#F3E7E1; --mist:#F6EDE9; --ink:#4A3F3B; --btn:#8C5A50; --btn-hover:#774B42; --accent-deep:#5F7050; }
+    .p3 { --paper:#F8F6EE; --band:#E9E8DA; --mist:#EFEEE2; --ink:#27352C; --btn:#2E4437; --btn-hover:#26382E; --accent-deep:#96742A; }
+    .p4 { --paper:#F8F8F5; --band:#E7EBEB; --mist:#EDF0EF; --ink:#39444A; --btn:#50707F; --btn-hover:#43606E; --accent-deep:#A5687F; }
+  </style>
+</head>
+<body>
+  <nav class="picker">
+    <strong>uphealth</strong> · palette options — same section, five palettes
+  </nav>
+
+  <main class="wrap">
+
+    <section class="pal p0">
+      <div class="pal-head">
+        <h2>0 · Eucalyptus &amp; Ivory — current</h2>
+        <p>What the site uses now, for comparison. Calm, natural, spa-like.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#FAF8F3"></i>#FAF8F3</span>
+        <span class="chip"><i style="background:#F0EDE4"></i>#F0EDE4</span>
+        <span class="chip"><i style="background:#3C463E"></i>#3C463E</span>
+        <span class="chip"><i style="background:#4E6557"></i>#4E6557</span>
+        <span class="chip"><i style="background:#99536E"></i>#99536E</span>
+      </div>
+      <div class="mock"><div class="mock-inner">
+        <div class="mock-panel"><span class="mock-chip">Morning</span><h3>Botanical Serum</h3><p class="mock-role">wakes up the scalp</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Densidyl + rosemary</span><div class="mock-buy"><span class="mock-price">$34.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+        <div class="mock-panel alt"><span class="mock-chip">Evening</span><h3>Peptide Serum</h3><p class="mock-role">feeds the roots</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Five peptides</span><div class="mock-buy"><span class="mock-price">$39.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+      </div><p class="mock-note">Visibly thicker, <em>fuller</em> hair</p></div>
+    </section>
+
+    <section class="pal p1">
+      <div class="pal-head">
+        <h2>1 · Amber Apothecary</h2>
+        <p>Built from the amber glass of the bottles: warm cream, honey-brown buttons, amber
+          accent. Feels like a herbal pharmacy — warmer and cosier than now.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#FBF7EF"></i>#FBF7EF</span>
+        <span class="chip"><i style="background:#F2E9DA"></i>#F2E9DA</span>
+        <span class="chip"><i style="background:#443A2E"></i>#443A2E</span>
+        <span class="chip"><i style="background:#6F5638"></i>#6F5638</span>
+        <span class="chip"><i style="background:#A9612C"></i>#A9612C</span>
+      </div>
+      <div class="mock"><div class="mock-inner">
+        <div class="mock-panel"><span class="mock-chip">Morning</span><h3>Botanical Serum</h3><p class="mock-role">wakes up the scalp</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Densidyl + rosemary</span><div class="mock-buy"><span class="mock-price">$34.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+        <div class="mock-panel alt"><span class="mock-chip">Evening</span><h3>Peptide Serum</h3><p class="mock-role">feeds the roots</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Five peptides</span><div class="mock-buy"><span class="mock-price">$39.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+      </div><p class="mock-note">Visibly thicker, <em>fuller</em> hair</p></div>
+    </section>
+
+    <section class="pal p2">
+      <div class="pal-head">
+        <h2>2 · Blush &amp; Clay</h2>
+        <p>Powdery feminine: warm blush backgrounds, clay buttons, sage as the rare accent —
+          the inverse of the current scheme. Softest and most “beauty” of the set.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#FBF6F3"></i>#FBF6F3</span>
+        <span class="chip"><i style="background:#F3E7E1"></i>#F3E7E1</span>
+        <span class="chip"><i style="background:#4A3F3B"></i>#4A3F3B</span>
+        <span class="chip"><i style="background:#8C5A50"></i>#8C5A50</span>
+        <span class="chip"><i style="background:#5F7050"></i>#5F7050</span>
+      </div>
+      <div class="mock"><div class="mock-inner">
+        <div class="mock-panel"><span class="mock-chip">Morning</span><h3>Botanical Serum</h3><p class="mock-role">wakes up the scalp</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Densidyl + rosemary</span><div class="mock-buy"><span class="mock-price">$34.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+        <div class="mock-panel alt"><span class="mock-chip">Evening</span><h3>Peptide Serum</h3><p class="mock-role">feeds the roots</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Five peptides</span><div class="mock-buy"><span class="mock-price">$39.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+      </div><p class="mock-note">Visibly thicker, <em>fuller</em> hair</p></div>
+    </section>
+
+    <section class="pal p3">
+      <div class="pal-head">
+        <h2>3 · Deep Forest &amp; Honey</h2>
+        <p>Darker, more premium: near-black forest buttons and headlines, parchment
+          backgrounds, honey-gold accent. The most “expensive-looking” option.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#F8F6EE"></i>#F8F6EE</span>
+        <span class="chip"><i style="background:#E9E8DA"></i>#E9E8DA</span>
+        <span class="chip"><i style="background:#27352C"></i>#27352C</span>
+        <span class="chip"><i style="background:#2E4437"></i>#2E4437</span>
+        <span class="chip"><i style="background:#96742A"></i>#96742A</span>
+      </div>
+      <div class="mock"><div class="mock-inner">
+        <div class="mock-panel"><span class="mock-chip">Morning</span><h3>Botanical Serum</h3><p class="mock-role">wakes up the scalp</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Densidyl + rosemary</span><div class="mock-buy"><span class="mock-price">$34.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+        <div class="mock-panel alt"><span class="mock-chip">Evening</span><h3>Peptide Serum</h3><p class="mock-role">feeds the roots</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Five peptides</span><div class="mock-buy"><span class="mock-price">$39.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+      </div><p class="mock-note">Visibly thicker, <em>fuller</em> hair</p></div>
+    </section>
+
+    <section class="pal p4">
+      <div class="pal-head">
+        <h2>4 · Dusty Blue &amp; Oat</h2>
+        <p>Clean and clinical-calm, like the creatine reference shots: oat backgrounds,
+          dusty-blue buttons, the rose accent stays. Reads more “science”, less “botanical”.</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#F8F8F5"></i>#F8F8F5</span>
+        <span class="chip"><i style="background:#E7EBEB"></i>#E7EBEB</span>
+        <span class="chip"><i style="background:#39444A"></i>#39444A</span>
+        <span class="chip"><i style="background:#50707F"></i>#50707F</span>
+        <span class="chip"><i style="background:#A5687F"></i>#A5687F</span>
+      </div>
+      <div class="mock"><div class="mock-inner">
+        <div class="mock-panel"><span class="mock-chip">Morning</span><h3>Botanical Serum</h3><p class="mock-role">wakes up the scalp</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Densidyl + rosemary</span><div class="mock-buy"><span class="mock-price">$34.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+        <div class="mock-panel alt"><span class="mock-chip">Evening</span><h3>Peptide Serum</h3><p class="mock-role">feeds the roots</p><span class="mock-li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Five peptides</span><div class="mock-buy"><span class="mock-price">$39.90</span><button class="mock-btn" type="button">Add to cart</button></div></div>
+      </div><p class="mock-note">Visibly thicker, <em>fuller</em> hair</p></div>
+    </section>
+
+  </main>
+</body>
+</html>
