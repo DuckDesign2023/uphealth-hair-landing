@@ -267,7 +267,7 @@ a { color: inherit; }
 /* compare widget */
 .cmp {
   position: relative;
-  height: clamp(420px, 44vw, 560px);
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: var(--radius);
   cursor: ew-resize;
@@ -388,7 +388,8 @@ a { color: inherit; }
 .product-price { font-size: 0.98rem; }
 .product-price s { color: var(--muted); font-weight: 400; margin-left: 0.3rem; }
 .product-desc { font-size: 0.92rem; color: var(--muted); }
-.product-body .btn { margin-top: 0.7rem; }
+.product-actions { display: flex; gap: 0.6rem; margin-top: 0.7rem; }
+.product-actions .add-to-cart { flex: 1; }
 .safety {
   font-size: 0.82rem; color: var(--muted);
   text-decoration: underline; text-underline-offset: 3px;
@@ -492,14 +493,24 @@ a { color: inherit; }
 .j-col h3 { font-size: 1.1rem; }
 .j-col p { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; max-width: 26ch; }
 .mprog {
-  display: grid; grid-template-columns: repeat(3, auto);
-  justify-content: center;
-  gap: clamp(1.5rem, 5vw, 4rem);
+  position: relative;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
   margin-top: clamp(2rem, 4vw, 2.8rem);
 }
+.mprog::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 50%;
+  border-top: 1.5px dashed rgba(78, 101, 87, 0.35);
+}
 .mstep {
-  display: flex; align-items: center; gap: 0.9rem;
+  position: relative;
+  display: flex; align-items: center; justify-content: center; gap: 0.9rem;
   text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
 }
 .mstep .strands { width: 46px; height: 44px; color: var(--btn); flex: none; }
 .mstep-txt { display: grid; gap: 0.05rem; }
@@ -696,23 +707,23 @@ a { color: inherit; }
 .seal + .seal { border-left: 1px solid var(--line); }
 .seal svg { width: 24px; height: 24px; color: var(--gold); }
 .seal b { font-size: 0.93rem; font-weight: 700; color: var(--ink); }
-/* trust band: container-wide accent bar (products section) */
+/* trust band: quiet plate, bright marks (container width) */
 .seals-wide {
   display: grid; grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  background: var(--accent-deep);
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   padding-block: 0.9rem;
-  margin-top: 2.4rem;
+  margin-top: 2.6rem;
 }
 .seals-wide .seal {
-  flex-direction: row; justify-content: center;
-  gap: 0.55rem;
-  padding-block: 0;
+  flex-direction: row; justify-content: center; gap: 0.55rem;
+  padding-block: 0.2rem;
 }
-.seals-wide .seal + .seal { border-left-color: rgba(251, 249, 245, 0.3); }
-.seals-wide .seal svg { color: var(--paper); width: 19px; height: 19px; }
-.seals-wide .seal b { color: var(--paper); }
+.seals-wide .seal + .seal { border-left: 1px solid var(--line); }
+.seals-wide .seal svg { color: var(--gold); width: 19px; height: 19px; }
+.seals-wide .seal b { color: var(--accent-deep); }
 
 /* compact inline row (footer, between logo and nav) */
 .seals-inline { margin-top: 0; gap: 1.4rem; align-items: center; }
@@ -721,8 +732,8 @@ a { color: inherit; }
   padding: 0;
 }
 .seals-inline .seal + .seal { border-left: 0; }
-.seals-inline .seal svg { width: 16px; height: 16px; }
-.seals-inline .seal b { font-size: 0.82rem; color: rgba(251, 249, 245, 0.92); white-space: nowrap; }
+.seals-inline .seal svg { width: 16px; height: 16px; color: rgba(251, 249, 245, 0.95); }
+.seals-inline .seal b { font-size: 0.84rem; font-weight: 400; color: rgba(251, 249, 245, 0.92); white-space: nowrap; }
 
 /* ---------- Footer ---------- */
 .site-footer {
