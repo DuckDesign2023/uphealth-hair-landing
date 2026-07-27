@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust line — options v2</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=19">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      background: var(--paper); border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.6rem; }
+    .demo { padding-block: clamp(2.4rem, 4vw, 3.4rem); border-bottom: 1px solid var(--line); }
+    .demo-note { font-size: 0.85rem; color: var(--muted); margin-top: 1.4rem; max-width: 60ch; }
+
+    /* T1: editorial prose line */
+    .t1 { text-align: center; max-width: 620px; margin-inline: auto; }
+    .t1 p {
+      font-family: var(--font-accent); font-style: italic;
+      font-size: 1.08rem; line-height: 1.65; color: var(--ink);
+    }
+    .t1 small { display: block; margin-top: 0.6rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    /* T2: spec ledger with dot leaders */
+    .t2 { max-width: 560px; margin-inline: auto; }
+    .t2-row {
+      display: flex; align-items: baseline; gap: 0.7rem;
+      padding-block: 0.65rem;
+      font-size: 0.95rem;
+    }
+    .t2-row + .t2-row { border-top: 1px solid rgba(60, 70, 62, 0.08); }
+    .t2-key { color: var(--muted); flex: none; }
+    .t2-dots { flex: 1; border-bottom: 1.5px dotted rgba(60, 70, 62, 0.3); transform: translateY(-4px); }
+    .t2-val { font-weight: 600; color: var(--ink); flex: none; }
+
+    /* T3: single stamp + text */
+    .t3 { display: flex; align-items: center; justify-content: center; gap: 1.6rem; }
+    .t3 svg.stamp { width: 96px; height: 96px; flex: none; }
+    .t3 .ring-text { font-family: "Hanken Grotesk", sans-serif; font-size: 8.4px; font-weight: 700; letter-spacing: 0.2em; fill: var(--ink); }
+    .t3-txt { max-width: 380px; }
+    .t3-txt b { display: block; font-size: 1.02rem; color: var(--ink); }
+    .t3-txt span { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+    /* T4: pure letterspaced caps */
+    .t4 { text-align: center; }
+    .t4 p {
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted);
+      word-spacing: 0.2em;
+    }
+    .t4 p b { color: var(--ink); font-weight: 600; }
+    .t4 .sep { color: var(--gold); padding-inline: 0.9rem; }
+
+    @media (max-width: 720px) {
+      .t3 { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · trust line, round two
+    <a href="#t1">T1 — Prose</a>
+    <a href="#t2">T2 — Spec ledger</a>
+    <a href="#t3">T3 — One stamp</a>
+    <a href="#t4">T4 — Caps line</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="demo" id="t1">
+      <p class="tag option-tag">T1 · Editorial prose — trust as a sentence, no badges</p>
+      <div class="t1">
+        <p>Every bottle is formulated and filled in the United States, in an
+          FDA-registered facility that follows current Good Manufacturing Practice.</p>
+        <small>Made in the USA &middot; FDA-registered &middot; cGMP</small>
+      </div>
+      <p class="demo-note">Like premium apothecary brands: a calm serif sentence instead of badges. The small caps line below is for scanners.</p>
+    </section>
+
+    <section class="demo" id="t2">
+      <p class="tag option-tag">T2 · Spec ledger — dot leaders, like a product specification</p>
+      <div class="t2">
+        <div class="t2-row"><span class="t2-key">Origin</span><span class="t2-dots"></span><span class="t2-val">Made in the USA</span></div>
+        <div class="t2-row"><span class="t2-key">Facility</span><span class="t2-dots"></span><span class="t2-val">FDA-registered</span></div>
+        <div class="t2-row"><span class="t2-key">Quality standard</span><span class="t2-dots"></span><span class="t2-val">cGMP certified</span></div>
+      </div>
+      <p class="demo-note">A product spec sheet: dot leaders, like specifications and good menus. Strict and expensive-looking, no plate at all.</p>
+    </section>
+
+    <section class="demo" id="t3">
+      <p class="tag option-tag">T3 · One stamp + a line of text</p>
+      <div class="t3">
+        <svg class="stamp" viewBox="0 0 110 110" role="img" aria-label="Made in the USA, FDA-registered, cGMP">
+          <defs><path id="tc" d="M55,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <circle cx="55" cy="55" r="52" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <circle cx="55" cy="55" r="29" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
+          <text class="ring-text"><textPath href="#tc" startOffset="7%">MADE IN THE USA · cGMP CERTIFIED ·</textPath></text>
+          <g transform="translate(43,43)" style="color: var(--gold)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </g>
+        </svg>
+        <div class="t3-txt">
+          <b>Held to pharmacy standards</b>
+          <span>Formulated and bottled in the USA in an FDA-registered facility,
+            certified for current Good Manufacturing Practice.</span>
+        </div>
+      </div>
+      <p class="demo-note">One real stamp instead of three badges, with a human sentence beside it. Like a quality mark on a wine label.</p>
+    </section>
+
+    <section class="demo" id="t4">
+      <p class="tag option-tag">T4 · Pure letterpress caps — nothing but type</p>
+      <div class="t4">
+        <p><b>Made in the USA</b><span class="sep">·</span>FDA-registered facility<span class="sep">·</span>cGMP certified</p>
+      </div>
+      <p class="demo-note">No graphics at all: one widely letterspaced line with gold dot separators. The quietest option — just the fact, set beautifully.</p>
+    </section>
+
+  </main>
+</body>
+</html>
