@@ -696,15 +696,23 @@ a { color: inherit; }
 .seal + .seal { border-left: 1px solid var(--line); }
 .seal svg { width: 24px; height: 24px; color: var(--gold); }
 .seal b { font-size: 0.93rem; font-weight: 700; color: var(--ink); }
-/* full-bleed trust band (products section) */
+/* trust band: container-wide accent bar (products section) */
 .seals-wide {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  width: 100vw; margin-left: calc(50% - 50vw);
-  border-block: 1px solid var(--line);
-  padding-block: 1.5rem;
-  margin-top: 2.8rem;
+  width: 100%;
+  background: var(--accent-deep);
+  border-radius: var(--radius);
+  padding-block: 0.9rem;
+  margin-top: 2.4rem;
 }
-.seals-wide .seal { padding-block: 0; }
+.seals-wide .seal {
+  flex-direction: row; justify-content: center;
+  gap: 0.55rem;
+  padding-block: 0;
+}
+.seals-wide .seal + .seal { border-left-color: rgba(251, 249, 245, 0.3); }
+.seals-wide .seal svg { color: var(--paper); width: 19px; height: 19px; }
+.seals-wide .seal b { color: var(--paper); }
 
 /* compact inline row (footer, between logo and nav) */
 .seals-inline { margin-top: 0; gap: 1.4rem; align-items: center; }
