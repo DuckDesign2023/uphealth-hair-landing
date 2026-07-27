@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image pool — uphealth</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pool-head { padding: 2.5rem 0 1rem; }
+    .pool-head p { color: var(--muted); max-width: 60ch; }
+    .pool-section { padding-block: 1.5rem 2.5rem; }
+    .pool-section h2 { font-size: 1.4rem; margin-bottom: 1.2rem; }
+    .pool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .pool-item { display: grid; gap: 0.5rem; }
+    .pool-item img {
+      width: 100%;
+      border-radius: var(--radius);
+      background: var(--tile);
+    }
+    .pool-item figcaption {
+      font-size: 0.85rem; color: var(--muted);
+      display: flex; justify-content: space-between; gap: 1rem;
+    }
+    .pool-item code {
+      font-family: ui-monospace, monospace;
+      font-size: 0.8rem; color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">uphealth</a>
+      <p class="row-side">Image pool — pick the ones you like</p>
+    </div>
+  </header>
+
+  <main class="container pool-head">
+    <h1 class="h2">New image pool</h1>
+    <p>Bottles match the Supliful packaging 1:1 (clear glass + amber liquid + white ribbed
+      dropper for the peptide serum; frosted glass + black dropper for the botanical serum).
+      Tell me the codes of the images to use — e.g. “P1, L2, L5, BA-2”.</p>
+
+    <section class="pool-section">
+      <h2>Packshots &amp; hero</h2>
+      <div class="pool-grid">
+        <figure class="pool-item"><img src="_pool/pack-peptide.png" alt=""><figcaption><code>P1</code> Peptide packshot</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/pack-botanical.png" alt=""><figcaption><code>P2</code> Botanical packshot</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/pack-duo.png" alt=""><figcaption><code>P3</code> Duo packshot</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/hero-bunch.png" alt=""><figcaption><code>P4</code> Hero bunch (diagonal)</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="pool-section">
+      <h2>Lifestyle / marquee</h2>
+      <div class="pool-grid">
+        <figure class="pool-item"><img src="_pool/life-model-peptide.png" alt=""><figcaption><code>L1</code> Model + peptide, sage</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-model-botanical.png" alt=""><figcaption><code>L2</code> Model + botanical, pistachio</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-bathroom-shelf.png" alt=""><figcaption><code>L3</code> Bathroom shelf</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-pouch.png" alt=""><figcaption><code>L4</code> Cosmetic pouch, sun</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-dropper-macro.png" alt=""><figcaption><code>L5</code> Dropper macro</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-mirror.png" alt=""><figcaption><code>L6</code> Mirror application</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/life-brushing.png" alt=""><figcaption><code>L7</code> Brushing by window</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="pool-section">
+      <h2>Before / after — new pairs</h2>
+      <div class="pool-grid">
+        <figure class="pool-item"><img src="_pool/ba-new-parting.png" alt=""><figcaption><code>BA-1</code> Parting, late 30s</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/ba-new-temples.png" alt=""><figcaption><code>BA-2</code> Temples, mid 40s</figcaption></figure>
+        <figure class="pool-item"><img src="_pool/ba-new-ponytail.png" alt=""><figcaption><code>BA-3</code> Ponytail, ~30</figcaption></figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
