@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“Makes it simple” — options</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=11">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      background: var(--paper); border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.6rem; }
+    .scene-s { height: 210px; display: flex; align-items: center; justify-content: center; }
+    .scene-s img { max-height: 100%; max-width: 78%; width: auto; }
+
+    /* Option A: day timeline + months bar */
+    .sA-grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+    .sA-line { position: absolute; left: 4%; right: 4%; top: 25px; border-top: 1.5px dashed rgba(78, 101, 87, 0.4); }
+    .sA-col { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+    .sA-col h3 { font-size: 1.12rem; }
+    .sA-col p { font-size: 0.9rem; color: var(--muted); max-width: 26ch; }
+    .sA-ico { width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--paper); margin-top: 1.2rem; color: var(--btn); }
+    .sA-ico svg { width: 21px; height: 21px; }
+    .months { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.4rem; }
+    .month { border-top: 1.5px solid var(--ink); padding-top: 0.9rem; }
+    .month b { font-family: var(--font-accent); font-style: italic; font-weight: 500; color: var(--accent-deep); font-size: 1.1rem; }
+    .month h4 { font-size: 1.02rem; margin-top: 0.25rem; }
+    .month p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* Option B: numbered step cards */
+    .sB-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+    .sB-card { background: var(--tile); border-radius: var(--radius); padding: 1.5rem 1.3rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+    .sB-num { font-family: var(--font-accent); font-style: italic; font-size: 1.6rem; color: var(--accent-deep); }
+    .sB-card .scene-s { height: 150px; }
+    .sB-card h3 { font-size: 1.05rem; }
+    .sB-card p { font-size: 0.88rem; color: var(--muted); }
+    .sB-chip { margin-top: auto; padding-top: 0.6rem; }
+
+    /* Option C: AM/PM checklists */
+    .sC-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .sC-col { background: var(--tile); border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+    .sC-col .scene-s { height: 180px; }
+    .sC-list { display: grid; gap: 0.6rem; text-align: left; }
+    .sC-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.93rem; font-weight: 500; }
+    .sC-list .check { flex: none; width: 17px; height: 17px; margin-top: 0.1em; color: var(--accent); }
+    .sC-bar { margin-top: 1.4rem; text-align: center; border-top: 1px solid var(--line); padding-top: 1.2rem; font-size: 0.95rem; color: var(--muted); }
+    .sC-bar em { font-family: var(--font-accent); font-style: italic; color: var(--accent-deep); }
+
+    @media (max-width: 900px) {
+      .sA-grid, .sB-grid { grid-template-columns: 1fr 1fr; }
+      .sA-line { display: none; }
+      .months { grid-template-columns: 1fr; }
+      .sC-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · “makes it simple” options
+    <a href="#option-a">A — Day timeline + months</a>
+    <a href="#option-b">B — Numbered steps</a>
+    <a href="#option-c">C — AM/PM checklists</a>
+  </nav>
+
+  <main>
+    <!-- ============ OPTION A ============ -->
+    <section class="section" id="option-a" aria-labelledby="a-title">
+      <div class="container">
+        <p class="tag option-tag">Option A · Day timeline + what to expect</p>
+        <div class="row-head">
+          <h2 class="h2" id="a-title">uphealth makes it <em>simple</em></h2>
+          <a class="btn btn-dark" href="#">Get started today</a>
+        </div>
+        <div class="sA-grid">
+          <div class="sA-line" aria-hidden="true"></div>
+          <div class="sA-col">
+            <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>Morning</span>
+            <div class="scene-s"><img src="assets/info-drop-t.png" alt="Line illustration: a dropper applying a drop along the parting"></div>
+            <h3>Botanical serum</h3>
+            <p>On a clean, dry scalp: a few drops along the parting, comb through.</p>
+          </div>
+          <div class="sA-col">
+            <span class="sA-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <h3>Through the day</h3>
+            <p>Nothing to do — no grease, no rinsing, style as usual.</p>
+          </div>
+          <div class="sA-col">
+            <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>Evening</span>
+            <div class="scene-s"><img src="assets/info-massage-t.png" alt="Line illustration: fingertips massaging the scalp"></div>
+            <h3>Peptide serum</h3>
+            <p>A few drops on the scalp, massage with your fingertips for 1–2 minutes.</p>
+          </div>
+          <div class="sA-col">
+            <span class="sA-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <h3>Repeat daily</h3>
+            <p>Consistency is the whole secret — plan for 3 months.</p>
+          </div>
+        </div>
+        <div class="months">
+          <div class="month"><b>Month 1</b><h4>Comfortable scalp</h4><p>Hydrated, calm, no itching or tightness.</p></div>
+          <div class="month"><b>Month 2</b><h4>Easier styling</h4><p>Hair feels softer, smoother and easier to manage.</p></div>
+          <div class="month"><b>Month 3</b><h4>Visible fullness</h4><p>The parting looks narrower, hair visibly denser.*</p></div>
+        </div>
+        <p class="footnote" style="margin-top:1.2rem;">*Individual results vary. Cosmetic products.</p>
+      </div>
+    </section>
+
+    <!-- ============ OPTION B ============ -->
+    <section class="section section-band" id="option-b" aria-labelledby="b-title">
+      <div class="container">
+        <p class="tag option-tag">Option B · Numbered steps</p>
+        <div class="row-head">
+          <h2 class="h2" id="b-title">uphealth makes it <em>simple</em></h2>
+          <a class="btn btn-dark" href="#">Get started today</a>
+        </div>
+        <div class="sB-grid">
+          <div class="sB-card">
+            <span class="sB-num">1</span>
+            <div class="scene-s"><img src="assets/info-bottle-t.png" alt="Line illustration: dropper bottle with botanicals"></div>
+            <h3>Start clean</h3>
+            <p>Apply to a clean, dry or towel-dried scalp.</p>
+          </div>
+          <div class="sB-card">
+            <span class="sB-num">2</span>
+            <div class="scene-s"><img src="assets/info-drop-t.png" alt="Line illustration: a drop along the parting"></div>
+            <h3>Morning · Botanical</h3>
+            <p>A few drops along the parting, comb through with your fingers.</p>
+          </div>
+          <div class="sB-card">
+            <span class="sB-num">3</span>
+            <div class="scene-s"><img src="assets/info-massage-t.png" alt="Line illustration: scalp massage"></div>
+            <h3>Evening · Peptide</h3>
+            <p>A few drops on the scalp, massage for 1–2 minutes before bed.</p>
+          </div>
+          <div class="sB-card">
+            <span class="sB-num">4</span>
+            <div class="scene-s"><img src="assets/info-follicle-t.png" alt="Line illustration: hair follicle"></div>
+            <h3>Give it 3 months</h3>
+            <p>Hair grows slowly — visible results build by month three.*</p>
+          </div>
+        </div>
+        <p class="footnote" style="margin-top:1.2rem;">*Individual results vary. Cosmetic products.</p>
+      </div>
+    </section>
+
+    <!-- ============ OPTION C ============ -->
+    <section class="section" id="option-c" aria-labelledby="c-title">
+      <div class="container">
+        <p class="tag option-tag">Option C · AM/PM checklists</p>
+        <div class="row-head">
+          <h2 class="h2" id="c-title">uphealth makes it <em>simple</em></h2>
+          <a class="btn btn-dark" href="#">Get started today</a>
+        </div>
+        <div class="sC-grid">
+          <div class="sC-col">
+            <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>Morning · Botanical serum</span>
+            <div class="scene-s"><img src="assets/info-drop-t.png" alt="Line illustration: a drop along the parting"></div>
+            <ul class="sC-list">
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Start with a clean, dry or towel-dried scalp</li>
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Part your hair, apply a few drops along the parting</li>
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Comb through with your fingers — no rinsing</li>
+            </ul>
+          </div>
+          <div class="sC-col">
+            <span class="time-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>Evening · Peptide serum</span>
+            <div class="scene-s"><img src="assets/info-massage-t.png" alt="Line illustration: scalp massage"></div>
+            <ul class="sC-list">
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Part your hair section by section</li>
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Apply a few drops directly to the scalp</li>
+              <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Massage with your fingertips for 1–2 minutes</li>
+            </ul>
+          </div>
+        </div>
+        <p class="sC-bar">Repeat every day — <em>visible results after 3 months</em></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

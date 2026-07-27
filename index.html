@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -46,7 +46,7 @@
         <ul class="hero-checks">
           <li>
             <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-            Fuller look in 8–12 weeks*
+            Visible results after 3 months of daily use*
           </li>
           <li>
             <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
@@ -81,6 +81,7 @@
         <figure class="strip-tile"><img src="assets/application.png" alt="Woman applying serum to her parting with a glass dropper"></figure>
         <figure class="strip-tile"><img src="assets/life-model-botanical.png" alt="Woman holding the Botanical Growth Serum bottle and its dropper"></figure>
         <figure class="strip-tile"><img src="assets/life-mirror2.png" alt="Woman in a bathrobe applying serum to her parting at the mirror"></figure>
+        <figure class="strip-tile"><img src="assets/life-smile-camera.png" alt="Cheerful woman looking at the camera while applying a drop of serum to her parting"></figure>
         <figure class="strip-tile"><img src="assets/dropper-macro.png" alt="A drop of serum falling from a glass dropper into the bottle"></figure>
         <figure class="strip-tile"><img src="assets/life-pouch2.png" alt="Cosmetic pouch with both serum bottles on a sunlit table"></figure>
         <figure class="strip-tile"><img src="assets/life-brushing.png" alt="Woman brushing her hair by a window"></figure>
@@ -90,6 +91,7 @@
         <figure class="strip-tile" aria-hidden="true"><img src="assets/application.png" alt=""></figure>
         <figure class="strip-tile" aria-hidden="true"><img src="assets/life-model-botanical.png" alt=""></figure>
         <figure class="strip-tile" aria-hidden="true"><img src="assets/life-mirror2.png" alt=""></figure>
+        <figure class="strip-tile" aria-hidden="true"><img src="assets/life-smile-camera.png" alt=""></figure>
         <figure class="strip-tile" aria-hidden="true"><img src="assets/dropper-macro.png" alt=""></figure>
         <figure class="strip-tile" aria-hidden="true"><img src="assets/life-pouch2.png" alt=""></figure>
         <figure class="strip-tile" aria-hidden="true"><img src="assets/life-brushing.png" alt=""></figure>
@@ -170,7 +172,7 @@
               </div>
             </div>
 
-            <p class="footnote">*Results from a user self-assessment survey over 12 weeks of
+            <p class="footnote">*Results from a user self-assessment survey after 3 months of
               daily use. Individual results may vary.</p>
             <a class="btn btn-dark" href="#products">Shop the ritual</a>
           </div>
@@ -191,11 +193,11 @@
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
-                  <img src="assets/ba-volume.png" alt="Before and after comparison: hair looks visibly thicker and more voluminous after three months">
+                  <img src="assets/ba-same-volume.png" alt="Before and after comparison: hair looks visibly thicker and more voluminous after three months">
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
-                  <img src="assets/ba-neat-ponytail.png" alt="Before and after comparison: the ponytail looks slightly thicker after three months">
+                  <img src="assets/ba-same-ponytail.png" alt="Before and after comparison: the ponytail looks slightly thicker after three months">
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
@@ -205,15 +207,10 @@
               </div>
             </div>
             <div class="ba-nav">
-              <button class="ba-btn" type="button" data-dir="-1" aria-label="Previous result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-              </button>
-              <span class="ba-count" aria-live="polite">1&thinsp;/&thinsp;6</span>
-              <button class="ba-btn" type="button" data-dir="1" aria-label="Next result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-              </button>
+              <span class="ba-hint" aria-hidden="true">drag to compare</span>
+              <div class="ba-dots" aria-label="Go to slide"></div>
             </div>
-            <p class="ba-note">Illustrative photography. Replace with customer photos before launch.</p>
+            <p class="ba-note">Results shown after 3 months of daily use. Illustrative photography — replace with customer photos before launch.</p>
           </div>
         </div>
       </div>
@@ -287,7 +284,7 @@
       <div class="container">
         <div class="row-head">
           <h2 class="h2" id="products-title">Start your supply</h2>
-          <p class="row-side">Free shipping over $80 · 30-day guarantee</p>
+          <p class="row-side">Free shipping over $80 · 30-day guarantee · results build over 3 months</p>
         </div>
         <div class="products-grid">
           <article class="product-card">
@@ -331,6 +328,20 @@
             </div>
           </article>
         </div>
+        <ul class="shields">
+          <li class="shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+            Made in the USA
+          </li>
+          <li class="shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            FDA-registered facility
+          </li>
+          <li class="shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            cGMP certified
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -351,8 +362,8 @@
               </span>
               <div class="scene scene-b"><img src="assets/info-drop-t.png" alt="Line illustration: a dropper applying a drop along the parting" loading="lazy"></div>
               <h3>A drop along the parting</h3>
-              <p>Part your hair, apply a few drops, comb through with your fingers.
-                Don&rsquo;t wash for at least an hour.</p>
+              <p>On a clean, dry or towel-dried scalp: part your hair, apply a few drops
+                and comb through with your fingers.</p>
             </div>
             <div class="info-b-col">
               <span class="time-chip">
@@ -385,14 +396,22 @@
           </details>
           <details>
             <summary>How do I use them?</summary>
-            <p>A few drops directly on the scalp, then massage with your fingertips for
-              1–2 minutes — no rinsing. Botanical serum in the morning, peptide serum in
-              the evening; don&rsquo;t wash your hair for at least an hour after applying.</p>
+            <p>Apply to a clean, dry or towel-dried scalp: botanical serum in the morning,
+              peptide serum in the evening. A few drops directly on the scalp, massage with
+              your fingertips for 1–2 minutes — no rinsing needed.</p>
+          </details>
+          <details>
+            <summary>Is it right for women 30+?</summary>
+            <p>Yes — the ritual was designed with women 30+ in mind. With age, hormonal shifts
+              and stress, hair naturally starts to look thinner and drier; the two serums
+              support the look of density and keep the scalp hydrated and comfortable. Both
+              formulas are lightweight, fragrance-free and safe for colored hair.</p>
           </details>
           <details>
             <summary>When will I see results?</summary>
-            <p>Most people notice a refreshed scalp within the first weeks and a fuller,
-              healthier look of hair after 8–12 weeks of consistent use.</p>
+            <p>Most people notice a refreshed scalp within the first weeks, but the real
+              change takes patience: plan for <strong>3 months of consistent daily use</strong> —
+              that&rsquo;s when the look of fullness and density becomes visible.</p>
           </details>
           <details>
             <summary>Are they safe for colored or treated hair?</summary>
@@ -430,6 +449,22 @@
         <a href="https://uphealth.life/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
       </nav>
     </div>
+    <div class="container">
+      <ul class="shields shields-footer">
+        <li class="shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+          Made in the USA
+        </li>
+        <li class="shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          FDA-registered facility
+        </li>
+        <li class="shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          cGMP certified
+        </li>
+      </ul>
+    </div>
     <div class="container footer-legal">
       <p>For external use only. Avoid contact with eyes. Keep out of reach of children.
         These are cosmetic products and are not intended to diagnose, treat, cure, or prevent any disease.</p>
@@ -454,6 +489,6 @@
     </div>
   </aside>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>

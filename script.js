@@ -1,34 +1,53 @@
-// Before/after slider — quiet navigation: arrows, counter, swipe.
+// Before/after slider — native horizontal scroll with snap + drag; dots reflect position.
 (function () {
   var root = document.querySelector('.ba');
   if (!root) return;
 
-  var track = root.querySelector('.ba-track');
+  var viewport = root.querySelector('.ba-viewport');
   var slides = root.querySelectorAll('.ba-slide');
-  var counter = root.querySelector('.ba-count');
-  var index = 0;
+  var dotsWrap = root.querySelector('.ba-dots');
 
-  function go(next) {
-    index = (next + slides.length) % slides.length;
-    track.style.transform = 'translateX(' + (-index * 100) + '%)';
-    counter.textContent = (index + 1) + ' / ' + slides.length;
-  }
-
-  root.querySelectorAll('.ba-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      go(index + Number(btn.dataset.dir));
+  var dots = [];
+  slides.forEach(function (_, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'ba-dot';
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function () {
+      viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
     });
+    dotsWrap.appendChild(d);
+    dots.push(d);
   });
 
-  // Light swipe support.
-  var startX = null;
-  var viewport = root.querySelector('.ba-viewport');
-  viewport.addEventListener('pointerdown', function (e) { startX = e.clientX; });
-  viewport.addEventListener('pointerup', function (e) {
-    if (startX === null) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
-    startX = null;
+  function sync() {
+    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    dots.forEach(function (d, k) {
+      if (k === i) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
+    });
+  }
+  viewport.addEventListener('scroll', sync, { passive: true });
+  sync();
+
+  // Drag-to-scroll with the mouse (touch scrolls natively).
+  var down = null;
+  viewport.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    down = { x: e.clientX, left: viewport.scrollLeft };
+    viewport.classList.add('dragging');
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!down) return;
+    viewport.scrollLeft = down.left - (e.clientX - down.x);
+  });
+  window.addEventListener('pointerup', function () {
+    if (!down) return;
+    down = null;
+    viewport.classList.remove('dragging');
+    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
+    viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
   });
 })();
 

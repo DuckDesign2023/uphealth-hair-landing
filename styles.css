@@ -6,16 +6,18 @@
    ================================================================ */
 
 :root {
-  --paper: #FAF8F3;        /* warm ivory page */
-  --band: #F0EDE4;         /* soft greige band */
-  --mist: #E9EEE4;         /* pale eucalyptus tint */
-  --tile: #F4F2EA;         /* pale tile on paper */
-  --ink: #3C463E;          /* soft deep eucalyptus-grey */
+  /* client palette: Bone / Warm Sand backgrounds, Terracotta / Muted Gold accents */
+  --paper: #FBF9F5;        /* Bone — page body */
+  --band: #F4EFE7;         /* Warm Sand — section bands */
+  --mist: #F1EDE2;         /* sand tint for alt panels */
+  --tile: #F7F3EC;         /* pale tile on paper */
+  --ink: #3C463E;          /* soft deep eucalyptus-grey (green stays) */
   --muted: #636B62;
-  --btn: #4E6557;          /* calm eucalyptus, not khaki */
+  --btn: #4E6557;          /* calm eucalyptus — primary green stays */
   --btn-hover: #42574A;
-  --accent: #B26A84;       /* dusty rose — checks, accent words, hovers only */
-  --accent-deep: #99536E;  /* same rose, dark enough for small text */
+  --accent: #C77E5A;       /* Terracotta — accent words, checks, hovers */
+  --accent-deep: #A05A38;  /* terracotta, dark enough for small text */
+  --gold: #B08D57;         /* Muted Gold — fine details */
   --line: rgba(60, 70, 62, 0.16);
   --radius: 18px;
   --font-body: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
@@ -178,7 +180,7 @@ a { color: inherit; }
 }
 .hero-caption i {
   width: 4px; height: 4px; border-radius: 50%;
-  background: var(--accent);
+  background: var(--gold);
 }
 .hero-legal {
   padding-block: 1.6rem 1.4rem;
@@ -249,14 +251,20 @@ a { color: inherit; }
 .stat-caption strong { color: var(--ink); font-weight: 600; }
 .results-copy .footnote { margin-bottom: 1.5rem; }
 
-/* before/after slider — flat, quiet */
+/* before/after slider — native scroll with snap, no buttons */
 .ba { display: flex; flex-direction: column; }
-.ba-viewport { overflow: hidden; border-radius: var(--radius); isolation: isolate; }
-.ba-track {
-  display: flex;
-  transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+.ba-viewport {
+  overflow-x: auto; overflow-y: hidden;
+  border-radius: var(--radius); isolation: isolate;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
 }
-.ba-slide { position: relative; flex: 0 0 100%; }
+.ba-viewport::-webkit-scrollbar { display: none; }
+.ba-viewport.dragging { cursor: grabbing; scroll-snap-type: none; }
+.ba-track { display: flex; }
+.ba-slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; }
+.ba-slide img { pointer-events: none; user-select: none; }
 .ba-slide img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
 .ba-caps {
   position: absolute; inset-inline: 0; bottom: 0;
@@ -272,26 +280,18 @@ a { color: inherit; }
 }
 .ba-nav {
   display: flex; align-items: center; gap: 1rem;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 0.9rem;
 }
-.ba-count {
-  font-size: 0.9rem; color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  min-width: 3.2em; text-align: center;
+.ba-hint { font-size: 0.82rem; color: var(--muted); }
+.ba-dots { display: flex; gap: 0.45rem; }
+.ba-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  border: 1px solid var(--muted);
+  background: transparent; padding: 0; cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
 }
-.ba-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-  transition: border-color 0.18s ease, color 0.18s ease;
-}
-.ba-btn:hover { border-color: var(--accent); color: var(--accent); }
-.ba-btn svg { width: 20px; height: 20px; }
+.ba-dot[aria-current="true"] { background: var(--accent-deep); border-color: var(--accent-deep); }
 .ba-note { margin-top: auto; padding-top: 0.8rem; font-size: 0.78rem; color: var(--muted); text-align: right; }
 
 /* ---------- Tiles ---------- */
@@ -596,6 +596,28 @@ a { color: inherit; }
 }
 .cart-subtotal strong { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
 .cart-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+
+/* ---------- Trust shields ---------- */
+.shields {
+  display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+.shield {
+  display: inline-flex; gap: 0.55rem; align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.88rem; font-weight: 600;
+  color: var(--ink);
+  background: var(--paper);
+}
+.shield svg { width: 18px; height: 18px; color: var(--gold); }
+.shields-footer { margin-top: 0; padding-block: 1.5rem 0.3rem; }
+.shields-footer .shield {
+  background: transparent;
+  border-color: rgba(251, 249, 245, 0.28);
+  color: rgba(251, 249, 245, 0.9);
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
