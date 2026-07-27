@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -23,7 +23,13 @@
         <a href="#products">Products</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-dark btn-sm" href="#products">Order now</a>
+      <div class="header-actions">
+        <a class="btn btn-dark btn-sm" href="#products">Order now</a>
+        <button class="cart-btn" type="button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" hidden>0</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -125,7 +131,7 @@
             <div class="ba-viewport">
               <div class="ba-track">
                 <figure class="ba-slide">
-                  <img src="assets/ba-new-parting.png" alt="Before and after comparison: the parting looks moderately narrower after three months">
+                  <img src="assets/ba-neat-parting.png" alt="Before and after comparison: the parting looks moderately narrower after three months">
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
@@ -133,7 +139,7 @@
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
-                  <img src="assets/ba-new-temples.png" alt="Before and after comparison: the temples look modestly filled in after three months">
+                  <img src="assets/ba-neat-temples.png" alt="Before and after comparison: the temples look modestly filled in after three months">
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
@@ -141,7 +147,7 @@
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
-                  <img src="assets/ba-new-ponytail.png" alt="Before and after comparison: the ponytail looks slightly thicker after three months">
+                  <img src="assets/ba-neat-ponytail.png" alt="Before and after comparison: the ponytail looks slightly thicker after three months">
                   <figcaption class="ba-caps" aria-hidden="true"><span>Month 0</span><span>Month 3</span></figcaption>
                 </figure>
                 <figure class="ba-slide">
@@ -228,6 +234,64 @@
       </div>
     </section>
 
+    <!-- ============ THE SERUMS (split) ============ -->
+    <section class="section" id="serums" aria-labelledby="serums-title">
+      <div class="container">
+        <div class="row-head">
+          <h2 class="h2" id="serums-title">Two serums, one ritual</h2>
+          <p class="row-side">Different jobs · better together</p>
+        </div>
+        <div class="serums-split">
+          <article class="serum-half">
+            <figure class="serum-media">
+              <img src="assets/pack-peptide.png" alt="Peptide Hair Growth Serum bottle" loading="lazy">
+            </figure>
+            <div class="serum-body">
+              <p class="tag">Evening step</p>
+              <h3>Peptide Growth Serum</h3>
+              <p class="serum-desc">A lightweight, non-greasy formula that absorbs fast. Five
+                advanced peptides nourish the scalp and revitalize hair from root to tip, for
+                the look of thicker, more voluminous hair.</p>
+              <ul class="serum-list">
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>sh-Polypeptide-1, -9, -11 and sh-Oligopeptide-2, -10</li>
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Saw palmetto, arginine, rosemary and eucalyptus</li>
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Vegan · fragrance-free · 30 ml / 1 fl oz</li>
+              </ul>
+              <div class="serum-buy">
+                <span class="serum-price">$39.90</span>
+                <button class="btn btn-dark add-to-cart" type="button"
+                        data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">
+                  Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="serum-half">
+            <figure class="serum-media">
+              <img src="assets/pack-botanical.png" alt="Botanical Hair Growth Serum bottle" loading="lazy">
+            </figure>
+            <div class="serum-body">
+              <p class="tag">Morning step</p>
+              <h3>Botanical Growth Serum</h3>
+              <p class="serum-desc">A water-based botanical blend that wakes up the scalp.
+                Rosemary, ginger and Densidyl — chlorella and spirulina algae — hydrate the
+                skin your hair grows from and support a healthy scalp environment.</p>
+              <ul class="serum-list">
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Densidyl botanical complex — chlorella + spirulina</li>
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Rosemary, ginger root, licorice, vitamins C and E</li>
+                <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Vegan · fragrance-free · 59 ml / 2 fl oz</li>
+              </ul>
+              <div class="serum-buy">
+                <span class="serum-price">$34.90</span>
+                <button class="btn btn-dark add-to-cart" type="button"
+                        data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">
+                  Add to cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PRODUCTS ============ -->
     <section class="section section-band" id="products" aria-labelledby="products-title">
       <div class="container">
@@ -244,7 +308,8 @@
               <h3>Peptide Growth Serum</h3>
               <p class="product-price">30 ml — <strong>$39.90</strong></p>
               <p class="product-desc">Five peptides for the look of density. A few drops on the scalp, every evening.</p>
-              <a class="btn btn-dark btn-block" href="https://uphealth.life/" target="_blank" rel="noopener">Order the serum</a>
+              <button class="btn btn-dark btn-block add-to-cart" type="button"
+                      data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">Add to cart</button>
               <a class="safety" href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Important safety information</a>
             </div>
           </article>
@@ -256,7 +321,8 @@
               <h3>Botanical Growth Serum</h3>
               <p class="product-price">59 ml — <strong>$34.90</strong></p>
               <p class="product-desc">Rosemary, ginger and algae extracts for a hydrated, healthy scalp. Every morning.</p>
-              <a class="btn btn-dark btn-block" href="https://uphealth.life/" target="_blank" rel="noopener">Order the botanical</a>
+              <button class="btn btn-dark btn-block add-to-cart" type="button"
+                      data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">Add to cart</button>
               <a class="safety" href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Important safety information</a>
             </div>
           </article>
@@ -269,7 +335,8 @@
               <h3>The Ritual Duo</h3>
               <p class="product-price">Both serums — <strong>$64.90</strong> <s>$74.80</s></p>
               <p class="product-desc">The complete two-serum ritual. Everything your scalp needs to do its quiet work.</p>
-              <a class="btn btn-dark btn-block" href="https://uphealth.life/" target="_blank" rel="noopener">Order the duo</a>
+              <button class="btn btn-dark btn-block add-to-cart" type="button"
+                      data-id="duo" data-name="The Ritual Duo" data-price="64.90" data-img="assets/pack-duo.png">Add to cart</button>
               <a class="safety" href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Important safety information</a>
             </div>
           </article>
@@ -380,6 +447,23 @@
     </div>
   </footer>
 
-  <script src="script.js?v=7"></script>
+  <div class="cart-overlay" hidden></div>
+  <aside class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your cart</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul class="cart-items"></ul>
+    <p class="cart-empty">Your cart is empty.</p>
+    <div class="cart-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div>
+      <p class="cart-note">Shipping calculated at checkout. Free over $80.</p>
+      <a class="btn btn-dark btn-block cart-checkout" href="https://uphealth.life/" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </aside>
+
+  <script src="script.js?v=9"></script>
 </body>
 </html>
