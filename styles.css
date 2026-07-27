@@ -709,23 +709,29 @@ a { color: inherit; }
 .seal + .seal { border-left: 1px solid var(--line); }
 .seal svg { width: 24px; height: 24px; color: var(--gold); }
 .seal b { font-size: 0.93rem; font-weight: 700; color: var(--ink); }
-/* trust band: quiet plate, bright marks (container width) */
+/* trust line: letterpress caps between hairlines, uniform items with gold icons */
 .seals-wide {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 1rem clamp(1.6rem, 4vw, 3.2rem);
   width: 100%;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding-block: 0.9rem;
+  background: transparent;
+  border-block: 1px solid var(--line);
+  border-radius: 0;
+  padding-block: 1.05rem;
   margin-top: 2.6rem;
 }
 .seals-wide .seal {
-  flex-direction: row; justify-content: center; gap: 0.55rem;
-  padding-block: 0.2rem;
+  flex-direction: row; align-items: center; gap: 0.55rem;
+  padding: 0;
 }
-.seals-wide .seal + .seal { border-left: 1px solid var(--line); }
-.seals-wide .seal svg { color: var(--gold); width: 19px; height: 19px; }
-.seals-wide .seal b { color: var(--accent-deep); }
+.seals-wide .seal + .seal { border-left: 0; }
+.seals-wide .seal svg { color: var(--gold); width: 16px; height: 16px; }
+.seals-wide .seal b {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
 
 /* compact inline row (footer, between logo and nav) */
 .seals-inline { margin-top: 0; gap: 1.4rem; align-items: center; }
