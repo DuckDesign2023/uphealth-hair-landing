@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T4 caps line — playground</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=19">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      background: var(--paper); border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .picker a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 1rem; }
+    .picker a:hover { color: var(--ink); border-color: var(--ink); }
+    .option-tag { margin-bottom: 1.6rem; }
+    .demo { padding-block: clamp(2.2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); }
+
+    .capsline {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); word-spacing: 0.2em;
+      text-align: center;
+    }
+    .capsline b { color: var(--ink); font-weight: 600; }
+    .capsline .sep { color: var(--gold); padding-inline: 0.9rem; }
+
+    /* B: with tiny icons */
+    .caps-ico { gap: 2.2rem; }
+    .caps-ico span.item { display: inline-flex; align-items: center; gap: 0.55rem; }
+    .caps-ico svg { width: 16px; height: 16px; color: var(--gold); flex: none; }
+
+    /* C: pastel capsule */
+    .caps-capsule {
+      width: fit-content; margin-inline: auto;
+      background: var(--mist);
+      border-radius: 999px;
+      padding: 0.85rem 2.2rem;
+    }
+
+    /* D: pastel wide band with icons */
+    .caps-band {
+      background: var(--mist);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.5rem;
+    }
+
+    /* E: between hairlines */
+    .caps-rules {
+      border-block: 1px solid var(--line);
+      padding-block: 1.05rem;
+    }
+
+    /* F: gold frame ticket */
+    .caps-ticket {
+      width: fit-content; margin-inline: auto;
+      border: 1px solid var(--gold);
+      outline: 1px solid rgba(176, 141, 87, 0.35);
+      outline-offset: 3px;
+      border-radius: 4px;
+      padding: 0.8rem 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · T4 playground
+    <a href="#t4a">A</a><a href="#t4b">B</a><a href="#t4c">C</a><a href="#t4d">D</a><a href="#t4e">E</a><a href="#t4f">F</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="demo" id="t4a">
+      <p class="tag option-tag">T4-A · Baseline — pure type</p>
+      <p class="capsline"><b>Made in the USA</b><span class="sep">·</span>FDA-registered facility<span class="sep">·</span>cGMP certified</p>
+    </section>
+
+    <section class="demo" id="t4b">
+      <p class="tag option-tag">T4-B · With tiny gold icons</p>
+      <p class="capsline caps-ico">
+        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><b>Made in the USA</b></span>
+        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>FDA-registered facility</span>
+        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>cGMP certified</span>
+      </p>
+    </section>
+
+    <section class="demo" id="t4c">
+      <p class="tag option-tag">T4-C · Pastel capsule — soft eucalyptus pill around the line</p>
+      <div class="caps-capsule">
+        <p class="capsline"><b>Made in the USA</b><span class="sep">·</span>FDA-registered facility<span class="sep">·</span>cGMP certified</p>
+      </div>
+    </section>
+
+    <section class="demo" id="t4d">
+      <p class="tag option-tag">T4-D · Pastel band + icons — full grid width</p>
+      <div class="caps-band">
+        <p class="capsline caps-ico">
+          <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><b>Made in the USA</b></span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>FDA-registered facility</span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>cGMP certified</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="demo" id="t4e">
+      <p class="tag option-tag">T4-E · Between hairlines — letterpress rules</p>
+      <div class="caps-rules">
+        <p class="capsline"><b>Made in the USA</b><span class="sep">·</span>FDA-registered facility<span class="sep">·</span>cGMP certified</p>
+      </div>
+    </section>
+
+    <section class="demo" id="t4f">
+      <p class="tag option-tag">T4-F · Gold ticket — double thin frame, like a label detail</p>
+      <div class="caps-ticket">
+        <p class="capsline"><b>Made in the USA</b><span class="sep">·</span>FDA-registered facility<span class="sep">·</span>cGMP certified</p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
