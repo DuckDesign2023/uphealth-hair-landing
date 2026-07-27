@@ -405,7 +405,7 @@ a { color: inherit; }
   align-items: center;
 }
 .info-a-art { display: flex; justify-content: center; }
-.info-a-art img { width: min(480px, 100%); }
+.info-a-art img { width: min(520px, 100%); }
 .info-a-item {
   position: relative;
   padding: 1.5rem 0 1.5rem 2.2rem;
