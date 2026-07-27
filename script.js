@@ -1,37 +1,50 @@
-// Before/after slider — native horizontal scroll with snap + drag; dots reflect position.
+// Before/after slider — native scroll with snap; thumb scrollbar reflects and drives position.
 (function () {
   var root = document.querySelector('.ba');
   if (!root) return;
 
   var viewport = root.querySelector('.ba-viewport');
   var slides = root.querySelectorAll('.ba-slide');
-  var dotsWrap = root.querySelector('.ba-dots');
+  var bar = root.querySelector('.ba-scrollbar');
+  var thumb = root.querySelector('.ba-thumb');
+  var n = slides.length;
 
-  var dots = [];
-  slides.forEach(function (_, i) {
-    var d = document.createElement('button');
-    d.type = 'button';
-    d.className = 'ba-dot';
-    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    d.addEventListener('click', function () {
-      viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
-    });
-    dotsWrap.appendChild(d);
-    dots.push(d);
-  });
+  thumb.style.width = (100 / n) + '%';
+
+  function maxScroll() { return Math.max(1, viewport.scrollWidth - viewport.clientWidth); }
 
   function sync() {
-    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
-    i = Math.max(0, Math.min(slides.length - 1, i));
-    dots.forEach(function (d, k) {
-      if (k === i) d.setAttribute('aria-current', 'true');
-      else d.removeAttribute('aria-current');
-    });
+    var progress = viewport.scrollLeft / maxScroll();
+    thumb.style.left = (progress * (100 - 100 / n)) + '%';
   }
   viewport.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
   sync();
 
-  // Drag-to-scroll with the mouse (touch scrolls natively).
+  // Click on the track jumps to that position; dragging the thumb scrubs.
+  function barScrub(clientX) {
+    var r = bar.getBoundingClientRect();
+    var tw = r.width / n;
+    var progress = (clientX - r.left - tw / 2) / Math.max(1, r.width - tw);
+    progress = Math.max(0, Math.min(1, progress));
+    viewport.scrollLeft = progress * maxScroll();
+  }
+  var scrubbing = false;
+  bar.addEventListener('pointerdown', function (e) {
+    scrubbing = true;
+    viewport.classList.add('dragging');
+    bar.setPointerCapture(e.pointerId);
+    barScrub(e.clientX);
+  });
+  bar.addEventListener('pointermove', function (e) { if (scrubbing) barScrub(e.clientX); });
+  bar.addEventListener('pointerup', function () {
+    scrubbing = false;
+    viewport.classList.remove('dragging');
+    var i = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
+    viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
+  });
+
+  // Drag-to-scroll with the mouse on the photos too (touch scrolls natively).
   var down = null;
   viewport.addEventListener('pointerdown', function (e) {
     if (e.pointerType !== 'mouse') return;

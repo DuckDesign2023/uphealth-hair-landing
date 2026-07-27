@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -208,7 +208,7 @@
             </div>
             <div class="ba-nav">
               <span class="ba-hint" aria-hidden="true">drag to compare</span>
-              <div class="ba-dots" aria-label="Go to slide"></div>
+              <div class="ba-scrollbar" aria-hidden="true"><span class="ba-thumb"></span></div>
             </div>
             <p class="ba-note">Results shown after 3 months of daily use. Illustrative photography — replace with customer photos before launch.</p>
           </div>
@@ -328,55 +328,83 @@
             </div>
           </article>
         </div>
-        <ul class="shields">
-          <li class="shield">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
-            Made in the USA
-          </li>
-          <li class="shield">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-            FDA-registered facility
-          </li>
-          <li class="shield">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-            cGMP certified
-          </li>
-        </ul>
+        <ul class="seals">
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+    </span>
+    <b>Made in the USA</b>
+    <span>Formulated and bottled in the United States</span>
+  </li>
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span>
+    <b>FDA-Registered Facility</b>
+    <span>Produced in an FDA-registered facility</span>
+  </li>
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+    </span>
+    <b>cGMP Certified</b>
+    <span>Current Good Manufacturing Practice quality</span>
+  </li>
+</ul>
       </div>
     </section>
 
     <!-- ============ SIMPLE ============ -->
-    <section class="section" aria-labelledby="simple-title">
+    <section class="section" id="simple" aria-labelledby="simple-title">
       <div class="container">
         <div class="row-head">
           <h2 class="h2" id="simple-title">uphealth makes it <em>simple</em></h2>
           <a class="btn btn-dark" href="#products">Get started today</a>
         </div>
-        <div class="info-b">
-          <div class="info-b-line" aria-hidden="true"></div>
-          <div class="info-b-grid">
-            <div class="info-b-col">
-              <span class="time-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>
-                Morning · Botanical serum
-              </span>
-              <div class="scene scene-b"><img src="assets/info-drop-t.png" alt="Line illustration: a dropper applying a drop along the parting" loading="lazy"></div>
-              <h3>A drop along the parting</h3>
-              <p>On a clean, dry or towel-dried scalp: part your hair, apply a few drops
-                and comb through with your fingers.</p>
-            </div>
-            <div class="info-b-col">
-              <span class="time-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>
-                Evening · Peptide serum
-              </span>
-              <div class="scene scene-b"><img src="assets/info-massage-t.png" alt="Line illustration: fingertips massaging the scalp" loading="lazy"></div>
-              <h3>Two minutes of massage</h3>
-              <p>Work the serum in with your fingertips for 1–2 minutes before bed.
-                No rinsing, no grease.</p>
-            </div>
+        <div class="journey">
+          <div class="j-col">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.66 1.41"/></svg>
+              Morning
+            </span>
+            <div class="j-scene"><img src="assets/info-drop-t.png" alt="Line illustration: a drop applied along the parting" loading="lazy"></div>
+            <h3>Botanical serum</h3>
+            <p>On a clean, dry scalp: a few drops along the parting, comb through.</p>
+          </div>
+          <div class="j-col">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Daytime
+            </span>
+            <div class="j-scene"><img src="assets/info-bottle-t.png" alt="Line illustration: serum bottle with botanicals" loading="lazy"></div>
+            <h3>Nothing to do</h3>
+            <p>No grease, no rinsing — style your hair as usual.</p>
+          </div>
+          <div class="j-col">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></svg>
+              Evening
+            </span>
+            <div class="j-scene"><img src="assets/info-massage-t.png" alt="Line illustration: fingertips massaging the scalp" loading="lazy"></div>
+            <h3>Peptide serum</h3>
+            <p>A few drops on the scalp, massage with your fingertips for 1–2 minutes.</p>
+          </div>
+          <div class="j-col">
+            <span class="time-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Every day
+            </span>
+            <div class="j-scene"><img src="assets/info-follicle-t.png" alt="Line illustration: hair follicle in the scalp" loading="lazy"></div>
+            <h3>Stay consistent</h3>
+            <p>Hair grows slowly — the ritual works when it’s daily.</p>
           </div>
         </div>
+        <div class="months">
+          <div class="month"><b>Month 1</b><h4>Comfortable scalp</h4><p>Hydrated and calm — no itching, no tightness.</p></div>
+          <div class="month"><b>Month 2</b><h4>Easier styling</h4><p>Hair feels softer, smoother and easier to manage.</p></div>
+          <div class="month"><b>Month 3</b><h4>Visible fullness</h4><p>The parting looks narrower, hair visibly denser.*</p></div>
+        </div>
+        <p class="footnote">*Individual results vary. Cosmetic products.</p>
       </div>
     </section>
 
@@ -450,20 +478,29 @@
       </nav>
     </div>
     <div class="container">
-      <ul class="shields shields-footer">
-        <li class="shield">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
-          Made in the USA
-        </li>
-        <li class="shield">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          FDA-registered facility
-        </li>
-        <li class="shield">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          cGMP certified
-        </li>
-      </ul>
+      <ul class="seals seals-footer">
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>
+    </span>
+    <b>Made in the USA</b>
+    <span>Formulated and bottled in the United States</span>
+  </li>
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span>
+    <b>FDA-Registered Facility</b>
+    <span>Produced in an FDA-registered facility</span>
+  </li>
+  <li class="seal">
+    <span class="seal-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+    </span>
+    <b>cGMP Certified</b>
+    <span>Current Good Manufacturing Practice quality</span>
+  </li>
+</ul>
     </div>
     <div class="container footer-legal">
       <p>For external use only. Avoid contact with eyes. Keep out of reach of children.
@@ -489,6 +526,6 @@
     </div>
   </aside>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>

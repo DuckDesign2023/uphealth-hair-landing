@@ -106,9 +106,12 @@ a { color: inherit; }
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 .btn-dark { background: var(--btn); color: var(--paper); }
-.btn-dark:hover { background: var(--btn-hover); }
+.btn-dark:hover { background: var(--accent-deep); }
 .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
-.btn-ghost:hover { border-color: var(--accent); color: var(--ink); }
+.btn-ghost:hover {
+  border-color: var(--accent-deep); color: var(--accent-deep);
+  background: rgba(199, 126, 90, 0.08);
+}
 .btn-sm { height: 40px; padding-inline: 1.3rem; font-size: 0.92rem; }
 .btn-block { width: 100%; }
 
@@ -283,15 +286,27 @@ a { color: inherit; }
   justify-content: space-between;
   margin-top: 0.9rem;
 }
-.ba-hint { font-size: 0.82rem; color: var(--muted); }
-.ba-dots { display: flex; gap: 0.45rem; }
-.ba-dot {
-  width: 9px; height: 9px; border-radius: 50%;
-  border: 1px solid var(--muted);
-  background: transparent; padding: 0; cursor: pointer;
-  transition: background-color 0.18s ease, border-color 0.18s ease;
+.ba-hint { font-size: 0.82rem; color: var(--muted); flex: none; }
+.ba-scrollbar {
+  position: relative;
+  flex: 1; max-width: 300px;
+  height: 22px;
+  cursor: pointer;
 }
-.ba-dot[aria-current="true"] { background: var(--accent-deep); border-color: var(--accent-deep); }
+.ba-scrollbar::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 50%;
+  height: 3px; margin-top: -1.5px;
+  border-radius: 3px;
+  background: var(--line);
+}
+.ba-thumb {
+  position: absolute; top: 50%; margin-top: -3px;
+  height: 6px; border-radius: 6px;
+  background: var(--accent-deep);
+  cursor: grab;
+}
+.ba-thumb:active { cursor: grabbing; }
 .ba-note { margin-top: auto; padding-top: 0.8rem; font-size: 0.78rem; color: var(--muted); text-align: right; }
 
 /* ---------- Tiles ---------- */
@@ -424,6 +439,45 @@ a { color: inherit; }
 .tile-scene .scene { height: 180px; margin-bottom: 1.4rem; }
 .tile-scene h3 { width: auto; }
 .tile-scene p { margin-top: 0.45rem; padding-top: 0; max-width: 34ch; }
+
+/* ---------- Daily journey (makes it simple) ---------- */
+.journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+.journey::before {
+  content: "";
+  position: absolute; left: 3%; right: 3%; top: 23px;
+  border-top: 1.5px dashed rgba(78, 101, 87, 0.35);
+}
+.j-col {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.j-col .time-chip { height: 46px; }
+.j-scene {
+  height: 170px; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  margin-block: 1.2rem 0.9rem;
+}
+.j-scene img { max-height: 100%; max-width: 72%; width: auto; }
+.j-col h3 { font-size: 1.1rem; }
+.j-col p { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; max-width: 26ch; }
+.months {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem;
+  margin-top: clamp(2.2rem, 4vw, 3.2rem);
+}
+.month { border-top: 1.5px solid var(--accent-deep); padding-top: 0.9rem; }
+.month b {
+  font-family: var(--font-accent); font-style: italic; font-weight: 500;
+  color: var(--accent-deep); font-size: 1.1rem;
+}
+.month h4 { font-size: 1.02rem; margin-top: 0.25rem; }
+.month p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+#simple .footnote { margin-top: 1.3rem; }
 
 /* ---------- FAQ ---------- */
 .faq-grid {
@@ -597,27 +651,37 @@ a { color: inherit; }
 .cart-subtotal strong { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
 .cart-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
 
-/* ---------- Trust shields ---------- */
-.shields {
-  display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap;
-  margin-top: 2.2rem;
+/* ---------- Trust seals (stamp-like emblems) ---------- */
+.seals {
+  display: flex; gap: clamp(1.5rem, 5vw, 4rem); justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.6rem;
 }
-.shield {
-  display: inline-flex; gap: 0.55rem; align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.55rem 1.15rem;
-  font-size: 0.88rem; font-weight: 600;
-  color: var(--ink);
-  background: var(--paper);
+.seal {
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  text-align: center;
+  max-width: 200px;
 }
-.shield svg { width: 18px; height: 18px; color: var(--gold); }
-.shields-footer { margin-top: 0; padding-block: 1.5rem 0.3rem; }
-.shields-footer .shield {
-  background: transparent;
-  border-color: rgba(251, 249, 245, 0.28);
-  color: rgba(251, 249, 245, 0.9);
+.seal-mark {
+  position: relative;
+  width: 72px; height: 72px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
 }
+.seal-mark::before {
+  content: "";
+  position: absolute; inset: 4px;
+  border: 1px dashed rgba(176, 141, 87, 0.6);
+  border-radius: 50%;
+}
+.seal-mark svg { width: 28px; height: 28px; }
+.seal b { font-size: 0.95rem; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+.seal span { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.seals-footer { margin-top: 0; padding-block: 1.8rem 0.5rem; }
+.seals-footer .seal b { color: rgba(251, 249, 245, 0.95); }
+.seals-footer .seal span { color: rgba(251, 249, 245, 0.7); }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -670,6 +734,10 @@ a { color: inherit; }
   .info-b-grid { grid-template-columns: 1fr; }
   .info-b-line { display: none; }
   .scene-b { height: 210px; }
+  .journey { grid-template-columns: 1fr 1fr; }
+  .journey::before { display: none; }
+  .months { grid-template-columns: 1fr; }
+  .ba-nav { flex-wrap: wrap; }
   .row-head { align-items: flex-start; flex-direction: column; }
   .ba-nav { justify-content: space-between; }
   .hero-caption { flex-direction: column; gap: 0.3rem; }
