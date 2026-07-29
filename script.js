@@ -203,14 +203,16 @@
   render();
 })();
 
-// Only one FAQ answer open at a time.
+// Only one answer open at a time, scoped per accordion list.
 (function () {
-  var faqs = document.querySelectorAll('.faq-list details');
-  faqs.forEach(function (d) {
-    d.addEventListener('toggle', function () {
-      if (!d.open) return;
-      faqs.forEach(function (other) {
-        if (other !== d) other.open = false;
+  document.querySelectorAll('.faq-list').forEach(function (list) {
+    var faqs = list.querySelectorAll('details');
+    faqs.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        faqs.forEach(function (other) {
+          if (other !== d) other.open = false;
+        });
       });
     });
   });
