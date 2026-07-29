@@ -393,8 +393,17 @@ a { color: inherit; }
 /* ---------- Tiles ---------- */
 .tiles-3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.1rem;
+}
+
+/* circular quality stamp in the why-tiles */
+.stamp-lg { width: 156px; height: 156px; }
+.stamp-text {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 8.4px; font-weight: 600;
+  letter-spacing: 0.2em;
+  fill: var(--accent-deep);
 }
 .tile {
   background: var(--tile);
@@ -835,7 +844,7 @@ a { color: inherit; }
 @media (max-width: 1024px) {
   .results-grid { grid-template-columns: 1fr; }
   .results-copy .btn { margin-top: 1.6rem; }
-  .tiles-3 { grid-template-columns: 1fr; }
+  .tiles-3 { grid-template-columns: repeat(2, 1fr); }
   .tile { min-height: 0; }
   .tile p { padding-top: 0.2rem; }
   .info-a { grid-template-columns: 1fr; }
@@ -846,6 +855,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 720px) {
+  .tiles-3 { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .stats { grid-template-columns: 1fr; gap: 1.1rem; }
   .rev-track { grid-auto-columns: min(84vw, 340px); }
