@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="styles.css?v=22">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -122,6 +122,7 @@
             <div class="serum-buy">
               <span class="serum-price">$34.90</span>
               <button class="btn btn-dark add-to-cart" type="button" data-id="botanical" data-name="Botanical Growth Serum" data-price="34.90" data-img="assets/pack-botanical.png">Add to cart</button>
+              <a class="btn btn-ghost" href="product-botanical.html">Details</a>
             </div>
           </article>
           <article class="serum-panel serum-evening">
@@ -140,109 +141,161 @@
             <div class="serum-buy">
               <span class="serum-price">$39.90</span>
               <button class="btn btn-dark add-to-cart" type="button" data-id="peptide" data-name="Peptide Growth Serum" data-price="39.90" data-img="assets/pack-peptide.png">Add to cart</button>
+              <a class="btn btn-ghost" href="product-peptide.html">Details</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ RESULTS: stats + before/after slider ============ -->
+    <!-- ============ RESULTS: stats ============ -->
     <section class="section" id="results" aria-labelledby="results-title">
       <div class="container">
-        <div class="results-grid">
-          <div class="results-copy">
+        <div class="row-head">
+          <div>
             <p class="tag">Featured results</p>
             <h2 class="h2" id="results-title">Visibly thicker, <em>fuller</em> hair</h2>
-            <p class="lead">These lightweight, water-based formulas are designed to improve
-              the look of hair fullness and density with simple daily use. Show your scalp
-              some care — your hair will thank you, too.</p>
-
-            <div class="stats">
-              <div class="stat">
-                <p class="stat-value"><span class="count" data-target="90">0</span>%</p>
-                <p class="stat-caption">noticed an improvement in the look of <strong>fullness</strong> of their hair*</p>
-              </div>
-              <div class="stat">
-                <p class="stat-value"><span class="count" data-target="87">0</span>%</p>
-                <p class="stat-caption">saw an increase in how <strong>dense</strong> their hair looked*</p>
-              </div>
-              <div class="stat">
-                <p class="stat-value"><span class="count" data-target="82">0</span>%</p>
-                <p class="stat-caption">said their scalp felt <strong>healthier</strong> and more comfortable*</p>
-              </div>
-            </div>
-
-            <p class="footnote">*Results from a user self-assessment survey after 3 months of
-              daily use. Individual results may vary.</p>
-            <a class="btn btn-dark" href="#products">Shop the ritual</a>
           </div>
+          <p class="lead results-lead">These lightweight, water-based formulas are designed
+            to improve the look of hair fullness and density with simple daily use.</p>
+        </div>
 
-          <div class="ba" role="region" aria-roledescription="carousel" aria-label="Before and after results">
-            <div class="ba-viewport">
-              <div class="ba-track">
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p1-after.jpg" alt="Before and after comparison: the parting looks moderately narrower after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p1-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p2-after.jpg" alt="Before and after comparison: temples look filled in with new baby hairs after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p2-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p3-after.jpg" alt="Before and after comparison: the temples look modestly filled in after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p3-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p4-after.jpg" alt="Before and after comparison: the same straight hair looks moderately thicker after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p4-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p5-after.jpg" alt="Before and after comparison: the same tied ponytail looks moderately fuller after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p5-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-                <figure class="ba-slide">
-                  <div class="cmp">
-                    <img class="cmp-after" src="assets/cmp-p6-after.jpg" alt="Before and after comparison: the parting looks narrower and hair denser after three months" draggable="false">
-                    <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p6-before.jpg" alt="" draggable="false"></div>
-                    <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-                    <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
-                    <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
-                  </div>
-                </figure>
-              </div>
-            </div>
-            <div class="ba-nav">
-              <span class="ba-hint" aria-hidden="true">drag the handle to compare</span>
-              <div class="ba-dots" aria-label="Go to slide"></div>
-            </div>
-            <p class="ba-note">Results shown after 3 months of daily use. Illustrative photography — replace with customer photos before launch.</p>
+        <div class="stats stats-row">
+          <div class="stat">
+            <p class="stat-value"><span class="count" data-target="90">0</span>%</p>
+            <p class="stat-caption">noticed an improvement in the look of <strong>fullness</strong> of their hair*</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value"><span class="count" data-target="87">0</span>%</p>
+            <p class="stat-caption">saw an increase in how <strong>dense</strong> their hair looked*</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value"><span class="count" data-target="82">0</span>%</p>
+            <p class="stat-caption">said their scalp felt <strong>healthier</strong> and more comfortable*</p>
           </div>
         </div>
+
+        <div class="results-foot">
+          <p class="footnote">*Results from a user self-assessment survey after 3 months of
+            daily use. Individual results may vary.</p>
+          <a class="btn btn-dark" href="#products">Shop the ritual</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS: before/after with quotes ============ -->
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="row-head">
+          <div>
+            <p class="tag">Reviews</p>
+            <h2 class="h2" id="reviews-title">Real women, <em>real progress</em></h2>
+          </div>
+          <div class="rev-nav">
+            <button class="rev-btn" type="button" data-rev="-1" aria-label="Previous reviews">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="rev-btn" type="button" data-rev="1" aria-label="Next reviews">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <ul class="rev-track" aria-label="Customer results">
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p1-after.jpg" alt="Before and after four months: the parting looks slightly narrower" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p1-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 4</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;The first thing I noticed was my parting &mdash; it doesn&rsquo;t catch the light the way it used to.&rdquo;</p>
+          <footer><b>Anna, 38</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p3-after.jpg" alt="Before and after five months: the temples look modestly filled in" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p3-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 5</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;No overnight miracle. Just my temples slowly looking less empty than they did in spring.&rdquo;</p>
+          <footer><b>Olivia, 36</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p7-after.jpg" alt="Before and after six months: the parting at the crown looks modestly denser" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p7-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 6</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;Half a year in. My crown finally looks covered again when I catch it in the mirror.&rdquo;</p>
+          <footer><b>Marina, 47</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p4-after.jpg" alt="Before and after three months: the same straight hair looks a touch thicker at the roots" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p4-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 3</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;Three months of the two-step ritual. My ends are the same &mdash; it&rsquo;s the roots that look more alive.&rdquo;</p>
+          <footer><b>Sofia, 31</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p2-after.jpg" alt="Before and after six months: fine new baby hairs along the hairline" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p2-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 6</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;Around month four the baby hairs showed up along my hairline. By month six they were staying.&rdquo;</p>
+          <footer><b>Megan, 44</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p8-after.jpg" alt="Before and after six months: hair worn down looks slightly fuller at the crown" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p8-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 6</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;Slow and steady. Six months later my hair just sits fuller &mdash; no styling tricks.&rdquo;</p>
+          <footer><b>Kate, 41</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+      <li class="rev-card">
+        <div class="cmp">
+          <img class="cmp-after" src="assets/cmp-p6-after.jpg" alt="Before and after five months: the parting looks a little denser" loading="lazy" draggable="false">
+          <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-p6-before.jpg" alt="" loading="lazy" draggable="false"></div>
+          <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <span class="ba-cap ba-cap-l" aria-hidden="true">Month 0</span>
+          <span class="ba-cap ba-cap-r" aria-hidden="true">Month 5</span>
+        </div>
+        <blockquote class="rev-quote">
+          <p>&ldquo;My hairdresser asked what changed. That was month five.&rdquo;</p>
+          <footer><b>Diana, 39</b><span class="rev-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Verified review</span></footer>
+        </blockquote>
+      </li>
+        </ul>
+        <p class="rev-note">Drag the handle on any photo to compare. Timelines vary from person to person &mdash;
+          most women see the first change between months 3 and 6. Illustrative photography &mdash;
+          replace with customer photos before launch.</p>
       </div>
     </section>
 
@@ -555,6 +608,6 @@
     </div>
   </aside>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>

@@ -29,8 +29,11 @@
   });
   go(0);
 
-  // Compare handle: drag anywhere on the image to move the curtain.
-  root.querySelectorAll('.cmp').forEach(function (cmp) {
+})();
+
+// Compare handle (page-wide): drag anywhere on the image to move the curtain.
+(function () {
+  document.querySelectorAll('.cmp').forEach(function (cmp) {
     var active = false;
     function setPos(clientX) {
       var r = cmp.getBoundingClientRect();
@@ -46,6 +49,20 @@
     cmp.addEventListener('pointermove', function (e) { if (active) setPos(e.clientX); });
     cmp.addEventListener('pointerup', function () { active = false; });
     cmp.addEventListener('pointercancel', function () { active = false; });
+  });
+})();
+
+
+// Reviews carousel: arrow buttons scroll the snap track by one card.
+(function () {
+  var track = document.querySelector('.rev-track');
+  if (!track) return;
+  document.querySelectorAll('.rev-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var card = track.querySelector('.rev-card');
+      var step = card ? card.getBoundingClientRect().width + 18 : 320;
+      track.scrollBy({ left: step * (+b.dataset.rev), behavior: 'smooth' });
+    });
   });
 })();
 
