@@ -215,6 +215,7 @@ a { color: inherit; }
 /* ---------- Sections ---------- */
 .section { padding-block: clamp(4rem, 8vw, 6.5rem); }
 .section-band { background: var(--band); }
+.section-tight { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
 
 .row-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -652,9 +653,10 @@ a { color: inherit; }
 .ilist li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.93rem; font-weight: 500; }
 .ilist svg { flex: none; width: 19px; height: 19px; margin-top: 0.05em; color: var(--btn); }
 .serum-buy {
-  display: flex; align-items: center; justify-content: center; gap: 1.1rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
   margin-top: auto; padding-top: 1rem;
 }
+.serum-actions { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
 .serum-price {
   font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
