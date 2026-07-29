@@ -398,14 +398,18 @@ a { color: inherit; }
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem;
   margin-top: clamp(2rem, 4vw, 3rem);
 }
-.expert-photo {
-  position: relative; margin: 0;
+.expert-card {
+  display: grid; grid-template-columns: 1fr 1fr;
   border-radius: var(--radius); overflow: hidden;
   background: var(--tile);
   aspect-ratio: 16 / 11;
 }
-.expert-photo img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
-.expert-role { position: absolute; top: 0.95rem; right: 0.95rem; width: 47%; }
+.expert-photo { margin: 0; }
+.expert-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.expert-role {
+  padding: 1rem 1rem 1rem 1.15rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
 .expert-role b { display: block; font-size: 0.84rem; font-weight: 600; line-height: 1.3; }
 .expert-tags { list-style: none; margin: 0.55rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
 .expert-tags li {
