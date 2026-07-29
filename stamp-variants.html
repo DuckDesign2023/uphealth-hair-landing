@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality stamp — options</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=25">
+  <style>
+    .picker {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      background: var(--paper); border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem; font-size: 0.92rem;
+    }
+    .demo { padding-block: clamp(2.4rem, 4vw, 3.4rem); }
+    .stamp-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem;
+    }
+    .stamp-grid .tile-scene .scene img { max-width: 100%; max-height: 100%; }
+    .opt-code {
+      display: inline-block; margin-bottom: 0.9rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+    .opt-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+    @media (max-width: 1024px) { .stamp-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .stamp-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="picker" aria-label="Options">
+    <strong>uphealth</strong> · quality stamp for the “Why women choose” tile — pick S1–S4
+  </nav>
+
+  <main class="container">
+    <section class="demo">
+      <div class="stamp-grid">
+
+        <article class="tile tile-scene">
+          <span class="opt-code">S1 · Line drop</span>
+          <div class="scene"><img src="_generated/stamp-s1-clean-gradient-t.png" alt="Stamp option S1"></div>
+          <h3>Working-dose actives</h3>
+          <p>Five peptides, botanical extracts and vitamins C&nbsp;+&nbsp;E &mdash; formulas
+            built around the actives, not the label.</p>
+          <p class="opt-note">Closest to the hims reference: gradient type, outline drop, no rings.</p>
+        </article>
+
+        <article class="tile tile-scene">
+          <span class="opt-code">S2 · Gold ring</span>
+          <div class="scene"><img src="_generated/stamp-s2-gold-ring-filled-drop-t.png" alt="Stamp option S2"></div>
+          <h3>Working-dose actives</h3>
+          <p>Five peptides, botanical extracts and vitamins C&nbsp;+&nbsp;E &mdash; formulas
+            built around the actives, not the label.</p>
+          <p class="opt-note">Double gold ring, solid gradient drop &mdash; a bolder classic seal.</p>
+        </article>
+
+        <article class="tile tile-scene">
+          <span class="opt-code">S3 · Wax seal</span>
+          <div class="scene"><img src="_generated/stamp-s3-eucalyptus-apothecary-t.png" alt="Stamp option S3"></div>
+          <h3>Working-dose actives</h3>
+          <p>Five peptides, botanical extracts and vitamins C&nbsp;+&nbsp;E &mdash; formulas
+            built around the actives, not the label.</p>
+          <p class="opt-note">Dimensional wax-seal look with the eucalyptus sprig &mdash; note: it is 3D, a step away from the site&rsquo;s flat style.</p>
+        </article>
+
+        <article class="tile tile-scene">
+          <span class="opt-code">S4 · Monogram</span>
+          <div class="scene"><img src="_generated/stamp-s4-monogram-u-t.png" alt="Stamp option S4"></div>
+          <h3>Working-dose actives</h3>
+          <p>Five peptides, botanical extracts and vitamins C&nbsp;+&nbsp;E &mdash; formulas
+            built around the actives, not the label.</p>
+          <p class="opt-note">Gold type with the brand &ldquo;u&rdquo; monogram in terracotta gradient.</p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
