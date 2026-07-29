@@ -390,6 +390,33 @@ a { color: inherit; }
 .rev-verified svg { width: 13px; height: 13px; color: var(--gold); }
 .rev-note { margin-top: 1.1rem; font-size: 0.78rem; color: var(--muted); max-width: 72ch; }
 
+/* ---------- Experts (hims-style advisory board) ---------- */
+.experts-head { text-align: center; }
+.experts-head .h2 { margin-inline: auto; }
+.experts-sub { color: var(--muted); margin-top: 0.9rem; max-width: 52ch; margin-inline: auto; }
+.experts {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.expert-photo {
+  position: relative; margin: 0;
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--tile);
+  aspect-ratio: 16 / 11;
+}
+.expert-photo img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
+.expert-role { position: absolute; top: 0.95rem; right: 0.95rem; width: 47%; }
+.expert-role b { display: block; font-size: 0.84rem; font-weight: 600; line-height: 1.3; }
+.expert-tags { list-style: none; margin: 0.55rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.expert-tags li {
+  font-size: 0.75rem; color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 0.5rem; line-height: 1.35;
+}
+.expert-name { margin-top: 1.05rem; font-size: 1.02rem; }
+.expert-bio { font-size: 0.88rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.55; }
+.experts-note { margin-top: 1.6rem; }
+
 /* ---------- Tiles ---------- */
 .tiles-3 {
   display: grid;
@@ -846,6 +873,7 @@ a { color: inherit; }
   .results-grid { grid-template-columns: 1fr; }
   .results-copy .btn { margin-top: 1.6rem; }
   .tiles-3 { grid-template-columns: repeat(2, 1fr); }
+  .experts { grid-template-columns: repeat(2, 1fr); }
   .tile { min-height: 0; }
   .tile p { padding-top: 0.2rem; }
   .info-a { grid-template-columns: 1fr; }
@@ -857,6 +885,7 @@ a { color: inherit; }
 
 @media (max-width: 720px) {
   .tiles-3 { grid-template-columns: 1fr; }
+  .experts { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .stats { grid-template-columns: 1fr; gap: 1.1rem; }
   .rev-track { grid-auto-columns: min(84vw, 340px); }

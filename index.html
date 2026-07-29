@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=25">
+  <link rel="stylesheet" href="styles.css?v=26">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -317,26 +317,7 @@
               people in support if you have questions.</p>
           </article>
           <article class="tile tile-scene">
-            <div class="scene">
-              <svg class="stamp-lg" viewBox="0 0 200 200" role="img" aria-label="Five peptides, botanical actives, vitamins C and E">
-                <defs>
-                  <path id="stamp-arc" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/>
-                  <linearGradient id="stamp-grad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="var(--accent-deep)"/>
-                    <stop offset="1" stop-color="var(--accent)"/>
-                  </linearGradient>
-                </defs>
-                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="25%" text-anchor="middle">FIVE PEPTIDES</textPath></text>
-                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="58.33%" text-anchor="middle">BOTANICAL ACTIVES</textPath></text>
-                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="91.66%" text-anchor="middle">VITAMINS C&#8201;+&#8201;E</textPath></text>
-                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="8.33%" text-anchor="middle">&#183;</textPath></text>
-                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="41.66%" text-anchor="middle">&#183;</textPath></text>
-                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="75%" text-anchor="middle">&#183;</textPath></text>
-                <g transform="translate(63,60.5) scale(3.1)">
-                  <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" fill="none" stroke="url(#stamp-grad)" stroke-width="0.78" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-              </svg>
-            </div>
+            <div class="scene"><img src="assets/stamp-actives.png" alt="Circular seal: five peptides, botanical actives, vitamins C plus E, with the uphealth monogram" loading="lazy"></div>
             <h3>Working-dose actives</h3>
             <p>Five peptides, botanical extracts and vitamins C&nbsp;+&nbsp;E &mdash; formulas
               built around the actives, not the label.</p>
@@ -581,6 +562,69 @@
         </div>
       </div>
     </section>
+    <!-- ============ EXPERTS ============ -->
+    <section class="section" id="experts" aria-labelledby="experts-title">
+      <div class="container">
+        <header class="experts-head">
+          <h2 class="h2" id="experts-title">The best care, <em>by the best in hair science</em></h2>
+          <p class="experts-sub">Meet the specialists who guide our formulas &mdash; decades of combined
+            experience in dermatology, trichology and cosmetic chemistry.</p>
+        </header>
+        <div class="experts">
+          <article class="expert">
+            <figure class="expert-photo">
+              <img src="assets/expert-1.jpg" alt="Dr. Emily Hart, dermatology advisor" loading="lazy">
+              <div class="expert-role">
+                <b>Dermatology Advisor</b>
+                <ul class="expert-tags"><li>Scalp Health</li><li>Sensitive Skin</li></ul>
+              </div>
+            </figure>
+            <h3 class="expert-name">Dr. Emily Hart, MD</h3>
+            <p class="expert-bio">A board-certified dermatologist focused on scalp health, Dr. Hart
+              reviews every formula for skin comfort and daily-use safety.</p>
+          </article>
+          <article class="expert">
+            <figure class="expert-photo">
+              <img src="assets/expert-2.jpg?v=2" alt="Dr. Mei Lin, trichology advisor" loading="lazy">
+              <div class="expert-role">
+                <b>Trichology Advisor</b>
+                <ul class="expert-tags"><li>Hair Density</li><li>Hair Cycle</li></ul>
+              </div>
+            </figure>
+            <h3 class="expert-name">Dr. Mei Lin, MD</h3>
+            <p class="expert-bio">A trichologist who has spent fifteen years studying the growth cycle,
+              Dr. Lin shaped how the two serums split their work between morning and night.</p>
+          </article>
+          <article class="expert">
+            <figure class="expert-photo">
+              <img src="assets/expert-3.jpg" alt="Maria Keller, head of formulation" loading="lazy">
+              <div class="expert-role">
+                <b>Head of Formulation</b>
+                <ul class="expert-tags"><li>Peptides</li><li>Botanical Actives</li></ul>
+              </div>
+            </figure>
+            <h3 class="expert-name">Maria Keller, PhD</h3>
+            <p class="expert-bio">A cosmetic chemist with two decades in actives, Maria balances peptide
+              concentrations with gentle, water-based botanical bases.</p>
+          </article>
+          <article class="expert">
+            <figure class="expert-photo">
+              <img src="assets/expert-4.jpg" alt="Dr. Daniel Moore, women&rsquo;s health advisor" loading="lazy">
+              <div class="expert-role">
+                <b>Women&rsquo;s Health Advisor</b>
+                <ul class="expert-tags"><li>Hormonal Changes</li><li>Hair After 30</li></ul>
+              </div>
+            </figure>
+            <h3 class="expert-name">Dr. Daniel Moore, MD</h3>
+            <p class="expert-bio">A physician focused on women&rsquo;s health, Dr. Moore advises on how
+              hormonal shifts after 30 change what hair and scalp need.</p>
+          </article>
+        </div>
+        <p class="footnote experts-note">Advisory board shown for layout purposes &mdash; replace with your
+          real experts before launch.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
