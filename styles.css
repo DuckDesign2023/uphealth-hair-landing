@@ -397,14 +397,15 @@ a { color: inherit; }
   gap: 1.1rem;
 }
 
-/* circular quality stamp in the why-tiles */
-.stamp-lg { width: 156px; height: 156px; }
+/* circular quality stamp in the why-tiles (hims-style: type only, no rings) */
+.stamp-lg { width: 180px; height: 180px; }
 .stamp-text {
   font-family: "Hanken Grotesk", sans-serif;
-  font-size: 8.4px; font-weight: 600;
-  letter-spacing: 0.2em;
-  fill: var(--accent-deep);
+  font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.22em;
+  fill: url(#stamp-grad);
 }
+.stamp-dot { font-size: 13px; font-weight: 700; fill: var(--gold); }
 .tile {
   background: var(--tile);
   border-radius: var(--radius);

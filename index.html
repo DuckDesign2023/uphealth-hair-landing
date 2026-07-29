@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=24">
+  <link rel="stylesheet" href="styles.css?v=25">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
 </head>
 <body>
@@ -318,13 +318,22 @@
           </article>
           <article class="tile tile-scene">
             <div class="scene">
-              <svg class="stamp-lg" viewBox="0 0 120 120" role="img" aria-label="Five peptides, botanical actives, vitamins C and E">
-                <defs><path id="why-stamp-ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-                <circle cx="60" cy="60" r="57" fill="none" stroke="var(--gold)" stroke-width="1"/>
-                <circle cx="60" cy="60" r="32" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
-                <text class="stamp-text"><textPath href="#why-stamp-ring" startOffset="2%">FIVE PEPTIDES &#183; BOTANICAL ACTIVES &#183; VITAMINS C+E</textPath></text>
-                <g transform="translate(47,47)">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--btn)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+              <svg class="stamp-lg" viewBox="0 0 200 200" role="img" aria-label="Five peptides, botanical actives, vitamins C and E">
+                <defs>
+                  <path id="stamp-arc" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/>
+                  <linearGradient id="stamp-grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="var(--accent-deep)"/>
+                    <stop offset="1" stop-color="var(--accent)"/>
+                  </linearGradient>
+                </defs>
+                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="25%" text-anchor="middle">FIVE PEPTIDES</textPath></text>
+                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="58.33%" text-anchor="middle">BOTANICAL ACTIVES</textPath></text>
+                <text class="stamp-text"><textPath href="#stamp-arc" startOffset="91.66%" text-anchor="middle">VITAMINS C&#8201;+&#8201;E</textPath></text>
+                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="8.33%" text-anchor="middle">&#183;</textPath></text>
+                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="41.66%" text-anchor="middle">&#183;</textPath></text>
+                <text class="stamp-dot"><textPath href="#stamp-arc" startOffset="75%" text-anchor="middle">&#183;</textPath></text>
+                <g transform="translate(63,60.5) scale(3.1)">
+                  <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" fill="none" stroke="url(#stamp-grad)" stroke-width="0.78" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
               </svg>
             </div>
