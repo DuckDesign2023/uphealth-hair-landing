@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uphealth for men — colour direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:#F4F2EE; color:#2E2224;
+    font:400 16px/1.55 "Hanken Grotesk",system-ui,sans-serif;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .page-head{padding:56px 0 8px}
+  .page-head h1{font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;font-weight:600}
+  .page-head p{margin:0;max-width:64ch;color:#6E625F}
+  .rule{height:1px;background:rgba(46,34,36,.14);margin:40px 0}
+
+  h2.blk{font-size:13px;font-weight:600;margin:0 0 18px;color:#6E625F}
+  h3.opt{font-size:26px;letter-spacing:-.01em;margin:0 0 4px;font-weight:600}
+  .opt-note{margin:0 0 22px;color:#6E625F;max-width:70ch}
+
+  /* ---------- source swatches ---------- */
+  .src{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+  .src-item{background:#fff;border:1px solid rgba(46,34,36,.14);border-radius:14px;overflow:hidden}
+  .src-chip{height:78px}
+  .src-txt{padding:11px 13px 13px}
+  .src-txt b{display:block;font-size:14px;font-weight:600}
+  .src-txt code{font-size:12px;color:#6E625F;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .src-txt i{display:block;font-size:12.5px;color:#6E625F;font-style:normal;margin-top:5px}
+
+  /* ---------- option shell ---------- */
+  .option{margin:0 0 12px}
+  .tokens{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:10px;margin:0 0 26px}
+  .tok{border:1px solid rgba(46,34,36,.14);border-radius:12px;overflow:hidden;background:#fff}
+  .tok-chip{height:56px;border-bottom:1px solid rgba(46,34,36,.10)}
+  .tok-txt{padding:9px 11px 11px}
+  .tok-txt b{display:block;font-size:12.5px;font-weight:600;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .tok-txt code{font-size:11.5px;color:#6E625F;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .tok-txt i{display:block;font-size:11.5px;color:#6E625F;font-style:normal;margin-top:4px}
+
+  /* ---------- live demo (uses option tokens) ---------- */
+  .demo{
+    border:1px solid var(--line); border-radius:20px; overflow:hidden;
+    background:var(--paper); color:var(--ink);
+  }
+  .demo-bar{
+    display:flex;align-items:center;gap:22px;
+    padding:16px 26px;border-bottom:1px solid var(--line);
+  }
+  .demo-logo{font-size:19px;font-weight:600;letter-spacing:-.01em}
+  .demo-logo span{color:var(--accent)}
+  .demo-nav{display:flex;gap:20px;margin-left:8px;font-size:14px;color:var(--muted)}
+  .demo-bar .btn{margin-left:auto}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    height:46px;padding:0 22px;border-radius:999px;border:1px solid transparent;
+    font:500 15px/1 inherit;font-family:inherit;text-decoration:none;cursor:pointer;
+  }
+  .btn-dark{background:var(--btn);color:var(--paper)}
+  .btn-dark:hover{background:var(--btn-hover)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
+  .btn-sm{height:38px;padding:0 17px;font-size:14px}
+
+  .demo-hero{padding:38px 26px 34px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+  .demo-hero h4{font-size:40px;line-height:1.06;letter-spacing:-.025em;margin:0;font-weight:600}
+  .demo-hero h4 em{font-style:normal;color:var(--accent)}
+  .checks{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:11px;font-size:15px}
+  .checks li{display:flex;gap:11px;align-items:flex-start}
+  .checks svg{width:19px;height:19px;flex:none;color:var(--accent);margin-top:1px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap}
+
+  .demo-band{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .stat b{display:block;font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1}
+  .stat span{display:block;font-size:13.5px;color:var(--muted);margin-top:7px;max-width:26ch}
+
+  .demo-grid{padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .card{background:var(--tile);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .pill{
+    display:inline-block;background:var(--accent);color:#fff;
+    border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:500;
+  }
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:15px 0 14px}
+  .ba div{
+    aspect-ratio:1/1;background:var(--mist);border:1px solid var(--line);border-radius:12px;
+    display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;
+    font-size:12.5px;color:var(--muted);
+  }
+  .quote{margin:0;font-size:15.5px;line-height:1.5}
+  .quote mark{background:none;color:var(--accent);font-weight:500}
+  .quote footer{margin-top:11px;font-size:13.5px;color:var(--muted)}
+  .quote footer b{color:var(--ink);font-weight:600}
+
+  .prod{display:flex;gap:18px;align-items:flex-start}
+  .prod-media{
+    width:126px;flex:none;aspect-ratio:3/4;background:var(--mist);
+    border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;overflow:hidden;
+  }
+  .prod-media img{width:82%;height:auto;display:block}
+  .prod h5{margin:2px 0 6px;font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .prod-price{margin:0 0 6px;font-size:14.5px;color:var(--muted)}
+  .prod-price strong{color:var(--ink);font-weight:600}
+  .prod-copy{margin:0 0 14px;font-size:14px;color:var(--muted)}
+  .copper-note{font-size:12.5px;color:var(--copper);margin:14px 0 0}
+
+  .contrast{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+  .cbadge{
+    font-size:12px;border:1px solid rgba(46,34,36,.14);border-radius:999px;
+    padding:5px 11px;color:#6E625F;background:#fff;
+  }
+  .cbadge b{color:#2E2224;font-weight:600}
+
+  /* ---------- the three options ---------- */
+  .opt-a{
+    --paper:#FAF8F2; --band:#F3EDE3; --mist:#EFE8DF; --tile:#F7F3EB;
+    --ink:#2E2224; --muted:#6E625F; --btn:#3F292D; --btn-hover:#8A3A34;
+    --accent:#8A3A34; --accent-deep:#6E2B26; --copper:#96644A;
+    --line:rgba(46,34,36,.15);
+  }
+  .opt-b{
+    --paper:#FBF8F3; --band:#F2ECE2; --mist:#EDE5D9; --tile:#F8F4EC;
+    --ink:#33291F; --muted:#6F6459; --btn:#2D2620; --btn-hover:#98603E;
+    --accent:#98603E; --accent-deep:#7A4A2C; --copper:#C48A66;
+    --line:rgba(51,41,31,.15);
+  }
+  .opt-c{
+    --paper:#FAF8F3; --band:#F1F0EC; --mist:#EAE8E2; --tile:#F6F5F1;
+    --ink:#23211F; --muted:#66625E; --btn:#1C1B1A; --btn-hover:#8A3A34;
+    --accent:#8A3A34; --accent-deep:#6E2B26; --copper:#9A7B62;
+    --line:rgba(35,33,31,.14);
+  }
+
+  /* ---------- typography options ---------- */
+  .type-opts{display:grid;gap:16px}
+  .type-card{
+    background:#FAF8F2;border:1px solid rgba(46,34,36,.14);border-radius:16px;padding:24px 26px;
+  }
+  .type-card p.meta{margin:0 0 14px;font-size:13px;color:#6E625F}
+  .type-card p.meta b{color:#2E2224;font-weight:600}
+  .type-card .sample{font-size:34px;line-height:1.08;letter-spacing:-.025em;font-weight:600;margin:0 0 10px}
+  .type-card .sample em{font-style:normal;color:#8A3A34}
+  .type-card .body{margin:0;font-size:15px;max-width:72ch;color:#4A4042}
+  .t1{font-family:"Hanken Grotesk",system-ui,sans-serif}
+  .t2{font-family:"Figtree",system-ui,sans-serif}
+  .t3{font-family:"Instrument Sans",system-ui,sans-serif}
+
+  .close{padding:8px 0 70px}
+  .close p{max-width:70ch;color:#6E625F}
+  .close b{color:#2E2224}
+
+  @media (max-width:900px){
+    .demo-hero{grid-template-columns:1fr;gap:24px}
+    .demo-grid{grid-template-columns:1fr}
+    .demo-nav{display:none}
+    .stats{grid-template-columns:1fr;gap:16px}
+    .page-head h1{font-size:30px}
+    .demo-hero h4{font-size:31px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>uphealth for men — colour direction</h1>
+    <p>Three token sets built from colours sampled live off <a href="https://www.hims.com/hair-loss">hims.com/hair-loss</a>
+      (30 Jul 2026). Every option is shown on real components — header, hero, stat band, review card,
+      product card — so the choice is made on the thing itself, not on swatches. Pick A, B or C
+      (or mix: e.g. “A but with B’s accent”), and the men’s stylesheet gets built on it.</p>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ================= SOURCE ================= -->
+  <h2 class="blk">What hims actually uses</h2>
+  <div class="src">
+    <div class="src-item"><div class="src-chip" style="background:#FAF8F2"></div>
+      <div class="src-txt"><b>Page cream</b><code>#FAF8F2</code><i>hero background, brand secondary s100</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#EAE1D7"></div>
+      <div class="src-txt"><b>Warm sand</b><code>#EAE1D7</code><i>secondary s400 — panels, photo mats</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#8A3A34"></div>
+      <div class="src-txt"><b>Brick</b><code>#8A3A34</code><i>the one accent: problem pills, check marks, quote highlights</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#96644A"></div>
+      <div class="src-txt"><b>Copper</b><code>#96644A</code><i>brand primary p500 — logo tint, fine details</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#332124"></div>
+      <div class="src-txt"><b>Espresso</b><code>#332124</code><i>brand dark accent ada900</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#F7F7F7"></div>
+      <div class="src-txt"><b>Neutral tile</b><code>#F7F7F7</code><i>card fill on the hair-loss page</i></div></div>
+    <div class="src-item"><div class="src-chip" style="background:#000"></div>
+      <div class="src-txt"><b>Button black</b><code>#000000</code><i>every primary button on the live page</i></div></div>
+  </div>
+  <p class="opt-note" style="margin-top:18px">Worth knowing: the hims <em>brand</em> is warm and creamy, but the hair-loss
+    page itself runs cooler — near-white cards and pure black buttons. Option A follows the brand, C follows
+    the page, B pushes the whole thing warmer and softer.</p>
+
+  <div class="rule"></div>
+
+  <!-- ================= OPTION A ================= -->
+  <section class="option opt-a">
+    <h3 class="opt">Option A — Espresso &amp; Brick</h3>
+    <p class="opt-note">The hims brand palette, straight. Warm cream page, espresso-brown text and buttons,
+      brick as the single accent. Warm and calm — furthest in mood from the women’s green version while
+      staying in the same “quiet clinic” family. <b>Recommended.</b></p>
+
+    <div class="tokens">
+      <div class="tok"><div class="tok-chip" style="background:#FAF8F2"></div><div class="tok-txt"><b>--paper</b><code>#FAF8F2</code><i>page</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F3EDE3"></div><div class="tok-txt"><b>--band</b><code>#F3EDE3</code><i>section band</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#EFE8DF"></div><div class="tok-txt"><b>--mist</b><code>#EFE8DF</code><i>photo mat</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F7F3EB"></div><div class="tok-txt"><b>--tile</b><code>#F7F3EB</code><i>cards</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#2E2224"></div><div class="tok-txt"><b>--ink</b><code>#2E2224</code><i>text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#6E625F"></div><div class="tok-txt"><b>--muted</b><code>#6E625F</code><i>secondary text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#3F292D"></div><div class="tok-txt"><b>--btn</b><code>#3F292D</code><i>primary button</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#8A3A34"></div><div class="tok-txt"><b>--accent</b><code>#8A3A34</code><i>accent + hover</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#96644A"></div><div class="tok-txt"><b>--copper</b><code>#96644A</code><i>fine details</i></div></div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-bar">
+        <div class="demo-logo">uphealth <span>for men</span></div>
+        <nav class="demo-nav"><a style="color:inherit;text-decoration:none">Results</a><a style="color:inherit;text-decoration:none">How it works</a><a style="color:inherit;text-decoration:none">Products</a><a style="color:inherit;text-decoration:none">FAQ</a></nav>
+        <a class="btn btn-dark btn-sm" href="#a">Order now</a>
+      </div>
+      <div class="demo-hero">
+        <h4>Your hairline is<br>telling you <em>something</em></h4>
+        <div>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Two serums, morning and night — 40 seconds each</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Five peptides at working dose, no prescription</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Made in the USA, 30-day guarantee</li>
+          </ul>
+          <div class="cta">
+            <a class="btn btn-dark" href="#a">Start the routine</a>
+            <a class="btn btn-ghost" href="#a">How it works</a>
+          </div>
+        </div>
+      </div>
+      <div class="demo-band">
+        <div class="stats">
+          <div class="stat"><b>90%</b><span>saw the look of density improve after three months*</span></div>
+          <div class="stat"><b>87%</b><span>said the hairline looked less exposed*</span></div>
+          <div class="stat"><b>82%</b><span>reported a calmer, less itchy scalp*</span></div>
+        </div>
+      </div>
+      <div class="demo-grid">
+        <div class="card">
+          <span class="pill">Receding hairline</span>
+          <div class="ba"><div>Month 0</div><div>Month 6</div></div>
+          <blockquote class="quote">
+            <p>“I stopped combing hair forward to cover the corners. <mark>That’s the whole review.</mark>”</p>
+            <footer><b>Marcus, 34</b> · Verified review</footer>
+          </blockquote>
+        </div>
+        <div class="card">
+          <div class="prod">
+            <div class="prod-media"><img src="../assets/pack-peptide.png" alt="Peptide Growth Serum bottle"></div>
+            <div>
+              <h5>Peptide Growth Serum</h5>
+              <p class="prod-price">30 ml — <strong>$39.90</strong></p>
+              <p class="prod-copy">Five peptides on the scalp every evening. Ten seconds, then bed.</p>
+              <div class="cta"><a class="btn btn-dark btn-sm" href="#a">Add to cart</a><a class="btn btn-ghost btn-sm" href="#a">Details</a></div>
+              <p class="copper-note">Copper is reserved for hairlines like this — seals, footnotes, dividers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contrast">
+      <span class="cbadge">ink on paper <b>14.4:1</b></span>
+      <span class="cbadge">muted on paper <b>5.5:1</b></span>
+      <span class="cbadge">accent on paper <b>7.2:1</b></span>
+      <span class="cbadge">white on accent <b>7.7:1</b></span>
+      <span class="cbadge">white on button <b>13.4:1</b></span>
+      <span class="cbadge">copper on paper <b>4.7:1</b> — icons &amp; 15px+ only</span>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ================= OPTION B ================= -->
+  <section class="option opt-b">
+    <h3 class="opt">Option B — Copper &amp; Tobacco</h3>
+    <p class="opt-note">Warmer and lighter. Copper replaces brick as the accent, text goes tobacco-brown
+      rather than espresso. Reads friendlier and more “grooming shelf”, less clinic — and it is the softest
+      of the three, which is a risk if the men’s tone should feel matter-of-fact.</p>
+
+    <div class="tokens">
+      <div class="tok"><div class="tok-chip" style="background:#FBF8F3"></div><div class="tok-txt"><b>--paper</b><code>#FBF8F3</code><i>page</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F2ECE2"></div><div class="tok-txt"><b>--band</b><code>#F2ECE2</code><i>section band</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#EDE5D9"></div><div class="tok-txt"><b>--mist</b><code>#EDE5D9</code><i>photo mat</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F8F4EC"></div><div class="tok-txt"><b>--tile</b><code>#F8F4EC</code><i>cards</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#33291F"></div><div class="tok-txt"><b>--ink</b><code>#33291F</code><i>text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#6F6459"></div><div class="tok-txt"><b>--muted</b><code>#6F6459</code><i>secondary text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#2D2620"></div><div class="tok-txt"><b>--btn</b><code>#2D2620</code><i>primary button</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#98603E"></div><div class="tok-txt"><b>--accent</b><code>#98603E</code><i>accent + hover</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#C48A66"></div><div class="tok-txt"><b>--copper</b><code>#C48A66</code><i>fine details</i></div></div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-bar">
+        <div class="demo-logo">uphealth <span>for men</span></div>
+        <nav class="demo-nav"><a style="color:inherit;text-decoration:none">Results</a><a style="color:inherit;text-decoration:none">How it works</a><a style="color:inherit;text-decoration:none">Products</a><a style="color:inherit;text-decoration:none">FAQ</a></nav>
+        <a class="btn btn-dark btn-sm" href="#b">Order now</a>
+      </div>
+      <div class="demo-hero">
+        <h4>Your hairline is<br>telling you <em>something</em></h4>
+        <div>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Two serums, morning and night — 40 seconds each</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Five peptides at working dose, no prescription</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Made in the USA, 30-day guarantee</li>
+          </ul>
+          <div class="cta">
+            <a class="btn btn-dark" href="#b">Start the routine</a>
+            <a class="btn btn-ghost" href="#b">How it works</a>
+          </div>
+        </div>
+      </div>
+      <div class="demo-band">
+        <div class="stats">
+          <div class="stat"><b>90%</b><span>saw the look of density improve after three months*</span></div>
+          <div class="stat"><b>87%</b><span>said the hairline looked less exposed*</span></div>
+          <div class="stat"><b>82%</b><span>reported a calmer, less itchy scalp*</span></div>
+        </div>
+      </div>
+      <div class="demo-grid">
+        <div class="card">
+          <span class="pill">Receding hairline</span>
+          <div class="ba"><div>Month 0</div><div>Month 6</div></div>
+          <blockquote class="quote">
+            <p>“I stopped combing hair forward to cover the corners. <mark>That’s the whole review.</mark>”</p>
+            <footer><b>Marcus, 34</b> · Verified review</footer>
+          </blockquote>
+        </div>
+        <div class="card">
+          <div class="prod">
+            <div class="prod-media"><img src="../assets/pack-peptide.png" alt="Peptide Growth Serum bottle"></div>
+            <div>
+              <h5>Peptide Growth Serum</h5>
+              <p class="prod-price">30 ml — <strong>$39.90</strong></p>
+              <p class="prod-copy">Five peptides on the scalp every evening. Ten seconds, then bed.</p>
+              <div class="cta"><a class="btn btn-dark btn-sm" href="#b">Add to cart</a><a class="btn btn-ghost btn-sm" href="#b">Details</a></div>
+              <p class="copper-note">Copper is reserved for hairlines like this — seals, footnotes, dividers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contrast">
+      <span class="cbadge">ink on paper <b>13.4:1</b></span>
+      <span class="cbadge">muted on paper <b>5.4:1</b></span>
+      <span class="cbadge">accent on paper <b>4.9:1</b></span>
+      <span class="cbadge">white on accent <b>5.2:1</b></span>
+      <span class="cbadge">white on button <b>14.9:1</b></span>
+      <span class="cbadge">copper #C48A66 <b>decor only</b> — 2.8:1, never for text</span>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ================= OPTION C ================= -->
+  <section class="option opt-c">
+    <h3 class="opt">Option C — Graphite &amp; Brick</h3>
+    <p class="opt-note">What the hims hair-loss page actually looks like: cream paper, but neutral grey
+      bands and a near-black button. Brick is the only warm thing on the page, so it hits harder.
+      The most matter-of-fact of the three; also the coldest, and the least connected to the
+      warm uphealth store.</p>
+
+    <div class="tokens">
+      <div class="tok"><div class="tok-chip" style="background:#FAF8F3"></div><div class="tok-txt"><b>--paper</b><code>#FAF8F3</code><i>page</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F1F0EC"></div><div class="tok-txt"><b>--band</b><code>#F1F0EC</code><i>section band</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#EAE8E2"></div><div class="tok-txt"><b>--mist</b><code>#EAE8E2</code><i>photo mat</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#F6F5F1"></div><div class="tok-txt"><b>--tile</b><code>#F6F5F1</code><i>cards</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#23211F"></div><div class="tok-txt"><b>--ink</b><code>#23211F</code><i>text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#66625E"></div><div class="tok-txt"><b>--muted</b><code>#66625E</code><i>secondary text</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#1C1B1A"></div><div class="tok-txt"><b>--btn</b><code>#1C1B1A</code><i>primary button</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#8A3A34"></div><div class="tok-txt"><b>--accent</b><code>#8A3A34</code><i>accent + hover</i></div></div>
+      <div class="tok"><div class="tok-chip" style="background:#9A7B62"></div><div class="tok-txt"><b>--copper</b><code>#9A7B62</code><i>fine details</i></div></div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-bar">
+        <div class="demo-logo">uphealth <span>for men</span></div>
+        <nav class="demo-nav"><a style="color:inherit;text-decoration:none">Results</a><a style="color:inherit;text-decoration:none">How it works</a><a style="color:inherit;text-decoration:none">Products</a><a style="color:inherit;text-decoration:none">FAQ</a></nav>
+        <a class="btn btn-dark btn-sm" href="#c">Order now</a>
+      </div>
+      <div class="demo-hero">
+        <h4>Your hairline is<br>telling you <em>something</em></h4>
+        <div>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Two serums, morning and night — 40 seconds each</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Five peptides at working dose, no prescription</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Made in the USA, 30-day guarantee</li>
+          </ul>
+          <div class="cta">
+            <a class="btn btn-dark" href="#c">Start the routine</a>
+            <a class="btn btn-ghost" href="#c">How it works</a>
+          </div>
+        </div>
+      </div>
+      <div class="demo-band">
+        <div class="stats">
+          <div class="stat"><b>90%</b><span>saw the look of density improve after three months*</span></div>
+          <div class="stat"><b>87%</b><span>said the hairline looked less exposed*</span></div>
+          <div class="stat"><b>82%</b><span>reported a calmer, less itchy scalp*</span></div>
+        </div>
+      </div>
+      <div class="demo-grid">
+        <div class="card">
+          <span class="pill">Receding hairline</span>
+          <div class="ba"><div>Month 0</div><div>Month 6</div></div>
+          <blockquote class="quote">
+            <p>“I stopped combing hair forward to cover the corners. <mark>That’s the whole review.</mark>”</p>
+            <footer><b>Marcus, 34</b> · Verified review</footer>
+          </blockquote>
+        </div>
+        <div class="card">
+          <div class="prod">
+            <div class="prod-media"><img src="../assets/pack-peptide.png" alt="Peptide Growth Serum bottle"></div>
+            <div>
+              <h5>Peptide Growth Serum</h5>
+              <p class="prod-price">30 ml — <strong>$39.90</strong></p>
+              <p class="prod-copy">Five peptides on the scalp every evening. Ten seconds, then bed.</p>
+              <div class="cta"><a class="btn btn-dark btn-sm" href="#c">Add to cart</a><a class="btn btn-ghost btn-sm" href="#c">Details</a></div>
+              <p class="copper-note">Copper is reserved for hairlines like this — seals, footnotes, dividers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contrast">
+      <span class="cbadge">ink on paper <b>15.1:1</b></span>
+      <span class="cbadge">muted on paper <b>5.7:1</b></span>
+      <span class="cbadge">accent on paper <b>7.2:1</b></span>
+      <span class="cbadge">white on accent <b>7.7:1</b></span>
+      <span class="cbadge">white on button <b>17.2:1</b></span>
+      <span class="cbadge">copper on paper <b>3.7:1</b> — icons &amp; 19px+ only</span>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <h2 class="blk">Typeface — a second, smaller call</h2>
+  <div class="type-opts">
+    <div class="type-card t1">
+      <p class="meta"><b>T1 · Hanken Grotesk</b> — same family as the women’s version, no serif italic.
+        One brand voice across both landings; accent words carry colour instead of a different typeface.</p>
+      <p class="sample">Thinning at the crown <em>is not a personality trait</em></p>
+      <p class="body">Two serums. One in the morning, one at night. Peptides feed the follicle, botanicals
+        keep the scalp calm. Give it three months of daily use before you judge it.</p>
+    </div>
+    <div class="type-card t2">
+      <p class="meta"><b>T2 · Figtree</b> — geometric, wide, American D2C. Closest of the free faces to hims’
+        own CareSans; headlines look more confident, body a touch more generic.</p>
+      <p class="sample">Thinning at the crown <em>is not a personality trait</em></p>
+      <p class="body">Two serums. One in the morning, one at night. Peptides feed the follicle, botanicals
+        keep the scalp calm. Give it three months of daily use before you judge it.</p>
+    </div>
+    <div class="type-card t3">
+      <p class="meta"><b>T3 · Instrument Sans</b> — narrower and more technical. Fits the “clinic, not
+        cosmetics” tone best; tightest of the three at large headline sizes.</p>
+      <p class="sample">Thinning at the crown <em>is not a personality trait</em></p>
+      <p class="body">Two serums. One in the morning, one at night. Peptides feed the follicle, botanicals
+        keep the scalp calm. Give it three months of daily use before you judge it.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="close">
+    <p>Recommendation: <b>Option A + T1</b>. A is the hims brand palette read honestly, and it is the
+      cleanest break from the women’s eucalyptus green without inventing a colour that has nothing to do
+      with either reference. T1 keeps one type voice across both landings, which matters if the two pages
+      ever sit side by side in the same store.</p>
+  </div>
+</div>
+
+</body>
+</html>
