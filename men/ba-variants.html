@@ -41,6 +41,12 @@
     background:rgba(250,248,243,.92);color:var(--ink);padding:.3rem .8rem;border-radius:999px;pointer-events:none}
   .ba-cap-l{left:.9rem}.ba-cap-r{right:.9rem}
 
+  /* two whole photos side by side, the way hims presents a pair */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 14px 4px}
+  .pair figure{margin:0}
+  .pair img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block}
+  .pair figcaption{text-align:center;font-size:13.5px;color:var(--muted);padding-top:8px}
+
   .pill{align-self:flex-start;margin:1.1rem 1.2rem 0;background:var(--accent);color:#fff;
         border-radius:999px;padding:.32rem .85rem;font-size:.8rem;font-weight:500}
   .pill.no{background:var(--mist);color:var(--muted)}
@@ -69,22 +75,124 @@
 
   <header class="top">
     <h1>Before / after candidates — men</h1>
-    <p>Nine generated diptychs, cut into the same curtain widget the landing uses. Drag any handle to compare.
-      Six go into the reviews carousel. My picks are marked; the rejected ones are shown too, so the call is yours.</p>
+    <p>Drag any handle to compare. Two directions below: the new phone-camera one, built off the hims
+      reference, and the studio batch that came first.</p>
   </header>
 
   <div class="rule"></div>
 
+  <!-- ============ UGC DIRECTION ============ -->
+  <h2 class="blk">New direction — phone photos, small change</h2>
   <div class="note">
-    <p><b>Calibration used:</b> “clearly visible improvement, obviously more hair, scalp shows through much less —
-      yet natural: same haircut, faint thinning remains, not a complete transformation” plus
-      “WIDE studio framing, whole head and shoulders, generous empty background, not a close-up”.</p>
-    <p><b>What kept failing:</b> asked for a receding temple in profile, the model drew a razor-shaved line-up
-      instead of hair loss (C6, C7). Asked for sparse hair on top, it produced a bald-to-full-head jump that
-      reads as a wig (C8). Both were rejected rather than shipped.</p>
+    <p><b>What changed:</b> the hims reviews are not photography. They are pictures men took of themselves
+      at home — sofa, carpet, hallway, ceiling light, a phone held at arm's length. The studio set below
+      reads as an advert; this reads as a customer. The gain is also deliberately small now:
+      a bit less scalp, nothing that could be called regrowth.</p>
+    <p><b>Only two of six are done</b> — the Higgsfield workspace ran out of credits mid-batch.
+      Confirm the direction and the amount of change, and the remaining four follow the same recipe.</p>
   </div>
 
-  <h2 class="blk">Recommended — five that hold up</h2>
+  <div class="grid">
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-u2-after.jpg" alt="After: the hairline corners look slightly less bare" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-u2-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill">Receding hairline</span>
+      <div class="body">
+        <span class="id">U1 · man ~32 · hallway selfie</span>
+        <b>Selfie at home, front hairline</b>
+        <p>Same wall, same arm's length, ordinary indoor light. The recession is still obviously there
+          afterwards — the front just holds a little more.</p>
+        <p class="verdict ok">This is the level of change I'd hold to: visible, deniable, not a claim.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-u1-after.jpg" alt="After: marginally less scalp showing at the crown" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-u1-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 4</span>
+      </div>
+      <span class="pill">Thinning crown</span>
+      <div class="body">
+        <span class="id">U2 · man ~38 · shot from above at home</span>
+        <b>Crown, taken by someone else</b>
+        <p>Sofa, carpet, tattooed forearm, ceiling light — the hims register exactly.</p>
+        <p class="verdict bad">Possibly too far the other way: the difference is close to nothing.
+          Tell me if this is right or if U1's amount is the target.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- ============ PRESENTATION ============ -->
+  <h2 class="blk">Second call: how the pair is presented</h2>
+  <div class="note">
+    <p><b>The curtain has a problem with this material.</b> It splits one image down the middle, so you get
+      the left half of the “before” face against the right half of the “after” face. On the studio shots
+      that worked, because the head sat in exactly the same place. On a hand-held selfie it doesn't —
+      look at the join above and the face doesn't line up.</p>
+    <p>hims shows two whole photos side by side with a caption under each. That is why. Same reason applies here.</p>
+  </div>
+
+  <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-u2-after.jpg" alt="After" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-u2-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill no">Option 1 — curtain</span>
+      <div class="body">
+        <b>What the women's landing uses</b>
+        <p>Interactive and fun to drag, but it fuses two faces at the seam. Works only when both frames
+          are pinned to the same head position.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="pair">
+        <figure>
+          <img src="assets/cmp-u2-before.jpg" alt="Month 0: the hairline has receded at the corners">
+          <figcaption>Month 0</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/cmp-u2-after.jpg" alt="Month 6: the corners look slightly less bare">
+          <figcaption>Month 6</figcaption>
+        </figure>
+      </div>
+      <span class="pill">Option 2 — two photos, hims-style</span>
+      <div class="body">
+        <b>Each photo whole, caption under it</b>
+        <p>No seam, nothing to distrust, and the viewer compares the way they would compare their own
+          two photos. Costs the drag interaction.</p>
+        <p class="verdict ok">My recommendation for the men's page.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="rule"></div>
+
+  <h2 class="blk">First attempt — studio. Kept for reference; not what we're shipping.</h2>
+
+  <div class="note">
+    <p><b>Why these are out:</b> seamless backdrop, softbox, head and shoulders squared to the lens —
+      it looks like an advert, and an advert is exactly what a before/after must not look like.
+      The lighting is also too flattering: it makes the change read bigger than it is.</p>
+    <p><b>What kept failing here:</b> asked for a receding temple in profile, the model drew a razor-shaved
+      line-up instead of hair loss (C6, C7). Asked for sparse hair on top, it produced a bald-to-full-head
+      jump that reads as a wig (C8).</p>
+  </div>
+
+  <h2 class="blk">Studio batch — the five that at least held together</h2>
   <div class="grid">
 
     <article class="cand">
@@ -244,9 +352,12 @@
   <div class="rule"></div>
 
   <footer class="end">
-    <p>Five picks are ready to drop in; the carousel holds six. Tell me which sixth you want —
-      another crown-from-above, a second front hairline, or a fresh attempt at the temple shot with a
-      different framing — and whether C5 (the round spot) stays.</p>
+    <p>Two questions and the remaining four get made in one pass:
+      <b>(1)</b> is U1's amount of change the target, or should it be even smaller, like U2?
+      <b>(2)</b> settings — keep it domestic (hallway, sofa, kitchen, bathroom), or should some frames
+      be shot outdoors and at the office the way hims mixes them?</p>
+    <p style="margin-top:10px">Note: the workspace is out of Higgsfield credits, so nothing further can be
+      generated until it is topped up.</p>
   </footer>
 
 </div>
