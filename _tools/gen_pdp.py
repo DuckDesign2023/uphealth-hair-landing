@@ -1,0 +1,519 @@
+# -*- coding: utf-8 -*-
+import os
+OUT = r"c:/Users/fartv/agents/Vibe-code_projects/mans-hair/hair-landing"
+
+TPL = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — uphealth</title>
+  <meta name="description" content="{meta}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=27">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%234E6557'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FAF8F3' font-family='Georgia'>u</text></svg>">
+  <style>
+    .crumbs {{ font-size: 0.85rem; color: var(--muted); padding-block: 1.2rem 0; }}
+    .crumbs a {{ text-decoration: none; }}
+    .crumbs a:hover {{ color: var(--accent-deep); }}
+    .pdp {{
+      display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      padding-block: 1.5rem 4rem;
+      align-items: start;
+    }}
+    .pdp-gallery {{ position: sticky; top: 90px; }}
+    .pdp-main {{
+      aspect-ratio: 1 / 1; overflow: hidden;
+      border-radius: var(--radius); background: var(--tile);
+    }}
+    .pdp-main img {{ width: 100%; height: 100%; object-fit: cover; }}
+    .pdp-thumbs {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.7rem; }}
+    .pdp-thumb {{
+      aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px;
+      border: 1.5px solid transparent; padding: 0; cursor: pointer; background: var(--tile);
+    }}
+    .pdp-thumb img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
+    .pdp-thumb[aria-current="true"] {{ border-color: var(--accent-deep); }}
+    .pdp-info h1 {{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.1; letter-spacing: -0.015em; margin-top: 0.6rem; }}
+    .pdp-stars {{ display: flex; gap: 0.5rem; align-items: center; font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; }}
+    .pdp-stars b {{ color: var(--gold); letter-spacing: 0.1em; font-weight: 600; }}
+    .pdp-lead {{ margin-top: 1rem; color: var(--muted); }}
+    .pdp .ilist {{ margin-top: 1.1rem; }}
+    .opts {{ display: grid; gap: 0.7rem; margin-top: 1.5rem; }}
+    .opt {{
+      display: flex; align-items: center; gap: 0.85rem;
+      border: 1px solid var(--line); border-radius: 14px;
+      padding: 0.9rem 1.1rem; cursor: pointer;
+      background: var(--paper);
+    }}
+    .opt:has(input:checked) {{ border-color: var(--accent-deep); }}
+    .opt input {{ accent-color: var(--accent-deep); width: 17px; height: 17px; }}
+    .opt-name {{ font-weight: 600; font-size: 0.97rem; }}
+    .opt-sub {{ font-size: 0.82rem; color: var(--muted); }}
+    .opt-price {{ margin-left: auto; font-weight: 600; font-variant-numeric: tabular-nums; }}
+    .opt-price s {{ color: var(--muted); font-weight: 400; font-size: 0.85rem; margin-left: 0.3rem; }}
+    .pdp-buy {{ margin-top: 1.1rem; }}
+    .pdp-safety {{ display: block; text-align: center; margin-top: 0.7rem; }}
+    .pdp-seals {{ display: flex; gap: 1.3rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }}
+    .pdp-seals .seal {{ flex-direction: row; gap: 0.4rem; padding: 0; }}
+    .pdp-seals .seal + .seal {{ border-left: 0; }}
+    .pdp-seals .seal svg {{ width: 15px; height: 15px; color: var(--gold); }}
+    .pdp-seals .seal b {{ font-size: 0.8rem; font-weight: 500; color: var(--muted); }}
+    .pdp-acc {{ margin-top: 1.6rem; }}
+
+    /* formula standards: icon attribute set between hairlines */
+    .attrs {{ border-block: 1px solid var(--line); padding-block: 1.6rem; }}
+    .attrs-grid {{
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: repeat(8, 1fr); gap: 1.2rem 0.6rem;
+    }}
+    .attrs-grid li {{ display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; }}
+    .attrs-grid svg {{ width: 20px; height: 20px; color: var(--gold); }}
+    .attrs-grid b {{
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }}
+
+    /* benefits: product centered, four notes with hand-drawn dashed arrows */
+    .pdp-benefits {{
+      width: 100vw; margin-inline: calc(50% - 50vw);
+      background: var(--band);
+      margin-top: clamp(2.5rem, 5vw, 3.5rem);
+      padding-block: clamp(3rem, 6vw, 4.5rem);
+    }}
+    .benefits-head {{ text-align: center; }}
+    .benefits-head .h2 {{ margin-inline: auto; }}
+    .benefits-sub {{ color: var(--muted); margin-top: 0.8rem; }}
+    .benefits-grid {{
+      display: grid; grid-template-columns: 1fr minmax(250px, 320px) 1fr;
+      gap: clamp(2rem, 4.5vw, 4rem);
+      align-items: center;
+      margin-top: clamp(2.2rem, 4.5vw, 3.2rem);
+    }}
+    .benefits-col {{ display: grid; gap: clamp(2.4rem, 5vw, 4rem); align-content: center; }}
+    .benefit {{ position: relative; }}
+    .benefit h3 {{ font-size: 1.08rem; }}
+    .benefit p {{ font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin-top: 0.45rem; max-width: 36ch; }}
+    .col-r .benefit {{ margin-left: auto; }}
+    .benefits-media {{ margin: 0; }}
+    .benefits-media img {{
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      border-radius: var(--radius); display: block;
+    }}
+    .benefit .arr {{ position: absolute; top: 50%; margin-top: -15px; color: var(--btn); }}
+    .col-l .benefit .arr {{ right: -3.4rem; }}
+    .col-r .benefit .arr {{ left: -3.4rem; transform: scaleX(-1); }}
+    /* full-bleed breakout for band sections shared with the landing */
+    .pdp-band {{ width: 100vw; margin-inline: calc(50% - 50vw); }}
+    .pairs {{ padding-block: clamp(2.5rem, 5vw, 3.5rem) 4.5rem; }}
+    .pairs-card {{
+      display: flex; gap: 1.4rem; align-items: center;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 1.2rem 1.4rem; max-width: 640px;
+    }}
+    .pairs-card img {{ width: 96px; height: 96px; object-fit: cover; border-radius: 12px; background: var(--tile); }}
+    .pairs-card h3 {{ font-size: 1.1rem; }}
+    .pairs-card p {{ font-size: 0.88rem; color: var(--muted); margin-top: 0.15rem; }}
+    .pairs-card .btn {{ margin-left: auto; flex: none; }}
+    @media (max-width: 1020px) {{
+      .benefits-grid {{ grid-template-columns: 1fr; gap: 2.2rem; }}
+      .benefits-media {{ order: -1; max-width: 320px; margin-inline: auto; width: 100%; }}
+      .benefit .arr {{ display: none; }}
+      .col-r .benefit {{ margin-left: 0; }}
+    }}
+    @media (max-width: 900px) {{
+      .pdp {{ grid-template-columns: 1fr; }}
+      .pdp-gallery {{ position: static; }}
+      .attrs-grid {{ grid-template-columns: repeat(4, 1fr); }}
+      .pairs-card {{ flex-wrap: wrap; }}
+      .pairs-card .btn {{ margin-left: 0; }}
+    }}
+    @media (max-width: 520px) {{
+      .attrs-grid {{ grid-template-columns: repeat(2, 1fr); }}
+    }}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="uphealth home">uphealth</a>
+      <nav class="main-nav" aria-label="Site">
+        <a href="index.html#results">Results</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-dark btn-sm" href="index.html#products">Order now</a>
+        <button class="cart-btn" type="button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> / <a href="index.html#products">Products</a> / {title}
+    </nav>
+
+    <div class="pdp">
+      <div class="pdp-gallery">
+        <figure class="pdp-main"><img id="pdp-main-img" src="{img0}" alt="{title}"></figure>
+        <div class="pdp-thumbs" role="group" aria-label="Product photos">
+          {thumbs}
+        </div>
+      </div>
+
+      <div class="pdp-info">
+        <p class="tag">{tag}</p>
+        <h1>{title}</h1>
+        <p class="pdp-stars"><b aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b> 4.8 &middot; loved by our customers</p>
+        <p class="pdp-lead">{lead}</p>
+        <ul class="ilist">
+          {bullets}
+        </ul>
+
+        <div class="opts" role="radiogroup" aria-label="Choose your option">
+          <label class="opt">
+            <input type="radio" name="opt" checked
+                   data-id="{pid}" data-name="{title}" data-price="{price}" data-img="{img0}">
+            <span><span class="opt-name">One bottle</span><br><span class="opt-sub">{size} &middot; about a month</span></span>
+            <span class="opt-price">${price}</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="opt"
+                   data-id="duo" data-name="The Ritual Duo" data-price="64.90" data-img="assets/pack-duo.png">
+            <span><span class="opt-name">The Ritual Duo</span><br><span class="opt-sub">both serums &middot; save 13%</span></span>
+            <span class="opt-price">$64.90 <s>$74.80</s></span>
+          </label>
+        </div>
+
+        <button class="btn btn-dark btn-block add-to-cart pdp-buy" type="button"
+                data-id="{pid}" data-name="{title}" data-price="{price}" data-img="{img0}">
+          Add to cart &mdash; $<span id="buy-price">{price}</span>
+        </button>
+        <a class="safety pdp-safety" href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Important safety information</a>
+
+        <ul class="pdp-seals">
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M2.5 12V6.5A1.5 1.5 0 0 1 4 5h7v7H2.5z" fill="currentColor" stroke="none"/><path d="M11 8.5h10.5M11 12h10.5M2.5 15.5h19"/></svg><b>Made in the USA</b></li>
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><b>FDA-Registered Facility</b></li>
+          <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><b>cGMP Certified</b></li>
+        </ul>
+
+        <div class="faq-list pdp-acc">
+          <details open>
+            <summary>Full description</summary>
+            <p>{full_desc}</p>
+          </details>
+          <details>
+            <summary>Key ingredients</summary>
+            <p>{ingredients}</p>
+          </details>
+          <details>
+            <summary>Suggested use</summary>
+            <p>{use}</p>
+          </details>
+          <details>
+            <summary>Free from</summary>
+            <p>Fragrance, parabens, silicones, sulfates, phthalates, mineral oil and hormones.
+              Vegan and cruelty-free. For external use only &mdash; keep out of reach of children,
+              store in a cool, dry place.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <section class="attrs" aria-label="Formula standards">
+      <ul class="attrs-grid">
+        {attrs}
+      </ul>
+    </section>
+
+    <section class="pdp-benefits" aria-label="Benefits">
+      <div class="container">
+        <header class="benefits-head">
+          <p class="tag">Why it works</p>
+          <h2 class="h2">{ben_title}</h2>
+          <p class="benefits-sub">{ben_sub}</p>
+        </header>
+        <div class="benefits-grid">
+          <div class="benefits-col col-l">
+            {ben_l}
+          </div>
+          <figure class="benefits-media">
+            <img src="{ben_img}" alt="{title} bottle close-up" loading="lazy">
+          </figure>
+          <div class="benefits-col col-r">
+            {ben_r}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pairs" aria-label="Pairs well with">
+      <p class="tag">Pairs well with</p>
+      <div class="pairs-card">
+        <img src="{pair_img}" alt="{pair_name}">
+        <div>
+          <h3>{pair_name}</h3>
+          <p>{pair_desc}</p>
+        </div>
+        <a class="btn btn-ghost" href="{pair_link}">View</a>
+      </div>
+    </section>
+
+    {shared}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="logo logo-light">uphealth</p>
+        <p>Functional wellness with formulas you can trust.</p>
+      </div>
+      <ul class="seals seals-inline" aria-label="Quality marks">
+        <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M2.5 12V6.5A1.5 1.5 0 0 1 4 5h7v7H2.5z" fill="currentColor" stroke="none"/><path d="M11 8.5h10.5M11 12h10.5M2.5 15.5h19"/></svg><b>Made in the USA</b></li>
+        <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><b>FDA-Registered Facility</b></li>
+        <li class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><b>cGMP Certified</b></li>
+      </ul>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="https://uphealth.life/" target="_blank" rel="noopener">Store</a>
+        <a href="https://uphealth.life/pages/about" target="_blank" rel="noopener">About</a>
+        <a href="https://uphealth.life/pages/faq" target="_blank" rel="noopener">Support</a>
+        <a href="https://uphealth.life/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+      </nav>
+    </div>
+    <div class="container footer-legal">
+      <p>For external use only. Avoid contact with eyes. Keep out of reach of children.
+        These are cosmetic products and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p>&copy; 2026 UpHealth. All rights reserved. &middot; DCK D. GLOBAL LTD</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" hidden></div>
+  <aside class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your cart</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul class="cart-items"></ul>
+    <p class="cart-empty">Your cart is empty.</p>
+    <div class="cart-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>$0.00</strong></div>
+      <p class="cart-note">Shipping calculated at checkout. Free over $80.</p>
+      <a class="btn btn-dark btn-block cart-checkout" href="https://uphealth.life/" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </aside>
+
+  <script src="script.js?v=14"></script>
+  <script>
+    document.querySelectorAll('.pdp-thumb').forEach(function (t) {{
+      t.addEventListener('click', function () {{
+        document.getElementById('pdp-main-img').src = t.dataset.src;
+        document.querySelectorAll('.pdp-thumb').forEach(function (o) {{ o.removeAttribute('aria-current'); }});
+        t.setAttribute('aria-current', 'true');
+      }});
+    }});
+    var buyBtn = document.querySelector('.pdp-buy');
+    document.querySelectorAll('.opts input[type="radio"]').forEach(function (r) {{
+      r.addEventListener('change', function () {{
+        if (!r.checked) return;
+        buyBtn.dataset.id = r.dataset.id;
+        buyBtn.dataset.name = r.dataset.name;
+        buyBtn.dataset.price = r.dataset.price;
+        buyBtn.dataset.img = r.dataset.img;
+        document.getElementById('buy-price').textContent = r.dataset.price;
+      }});
+    }});
+  </script>
+</body>
+</html>
+'''
+
+# lucide, stroke 1px — matches the site's icon language
+ICONS = dict(
+    leaf='<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8c0 5.5-4.78 10-10 10"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    rabbit='<path d="M13 16a3 3 0 0 1 2.24 5M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4a7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3m-8.388 5.524a3 3 0 1 0-1.6 4.3"/>',
+    flower='<path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12m0 0c4.2 0 7-1.667 7-5c-4.2 0-7 1.667-7 5m0 0c-4.2 0-7-1.667-7-5c4.2 0 7 1.667 7 5"/>',
+    pill='<path d="m10.5 20.5l10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7m-2-12l7 7"/>',
+    wineoff='<path d="M8 22h8M7 10h3m7 0h-1.343M12 15v7M7.307 7.307A12.3 12.3 0 0 0 7 10a5 5 0 0 0 7.391 4.391M8.638 2.981Q8.807 2.511 9 2h6c1.5 4 2 6 2 8q-.001.613-.145 1.198M2 2l20 20"/>',
+    flask='<path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2M6.453 15h11.094M8.5 2h7"/>',
+    droplets='<path d="M7 16.3c2.2 0 4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05"/><path d="M12.56 6.6A11 11 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+    testtube='<path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2m-1 0h7m-1 14h-5"/>',
+    hexagon='<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16"/>',
+)
+
+# hand-drawn dashed arrows, eucalyptus line-art language (same as the illustrations)
+ARR_DOWN = ('<svg class="arr" width="52" height="30" viewBox="0 0 52 30" fill="none" stroke="currentColor" '
+            'stroke-width="1.2" stroke-linecap="round" aria-hidden="true">'
+            '<path d="M2 5 C 18 2, 36 9, 49 23" stroke-dasharray="4 4"/>'
+            '<path d="M49 23l-7.5-1.5M49 23l-1.5-7.5"/></svg>')
+ARR_UP = ('<svg class="arr" width="52" height="30" viewBox="0 0 52 30" fill="none" stroke="currentColor" '
+          'stroke-width="1.2" stroke-linecap="round" aria-hidden="true">'
+          '<path d="M2 25 C 18 28, 36 21, 49 7" stroke-dasharray="4 4"/>'
+          '<path d="M49 7l-7.5 1.5M49 7l-1.5 7.5"/></svg>')
+
+def attrs_html(items):
+    out = []
+    for icon, label in items:
+        out.append('<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" '
+                   'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg><b>%s</b></li>'
+                   % (ICONS[icon], label))
+    return '\n        '.join(out)
+
+def benefits_html(pair, arrows):
+    out = []
+    for (title, text), arrow in zip(pair, arrows):
+        out.append('<div class="benefit">\n              <h3>%s</h3>\n              <p>%s</p>\n              %s\n            </div>'
+                   % (title, text, arrow))
+    return '\n            '.join(out)
+
+def thumbs_html(imgs):
+    out = []
+    for i, src in enumerate(imgs):
+        cur = ' aria-current="true"' if i == 0 else ''
+        out.append('<button class="pdp-thumb" type="button" data-src="%s"%s><img src="%s" alt=""></button>' % (src, cur, src))
+    return '\n          '.join(out)
+
+def bullets_html(items):
+    check = '<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;color:var(--accent)"><path d="M20 6L9 17l-5-5"/></svg>'
+    return '\n          '.join('<li>%s%s</li>' % (check, t) for t in items)
+
+ATTRS_COMMON = [
+    ('leaf', 'Vegan'),
+    ('rabbit', 'Cruelty free'),
+    ('flower', 'Fragrance free'),
+    ('flask', 'Paraben free'),
+    ('droplets', 'Sulfate free'),
+    ('testtube', 'Silicone free'),
+    ('hexagon', 'Phthalate free'),
+]
+
+peptide = dict(
+    title='Peptide Hair Growth Serum',
+    meta='Five advanced peptides with rosemary and eucalyptus. Lightweight, non-greasy serum for the look of thicker, fuller hair. 30 ml, vegan, made in the USA.',
+    tag='Evening step · Hair &amp; scalp',
+    pid='peptide', price='39.90', size='30 ml / 1 fl oz',
+    img0='assets/pack-peptide.png',
+    imgs=['assets/pack-peptide.png', 'assets/life-model-peptide.png', 'assets/life-dropper-macro.png', 'assets/life-bathroom-shelf.png'],
+    lead='A powerful blend of bioactive compounds designed to promote fuller, healthier-looking hair. Lightweight and non-greasy, it absorbs quickly and fits easily into your daily routine.',
+    bullets=['Five peptides — sh-Polypeptide-1, -9, -11, sh-Oligopeptide-2, -10',
+             'Saw palmetto + arginine for the look of density',
+             'Rosemary and eucalyptus refresh the scalp',
+             'Vegan · fragrance-free · 30 ml'],
+    full_desc='Our Peptide Hair Growth Serum is formulated to promote fuller, healthier-looking hair. Infused with advanced peptides and botanical extracts like rosemary and eucalyptus, it helps nourish the scalp and revitalize the hair from root to tip. Soybean and wheat germ extracts further enhance the serum, contributing to smooth, healthy-looking hair. The lightweight, non-greasy formula absorbs quickly, making it easy to incorporate into your daily routine.',
+    ingredients='sh-Polypeptide-1, sh-Polypeptide-11, sh-Polypeptide-9, sh-Oligopeptide-2, sh-Oligopeptide-10, arginine, Scutellaria baicalensis root extract, Serenoa repens (saw palmetto) extract, Rosmarinus officinalis (rosemary) extract, Eucalyptus globulus leaf extract, Glycine soja (soybean) germ extract, Triticum vulgare (wheat) germ extract, tocopherol (vitamin E).',
+    use='Apply a few drops of serum directly to the scalp in the evening. Gently massage into the scalp with your fingertips for 1–2 minutes to ensure even distribution and stimulate circulation. Use daily on a clean, dry or towel-dried scalp. No rinsing needed.',
+    attrs=attrs_html([('leaf', 'Vegan'), ('rabbit', 'Cruelty free'), ('flower', 'Fragrance free'),
+                      ('pill', 'Hormone free'), ('flask', 'Paraben free'), ('droplets', 'Sulfate free'),
+                      ('testtube', 'Silicone free'), ('hexagon', 'Phthalate free')]),
+    ben_title='Benefits of the <em>Peptide</em> Serum',
+    ben_sub='Five peptides and natural botanical extracts, working while you sleep.',
+    ben_img='assets/pack-peptide.png',
+    ben_l=benefits_html([
+        ('Peptides for volume',
+         'Peptides like sh-Polypeptide-1 and sh-Oligopeptide-10 support the appearance of thicker, more voluminous hair.'),
+        ('Botanical boost',
+         'Eucalyptus and rosemary extracts nourish the scalp while adding a refreshing touch to your evening ritual.'),
+    ], [ARR_DOWN, ARR_UP]),
+    ben_r=benefits_html([
+        ('Amino acid power',
+         'Arginine, an essential amino acid, promotes hair strength and vitality, helping your hair look healthier.'),
+        ('Fuller hair with saw palmetto',
+         'Saw palmetto, known for its hair-boosting properties, helps maintain the appearance of fuller, thicker hair.'),
+    ], [ARR_DOWN, ARR_UP]),
+    pair_img='assets/pack-botanical.png', pair_name='Botanical Growth Serum',
+    pair_desc='The morning step: Densidyl, rosemary and ginger for a hydrated, healthy scalp.',
+    pair_link='product-botanical.html',
+)
+
+botanical = dict(
+    title='Botanical Hair Growth Serum',
+    meta='Water-based botanical blend with Densidyl (chlorella + spirulina), rosemary, ginger and vitamins C and E. 59 ml, vegan, made in the USA.',
+    tag='Morning step · Hair &amp; scalp',
+    pid='botanical', price='34.90', size='59 ml / 2 fl oz',
+    img0='assets/pack-botanical.png',
+    imgs=['assets/pack-botanical.png', 'assets/life-model-botanical.png', 'assets/life-mirror2.png', 'assets/life-pouch2.png'],
+    lead='A water-based botanical blend that wakes up the scalp. It hydrates the skin your hair grows from and supports a healthy scalp environment — the foundation of healthy-looking hair.',
+    bullets=['Densidyl — a botanical complex of chlorella and spirulina algae',
+             'Rosemary and ginger root refresh and energize the scalp',
+             'Licorice extract with vitamins C and E',
+             'Vegan · fragrance-free · 59 ml'],
+    full_desc='Our Botanical Hair Growth Serum combines carefully selected plant extracts to support a healthy scalp environment. Densidyl — a blend of chlorella and spirulina algae — together with rosemary and ginger root deeply hydrates the scalp, while licorice extract and vitamins C and E help maintain comfort and balance. The lightweight, water-based formula absorbs fast and leaves no residue.',
+    ingredients='Densidyl (Chlorella vulgaris / Spirulina platensis extract), Rosmarinus officinalis (rosemary) leaf extract, Zingiber officinale (ginger) root extract, Glycyrrhiza glabra (licorice) root extract, ascorbic acid (vitamin C), tocopherol (vitamin E), glycerin, propanediol.',
+    use='Part your hair and apply a few drops to a clean, dry or towel-dried scalp every morning. Comb through with your fingers — no rinsing needed.',
+    attrs=attrs_html([('leaf', 'Vegan'), ('rabbit', 'Cruelty free'), ('flower', 'Fragrance free'),
+                      ('wineoff', 'Alcohol free'), ('flask', 'Paraben free'), ('droplets', 'Sulfate free'),
+                      ('testtube', 'Silicone free'), ('hexagon', 'Phthalate free')]),
+    ben_title='Benefits of the <em>Botanical</em> Serum',
+    ben_sub='Intense hydration and scalp wellness to start the day.',
+    ben_img='assets/pack-botanical.png',
+    ben_l=benefits_html([
+        ('Rosemary for vitality',
+         'Rosemary extract helps improve the look of your hair by supporting scalp health and its natural vitality.'),
+        ('Ginger root power',
+         'Ginger root extract deeply nourishes the scalp, leaving your hair feeling refreshed and looking fuller.'),
+    ], [ARR_DOWN, ARR_UP]),
+    ben_r=benefits_html([
+        ('The algae duo',
+         'Chlorella and spirulina — the Densidyl complex — deliver intense hydration to the scalp, the foundation of healthy-looking growth.'),
+        ('Vitamin boost',
+         'Vitamins C and E work together to hydrate the scalp and support shine, for a healthy, radiant look.'),
+    ], [ARR_DOWN, ARR_UP]),
+    pair_img='assets/pack-peptide.png', pair_name='Peptide Growth Serum',
+    pair_desc='The evening step: five peptides and saw palmetto for the look of density.',
+    pair_link='product-peptide.html',
+)
+
+# Shared landing sections (simple / reviews / faq), extracted live from index.html
+# so the PDPs never drift from the landing.
+import io
+_idx = io.open(os.path.join(OUT, 'index.html'), encoding='utf-8').read()
+
+def _extract(sec_id):
+    a = _idx.index('id="%s"' % sec_id)
+    a = _idx.rindex('<section', 0, a)
+    b = _idx.index('</section>', a) + len('</section>')
+    return _idx[a:b]
+
+def _shared_sections():
+    out = []
+    for sec_id in ['simple', 'reviews', 'faq']:
+        h = _extract(sec_id)
+        if 'section-band' in h.split('>', 1)[0]:
+            # band sections go full-bleed; keep the inner .container as centerer
+            h = h.replace('<section class="section section-band"',
+                          '<section class="section section-band pdp-band"', 1)
+        else:
+            # paper sections: the PDP <main> is already a .container
+            h = h.replace('<div class="container">', '<div>', 1)
+            h = h.replace('<div class="container ', '<div class="', 1)
+        # repair an unclosed wrapper div (the landing parser-forgives it, we don't)
+        if h.count('<div') == h.count('</div>') + 1:
+            h = h[:h.rindex('</section>')] + '</div>\n    </section>'
+        h = h.replace('href="#products"', 'href="index.html#products"')
+        h = h.replace('href="#serums"', 'href="index.html#serums"')
+        out.append(h)
+    return '\n\n    '.join(out)
+
+SHARED = _shared_sections()
+
+for data, fname in [(peptide, 'product-peptide.html'), (botanical, 'product-botanical.html')]:
+    d = dict(data)
+    d['thumbs'] = thumbs_html(d.pop('imgs'))
+    d['bullets'] = bullets_html(d['bullets'])
+    d['shared'] = SHARED
+    html = TPL.format(**d)
+    path = os.path.join(OUT, fname)
+    open(path, 'w', encoding='utf-8', newline='\n').write(html)
+    print('written', fname, len(html))
