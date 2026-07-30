@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uphealth for men — before/after candidates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F3; --band:#F1F0EC; --mist:#EAE8E2; --tile:#F6F5F1;
+    --ink:#23211F; --muted:#66625E; --btn:#1C1B1A; --accent:#8A3A34;
+    --line:rgba(35,33,31,.14); --radius:18px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:400 16px/1.55 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  header.top{padding:52px 0 10px}
+  h1{font-size:36px;line-height:1.1;letter-spacing:-.025em;margin:0 0 10px;font-weight:600}
+  header.top p{margin:0;max-width:70ch;color:var(--muted)}
+  .rule{height:1px;background:var(--line);margin:36px 0}
+  h2.blk{font-size:13px;font-weight:600;margin:0 0 20px;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .cand{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+  .cand.out{opacity:.72}
+
+  /* compare widget — same markup and behaviour as the landing */
+  .cmp{position:relative;aspect-ratio:1/1;overflow:hidden;cursor:ew-resize;touch-action:pan-y;--pos:50%}
+  .cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+  .cmp-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+  .cmp-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0}
+  .cmp-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px;background:rgba(250,248,243,.95)}
+  .cmp-grip{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .cmp-grip svg{width:20px;height:20px}
+  .ba-cap{position:absolute;bottom:.9rem;font-size:.78rem;font-weight:600;
+    background:rgba(250,248,243,.92);color:var(--ink);padding:.3rem .8rem;border-radius:999px;pointer-events:none}
+  .ba-cap-l{left:.9rem}.ba-cap-r{right:.9rem}
+
+  .pill{align-self:flex-start;margin:1.1rem 1.2rem 0;background:var(--accent);color:#fff;
+        border-radius:999px;padding:.32rem .85rem;font-size:.8rem;font-weight:500}
+  .pill.no{background:var(--mist);color:var(--muted)}
+  .body{padding:.9rem 1.2rem 1.3rem}
+  .body b{display:block;font-size:15px;font-weight:600;margin-bottom:.3rem}
+  .body p{margin:0;font-size:14px;color:var(--muted)}
+  .id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--muted);
+      display:block;margin-bottom:.45rem}
+  .verdict{margin-top:.6rem;font-size:13.5px}
+  .verdict.ok{color:var(--accent)}
+  .verdict.bad{color:var(--muted)}
+
+  .note{background:var(--band);border-radius:var(--radius);padding:22px 24px;margin:0 0 30px}
+  .note p{margin:0 0 8px;max-width:80ch}
+  .note p:last-child{margin:0}
+  .note b{font-weight:600}
+  footer.end{padding:10px 0 70px;color:var(--muted)}
+  footer.end p{max-width:74ch}
+
+  @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:660px){.grid{grid-template-columns:1fr}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>Before / after candidates — men</h1>
+    <p>Nine generated diptychs, cut into the same curtain widget the landing uses. Drag any handle to compare.
+      Six go into the reviews carousel. My picks are marked; the rejected ones are shown too, so the call is yours.</p>
+  </header>
+
+  <div class="rule"></div>
+
+  <div class="note">
+    <p><b>Calibration used:</b> “clearly visible improvement, obviously more hair, scalp shows through much less —
+      yet natural: same haircut, faint thinning remains, not a complete transformation” plus
+      “WIDE studio framing, whole head and shoulders, generous empty background, not a close-up”.</p>
+    <p><b>What kept failing:</b> asked for a receding temple in profile, the model drew a razor-shaved line-up
+      instead of hair loss (C6, C7). Asked for sparse hair on top, it produced a bald-to-full-head jump that
+      reads as a wig (C8). Both were rejected rather than shipped.</p>
+  </div>
+
+  <h2 class="blk">Recommended — five that hold up</h2>
+  <div class="grid">
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m1-after.jpg" alt="After: the hairline corners are filled in" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m1-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill">Receding hairline</span>
+      <div class="body">
+        <span class="id">C1 · man ~34 · front view</span>
+        <b>M-shaped hairline, front</b>
+        <p>Corners fill in, the front reads denser, a faint recession stays. Same shirt, same light, same distance.</p>
+        <p class="verdict ok">Pick — the clearest “receding hairline” of the set.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m2-after.jpg" alt="After: the crown patch is much smaller" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m2-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 5</span>
+      </div>
+      <span class="pill">Thinning crown</span>
+      <div class="body">
+        <span class="id">C2 · man ~40 · from above</span>
+        <b>Crown patch, top-down</b>
+        <p>The bare round patch shrinks noticeably but does not disappear. Exactly the calibration you signed off on.</p>
+        <p class="verdict ok">Pick — the benchmark shot of the whole batch.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m3-after.jpg" alt="After: the top looks denser" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m3-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill">Overall thinning</span>
+      <div class="body">
+        <span class="id">C3 · man ~32 · from above</span>
+        <b>Diffuse thinning across the top</b>
+        <p>Hair stands up instead of lying flat; the recession at the front stays put. Reads as density, not rescue.</p>
+        <p class="verdict ok">Pick — covers “overall thinning”, which the other shots don’t.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m4-after.jpg" alt="After: more hair over the crown" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m4-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill">Thinning crown</span>
+      <div class="body">
+        <span class="id">C4 · man ~45 · from above</span>
+        <b>Older man, crown and front</b>
+        <p>Grey at the sides, weathered skin. Gain is real but modest — the honest “started late” case.</p>
+        <p class="verdict ok">Pick — the only 45+ in the set, and the age range needs covering.</p>
+      </div>
+    </article>
+
+    <article class="cand">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m5-after.jpg" alt="After: the thin spot is filled in" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m5-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 4</span>
+      </div>
+      <span class="pill">Thin spot</span>
+      <div class="body">
+        <span class="id">C5 · man ~31 · from above</span>
+        <b>Round thin spot at the front</b>
+        <p>Clean fill-in, hairline still sits high afterwards. One caveat: the round spot reads a bit like patchy
+          alopecia rather than ordinary male thinning.</p>
+        <p class="verdict ok">Pick with a caveat — swap it if the round shape bothers you.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rule"></div>
+
+  <h2 class="blk">Rejected — shown so you can overrule me</h2>
+  <div class="grid">
+
+    <article class="cand out">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m6-after.jpg" alt="After" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m6-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill no">Rejected</span>
+      <div class="body">
+        <span class="id">C6r · temple corner, profile</span>
+        <b>Barber line-up, not hair loss</b>
+        <p>The “before” has a razor-carved parting line shaved into the side. Reads as a haircut choice.</p>
+        <p class="verdict bad">Out — the defect is the first thing you see.</p>
+      </div>
+    </article>
+
+    <article class="cand out">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m7-after.jpg" alt="After" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m7-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 4</span>
+      </div>
+      <span class="pill no">Rejected</span>
+      <div class="body">
+        <span class="id">C7r · temple corner, second try</span>
+        <b>Same failure, shaved temple</b>
+        <p>Second attempt with “no shaved lines, no hair tattoo” spelled out. The model drew one anyway.</p>
+        <p class="verdict bad">Out — temple-in-profile is a shot this model can’t do.</p>
+      </div>
+    </article>
+
+    <article class="cand out">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m8-after.jpg" alt="After" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m8-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 6</span>
+      </div>
+      <span class="pill no">Rejected</span>
+      <div class="body">
+        <span class="id">C8r · front hairline, second try</span>
+        <b>Nearly bald to full head of hair</b>
+        <p>Exactly the “mane” result you turned down on the women’s version — nobody believes it.</p>
+        <p class="verdict bad">Out — overclaims.</p>
+      </div>
+    </article>
+
+    <article class="cand out">
+      <div class="cmp">
+        <img class="cmp-after" src="assets/cmp-m9-after.jpg" alt="After" draggable="false">
+        <div class="cmp-before" aria-hidden="true"><img src="assets/cmp-m9-before.jpg" alt="" draggable="false"></div>
+        <div class="cmp-handle" aria-hidden="true"><span class="cmp-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+        <span class="ba-cap ba-cap-l">Month 0</span><span class="ba-cap ba-cap-r">Month 3</span>
+      </div>
+      <span class="pill no">Rejected</span>
+      <div class="body">
+        <span class="id">C9r · front hairline, man ~29</span>
+        <b>No readable difference</b>
+        <p>Both halves look the same, and the hair is messy in a way that hides the point.</p>
+        <p class="verdict bad">Out — “visible only if you compare” was rejected before.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rule"></div>
+
+  <footer class="end">
+    <p>Five picks are ready to drop in; the carousel holds six. Tell me which sixth you want —
+      another crown-from-above, a second front hairline, or a fresh attempt at the temple shot with a
+      different framing — and whether C5 (the round spot) stays.</p>
+  </footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.cmp').forEach(function (cmp) {
+  var active = false;
+  function setPos(clientX) {
+    var r = cmp.getBoundingClientRect();
+    var p = ((clientX - r.left) / r.width) * 100;
+    cmp.style.setProperty('--pos', Math.max(4, Math.min(96, p)) + '%');
+  }
+  cmp.addEventListener('pointerdown', function (e) { active = true; cmp.setPointerCapture(e.pointerId); setPos(e.clientX); });
+  cmp.addEventListener('pointermove', function (e) { if (active) setPos(e.clientX); });
+  cmp.addEventListener('pointerup', function () { active = false; });
+  cmp.addEventListener('pointercancel', function () { active = false; });
+});
+</script>
+</body>
+</html>
