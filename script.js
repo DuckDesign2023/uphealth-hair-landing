@@ -1,3 +1,52 @@
+// Mobile menu: the burger reveals the links that .main-nav folds away under 720px.
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var panel = document.querySelector('.mobile-nav');
+  if (!toggle || !panel) return;
+
+  var open = false;
+
+  function setOpen(next) {
+    if (next === open) return;
+    open = next;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) {
+      panel.hidden = false;
+      requestAnimationFrame(function () { panel.classList.add('open'); });
+    } else {
+      panel.classList.remove('open');
+      // with reduced motion there is no transition to wait for
+      if (parseFloat(getComputedStyle(panel).transitionDuration) === 0) panel.hidden = true;
+    }
+  }
+
+  // keep the panel out of the tab order once it has collapsed
+  panel.addEventListener('transitionend', function (e) {
+    if (e.propertyName === 'grid-template-rows' && !open) panel.hidden = true;
+  });
+
+  toggle.addEventListener('click', function () { setOpen(!open); });
+  panel.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+
+  // a resize past the breakpoint brings .main-nav back — drop the panel with it.
+  // the breakpoint differs per landing, so read it off the burger instead of hard-coding.
+  var queued = false;
+  window.addEventListener('resize', function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () {
+      queued = false;
+      if (getComputedStyle(toggle).display === 'none') {
+        setOpen(false);
+        panel.classList.remove('open');
+        panel.hidden = true;
+      }
+    });
+  });
+})();
+
 // Before/after: dot navigation between slides; each slide has a draggable compare handle.
 (function () {
   var root = document.querySelector('.ba');
