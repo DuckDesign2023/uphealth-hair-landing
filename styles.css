@@ -958,6 +958,15 @@ a { color: inherit; }
 }
 
 /* ---------- Responsive ---------- */
+/* the footer row survives to 1140px; past that it wraps, and a wrapped row with
+   three different alignments reads as a mistake — so it becomes one centred column */
+@media (max-width: 1140px) {
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1.6rem; }
+  .seals-inline { justify-content: center; }
+  .footer-nav { justify-content: center; }
+  .footer-legal { text-align: center; justify-items: center; }
+}
+
 @media (max-width: 1024px) {
   .results-grid { grid-template-columns: 1fr; }
   .results-copy .btn { margin-top: 1.6rem; }
@@ -991,17 +1000,19 @@ a { color: inherit; }
   .ba-nav { justify-content: space-between; }
   .hero-caption { flex-direction: column; gap: 0.3rem; }
   .hero-caption i { display: none; }
-  /* checks read as a list, not as three centred fragments of different length */
+  /* one row per claim, all on the hero's centre axis — no second alignment */
   .hero-checks {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.55rem;
-    width: fit-content;
-    margin-inline: auto;
-    text-align: left;
+    text-align: center;
   }
-  .hero-checks li { align-items: flex-start; }
+  .hero-checks li { align-items: flex-start; justify-content: center; }
   .check { flex: none; margin-top: 0.2em; }
+  /* the whole card fills the column instead of leaving the grid half empty */
+  .mprog { justify-items: stretch; }
+  .mprog::before { display: none; }
+  .mstep { width: auto; justify-content: flex-start; }
 }
 
 @media (max-width: 560px) {
@@ -1018,7 +1029,15 @@ a { color: inherit; }
   .strip-tile { width: 68vw; }
 }
 
-@media (max-width: 340px) {
+/* two journey columns leave ~140px per step — the copy breaks into five lines */
+@media (max-width: 420px) {
+  .journey { grid-template-columns: 1fr; gap: 1.6rem; }
+  .j-scene { height: 140px; margin-block: 0.9rem 0.7rem; }
+  .j-col p { max-width: 32ch; }
+}
+
+/* below 360 the two buttons squeeze into a strip — stack them at full width instead */
+@media (max-width: 359px) {
   .logo { font-size: 1.05rem; }
   .btn-sm { padding-inline: 0.85rem; font-size: 0.88rem; }
   .hero-cta { flex-direction: column; }
